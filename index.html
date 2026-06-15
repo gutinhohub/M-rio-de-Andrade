@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mário de Andrade - Portal Modernista</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="diagonal-bg-pattern">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <defs>
+                <pattern id="modernistStamp" width="250" height="250" patternUnits="userSpaceOnUse">
+                    <path d="M30,140 C30,90 60,80 80,110 C90,125 75,160 110,160 C130,160 140,130 140,170 C140,190 30,190 30,140 Z" fill="currentColor" />
+                    <circle cx="65" cy="75" r="12" fill="currentColor" />
+                    
+                    <circle cx="180" cy="60" r="22" fill="currentColor" />
+                    <path d="M180,20 L180,30 M180,90 L180,100 M140,60 L150,60 M210,60 L220,60" stroke="currentColor" stroke-width="6" stroke-linecap="round" />
+                    
+                    <rect x="20" y="20" width="30" height="30" fill="currentColor" transform="rotate(15 20 20)" />
+                    <polygon points="120,20 150,50 100,60" fill="currentColor" />
+                    <path d="M200,120 C220,120 230,140 210,160 C190,180 170,150 190,130 Z" fill="currentColor" />
+                    
+                    <path d="M20,210 L20,240 M20,220 Q5,215 5,205 L5,195 M20,230 Q35,225 35,215 L35,200" stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none" />
+                    
+                    <path d="M90,210 L130,210 M95,218 L125,218 M100,226 L120,226" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#modernistStamp)" />
+        </svg>
+    </div>
+
+    <nav class="main-nav">
+        <button onclick="showScreen('home')" class="nav-btn">Início</button>
+        <button onclick="showScreen('bio')" class="nav-btn">Biografia</button>
+        <button onclick="showScreen('obras')" class="nav-btn">Análise das Obras</button>
+        <button onclick="showScreen('legado')" class="nav-btn">Legado 22</button>
+    </nav>
+
+    <div id="fullscreenModal" class="modal" onclick="closeModal(event)">
+        <span class="close-modal" onclick="closeModal(event)">Fechar ✕</span>
+        
+        <button class="modal-arrow prev-modal" onclick="moveModalCarousel(-1, event)">&#10094;</button>
+        
+        <div class="modal-content">
+            <img id="modalImg" src="" alt="Conteúdo em tela cheia">
+            <div id="modalCaption" class="carousel-caption modal-caption"></div>
+        </div>
+        
+        <button class="modal-arrow next-modal" onclick="moveModalCarousel(1, event)">&#10095;</button>
+    </div>
+
+    <section id="home" class="screen active">
+        <header class="home-header">
+            <h1>Mário de Andrade</h1>
+            <p class="tagline">O Polímata da Identidade Brasileira</p>
+        </header>
+
+        <div class="carousel">
+            <div class="carousel-inner" id="carouselInner">
+                <div class="carousel-item active" onclick="openModal(0)">
+                    <img src="https://suap.ifmt.edu.br/media/alunos/137126.5jAOizi0Fgo5.jpg" alt="Retrato de João Felipe">
+                    <div class="carousel-caption">
+                        <h3>O Escritor</h3>
+                        <p>Líder intelectual da Primeira Fase do Modernismo.</p>
+                    </div>
+                </div>
+                <div class="carousel-item" onclick="openModal(1)">
+                    <img src="https://suap.ifmt.edu.br/media/alunos/138804.tTRngJyKv6tT.jpg" alt="Retrato de Maria Clara">
+                    <div class="carousel-caption">
+                        <h3>Paulicéia Desvairada</h3>
+                        <p>O choque da vanguarda e a loucura urbana nas ruas de São Paulo.</p>
+                    </div>
+                </div>
+                <div class="carousel-item" onclick="openModal(2)">
+                    <img src="https://suap.ifmt.edu.br/media/alunos/140131.ornz3jIp_X56.jpg" alt="Retrato de Steffany">
+                    <div class="carousel-caption">
+                        <h3>Macunaíma</h3>
+                        <p>A rapsódia nacional e o herói sem nenhum caráter na selva virgem.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control prev" onclick="moveCarousel(-1, event)">&#10094;</button>
+            <button class="carousel-control next" onclick="moveCarousel(1, event)">&#10095;</button>
+        </div>
+    </section>
+
+    <section id="bio" class="screen">
+        <div class="container">
+            <h2 class="section-title">O Homem por trás da Obra</h2>
+            <div class="content-grid">
+                <div class="text-block">
+                    <p>Mário Raul de Morais Andrade (1893-1945) foi a força motriz da nossa revolução estética. Historiador, musicólogo e fotógrafo, ele redesenhou o mapa cultural do país.</p>
+                    <p>Sua atuação na Semana de Arte Moderna de 1922 quebrou as correntes parnasianas francesas para abraçar o linguajar real do povo das ruas brasileiras.</p>
+                </div>
+                <div class="quote-block">
+                    <blockquote>"Eu sou trezentos, sou trezentos-e-cinquenta..."</blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="obras" class="screen">
+        <div class="container">
+            <h2 class="section-title">Obras Fundamentais</h2>
+            <div class="obra-card pauliceia">
+                <div class="obra-header">
+                    <h3>Paulicéia Desvairada</h3>
+                    <span class="year">1922</span>
+                </div>
+                <div class="poema-box">
+                    <p class="obra-sub">Foco: Ode ao Burguês</p>
+                    <div class="extract">
+                        "Insulto o burguês! O burguês-níquel,<br>
+                        o burguês-fome de deglutir quilos de carne de vaca!"
+                    </div>
+                    <p class="analysis"><strong>Análise:</strong> Uma crítica feroz à elite paulistana provinciana, que importava tendências da Europa mas ignorava a riqueza cultural do próprio chão.</p>
+                </div>
+            </div>
+
+            <div class="obra-card macunaima">
+                <div class="obra-header">
+                    <h3>Macunaíma</h3>
+                    <span class="year">1928</span>
+                </div>
+                <div class="poema-box">
+                    <p class="obra-sub">Foco: Rapsódia Nacional</p>
+                    <div class="extract">
+                        "No fundo do mato virgem nasceu Macunaíma, herói de nossa gente. Era preto retinto e filho do medo da noite."
+                    </div>
+                    <p class="analysis"><strong>Análise:</strong> Uma colagem mitológica que define o caráter fragmentado, mutável e multifacetado da identidade do povo brasileiro.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="legado" class="screen">
+        <div class="container">
+            <h2 class="section-title">O Modernismo de 1922</h2>
+            <div class="legacy-box">
+                <p>O impacto de 1922 reside na conquista da nossa emancipação intelectual definitiva.</p>
+                <div class="modernist-list">
+                    <ul>
+                        <li>Estética Livre de Amarras Acadêmicas</li>
+                        <li>Nacionalismo Crítico (Devoração Cultural)</li>
+                        <li>Fusão do Caipira, do Indígena e do Urbano</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <p>Apresentação: Mário de Andrade - Modernismo Brasileiro</p>
+    </footer>
+
+    <script>
+        // Navegação das Telas
+        function showScreen(screenId) {
+            const screens = document.querySelectorAll('.screen');
+            screens.forEach(s => s.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Configurações do Carrossel Principal
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        let currentModalIndex = 0;
+
+        function moveCarousel(n, event) {
+            if (event) event.stopPropagation();
+            slides[slideIndex].classList.remove('active');
+            slideIndex = (slideIndex + n + slides.length) % slides.length;
+            slides[slideIndex].classList.add('active');
+        }
+
+        let autoPlayInterval = setInterval(() => moveCarousel(1), 5000);
+
+        // Sistema do Modal com Passagem de Imagem Habilitada
+        const modal = document.getElementById('fullscreenModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalCaption = document.getElementById('modalCaption');
+
+        function openModal(index) {
+            clearInterval(autoPlayInterval);
+            currentModalIndex = index;
+            updateModalContent();
+            modal.classList.add('active');
+        }
+
+        function updateModalContent() {
+            const currentSlide = slides[currentModalIndex];
+            modalImg.src = currentSlide.querySelector('img').src;
+            modalCaption.innerHTML = currentSlide.querySelector('.carousel-caption').innerHTML;
+        }
+
+        function moveModalCarousel(n, event) {
+            if (event) event.stopPropagation();
+            currentModalIndex = (currentModalIndex + n + slides.length) % slides.length;
+            updateModalContent();
+            
+            // Mantém o carrossel de trás em sincronia perfeita
+            slides[slideIndex].classList.remove('active');
+            slideIndex = currentModalIndex;
+            slides[slideIndex].classList.add('active');
+        }
+
+        function closeModal(event) {
+            if (!event || event.target === modal || event.target.classList.contains('close-modal')) {
+                modal.classList.remove('active');
+                autoPlayInterval = setInterval(() => moveCarousel(1), 5000);
+            }
+        }
+
+        // --- CONTROLE POR TECLADO ADICIONADO ---
+        document.addEventListener('keydown', function(event) {
+            // Só executa se o modal de tela cheia estiver aberto
+            if (modal.classList.contains('active')) {
+                if (event.key === "ArrowRight") {
+                    moveModalCarousel(1);
+                } else if (event.key === "ArrowLeft") {
+                    moveModalCarousel(-1);
+                } else if (event.key === "Escape") {
+                    closeModal();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
