@@ -1,97 +1,90 @@
-/* Definição de Variáveis de Ambiente Global do CSS (:root) */
 :root {
-    --parchment: #fdfaf1; /* Cor de papel envelhecido claro (fundo do site) */
-    --ink: #2b2621;       /* Cor de tinta nanquim escura (textos principais) */
-    --burgundy: #7a2021;  /* Tom de vinho/bordô (títulos e detalhes modernistas) */
-    --accent: #d4a373;    /* Tom dourado/ocre (bordas e destaques sutis) */
-    --modal-bg: rgba(12, 10, 9, 0.97); /* Fundo preto semi-transparente do modal */
+    --parchment: #fdfaf1; 
+    --ink: #2b2621;      
+    --burgundy: #7a2021;  
+    --accent: #d4a373;    
+    --modal-bg: rgba(12, 10, 9, 0.97);
 }
 
-/* Reset básico de margens e padding de todos os elementos */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Garante que padding e bordas não aumentem o tamanho fixo do elemento */
+    box-sizing: border-box;
 }
 
-/* Configurações básicas da página de fundo (body) */
 body {
-    background-color: var(--parchment); /* Aplica a cor de papel de fundo */
-    color: var(--ink); /* Aplica a cor padrão do texto */
-    font-family: 'Lora', serif; /* Define a fonte padrão de leitura */
-    line-height: 1.6; /* Define o espaçamento vertical confortável entre linhas */
+    background-color: var(--parchment);
+    color: var(--ink);
+    font-family: 'Lora', serif;
+    line-height: 1.6;
     position: relative;
-    min-height: 100vh; /* Faz o corpo cobrir no mínimo 100% da altura do monitor */
+    min-height: 100vh;
 }
 
-/* Estamparia diagonal repetida ao fundo do site */
+/* --- ESTAMPA DE FUNDO EM EIXO DIAGONAL --- */
 .diagonal-bg-pattern {
-    position: fixed; /* Mantém a estampa fixa mesmo se a página rolar */
+    position: fixed;
     top: -50%;
     left: -50%;
     width: 200%;
     height: 200%;
-    transform: rotate(-45deg); /* Rotaciona o SVG para dar o escoamento diagonal */
-    color: var(--ink); /* O SVG usa 'currentColor' puxando essa cor aqui */
-    opacity: 0.05; /* Deixa extremamente transparente para não atrapalhar a leitura dos textos */
-    pointer-events: none; /* Impede que o mouse interaja ou clique nessa camada de desenho */
-    z-index: 0; /* Joga a estampa totalmente para trás de tudo */
+    transform: rotate(-45deg);
+    color: var(--ink);
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 0;
 }
 
-/* Configuração do Menu Superior */
+/* Menu de Navegação */
 .main-nav {
-    background-color: var(--ink); /* Fundo cor nanquim */
+    background-color: var(--ink);
     padding: 1rem;
-    display: flex; /* Alinha os botões lado a lado */
-    justify-content: center; /* Centraliza o bloco de botões na tela */
-    gap: 1.5rem; /* Dá espaço horizontal entre os botões */
-    position: sticky; /* Menu gruda no topo ao rolar a página para baixo */
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    position: sticky;
     top: 0;
-    z-index: 1000; /* Garante que o menu fique acima do conteúdo ao rolar */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Sombra sutil projetada abaixo do menu */
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-/* Estilização dos botões do menu */
 .nav-btn {
-    background: none; /* Retira o preenchimento de fundo padrão do botão */
-    border: 1px solid var(--accent); /* Borda ocre fina */
-    color: var(--accent); /* Cor do texto do botão */
+    background: none;
+    border: 1px solid var(--accent);
+    color: var(--accent);
     padding: 0.6rem 1.4rem;
-    cursor: pointer; /* Transforma o mouse na mãozinha de clique */
-    font-family: 'Playfair Display', serif; /* Fonte de títulos para os botões */
-    text-transform: uppercase; /* Força letras maiúsculas */
+    cursor: pointer;
+    font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
     font-weight: bold;
-    transition: all 0.3s; /* Suaviza a animação de hover */
+    transition: all 0.3s;
 }
 
-/* Efeito ao passar o mouse por cima dos botões do menu */
 .nav-btn:hover {
-    background-color: var(--accent); /* Inverte as cores: fundo vira ocre */
-    color: var(--ink); /* Texto vira preto nanquim */
+    background-color: var(--accent);
+    color: var(--ink);
 }
 
-/* Regras gerais para as seções (as abas do site) */
+/* Telas */
 .screen {
-    display: none; /* Esconde todas as seções por padrão */
+    display: none;
     min-height: 90vh;
     padding: 4rem 2rem;
     position: relative;
-    z-index: 2; /* Garante que fiquem acima da estampa de fundo geométrica */
+    z-index: 2;
 }
 
-/* Exibe a seção específica que receber a classe 'active' via JavaScript */
 .screen.active {
     display: block;
-    animation: filterFade 0.4s ease-out; /* Transição suave de entrada (fade in) */
+    animation: filterFade 0.4s ease-out;
 }
 
-/* Definição da animação de opacidade para a troca de telas */
 @keyframes filterFade {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-/* Cabeçalho da página inicial */
+/* Tipografia e Títulos */
 .home-header {
     text-align: center;
     margin-bottom: 3rem;
@@ -100,44 +93,41 @@ body {
 .home-header h1 {
     font-family: 'Playfair Display', serif;
     font-size: 4rem;
-    color: var(--burgundy); /* Cor vinho para o nome do autor */
+    color: var(--burgundy);
 }
 
-/* Container Estrutural do Carrossel */
+/* Estrutura do Carrossel */
 .carousel {
     position: relative;
     max-width: 820px;
     height: 460px;
     margin: 0 auto;
-    overflow: hidden; /* Corta o conteúdo que passar do limite da borda */
+    overflow: hidden;
     border: 10px solid var(--ink);
-    border-radius: 90px; /* Formato de cápsula arredondada */
+    border-radius: 90px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
-/* Itens de slide individuais */
 .carousel-item {
-    display: none; /* Oculta os itens por padrão */
+    display: none;
     height: 100%;
     position: relative;
-    cursor: zoom-in; /* Cursor de lupa indicando que a imagem pode expandir */
+    cursor: zoom-in;
 }
 
-.carousel-item.active { display: block; } /* Exibe apenas o slide ativo */
+.carousel-item.active { display: block; }
 
-/* Ajuste da imagem para se moldar perfeitamente ao formato cápsula */
 .carousel-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Recorta e preenche proporcionalmente sem distorcer a imagem */
-    border-radius: 80px; /* Curvatura menor interna para encaixar na borda do pai */
+    object-fit: cover;
+    border-radius: 80px;
 }
 
-/* Caixa de legenda preta translúcida em cima da foto */
 .carousel-caption {
     position: absolute;
     bottom: 0;
-    background: linear-gradient(transparent, rgba(43, 38, 33, 0.95) 60%); /* Gradiente do transparente pro escuro */
+    background: linear-gradient(transparent, rgba(43, 38, 33, 0.95) 60%);
     color: var(--parchment);
     width: 100%;
     padding: 4rem 2rem 2rem 2rem;
@@ -151,12 +141,12 @@ body {
     margin-bottom: 0.4rem;
 }
 
-/* Setas de controle laterais do carrossel */
+/* Controles do Carrossel */
 .carousel-control {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%); /* Centraliza verticalmente na metade exata do container */
-    background: rgba(212, 163, 115, 0.85); /* Fundo ocre semi-transparente */
+    transform: translateY(-50%);
+    background: rgba(212, 163, 115, 0.85);
     border: none;
     color: var(--ink);
     font-size: 1.6rem;
@@ -169,46 +159,35 @@ body {
     justify-content: center;
 }
 
-.carousel-control.prev { left: 0; }  /* Alinha a seta esquerda na lateral esquerda */
-.carousel-control.next { right: 0; } /* Alinha a seta direita na lateral direita */
+.carousel-control.prev { left: 0; }
+.carousel-control.next { right: 0; }
 
-/* Camada escura de fundo do Modo Tela Cheia */
+/* Modal */
 .modal {
     display: none;
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     background-color: var(--modal-bg);
-    z-index: 2000; /* Alto índice para cobrir até a barra de navegação superior */
+    z-index: 2000;
     justify-content: center;
     align-items: center;
     padding: 2rem;
 }
 
-.modal.active { display: flex; } /* Flex para centralizar a imagem expandida na tela */
+.modal.active { display: flex; }
 
-/* Bloco que envolve o conteúdo dentro do modal */
 .modal-content {
     position: relative;
     max-width: 75vw;
 }
 
-/* Estilização da imagem aberta em tela cheia */
 .modal-content img {
     max-width: 100%;
     max-height: 70vh;
-    object-fit: contain; /* Garante que a foto inteira caiba na tela sem cortes */
+    object-fit: contain;
     border: 3px solid var(--accent);
 }
 
-/* Legenda de foto adaptada para o Modal */
-.modal-caption {
-    position: relative;
-    background: none;
-    color: var(--parchment);
-    padding-top: 1rem;
-}
-
-/* Botão Fechar no canto superior direito */
 .close-modal {
     position: absolute;
     top: 30px;
@@ -221,7 +200,6 @@ body {
     z-index: 2020;
 }
 
-/* Setas de navegação do Modal */
 .modal-arrow {
     background: none;
     border: 1px solid rgba(212, 163, 115, 0.4);
@@ -245,36 +223,34 @@ body {
     color: var(--ink);
 }
 
-.prev-modal { left: 40px; }  /* Posiciona seta esquerda longe da borda do monitor */
-.next-modal { right: 40px; } /* Posiciona seta direita longe da borda do monitor */
+.prev-modal { left: 40px; }
+.next-modal { right: 40px; }
 
-/* Container de limite de conteúdo das abas internas */
+/* Blocos de Conteúdo (Abas Secundárias) */
 .container { 
     max-width: 900px; 
     margin: 0 auto; 
 }
 
-/* Título estilizado das abas internas */
 .section-title { 
     font-family: 'Playfair Display', serif; 
     font-size: 2.8rem; 
-    border-bottom: 2px solid var(--ink); /* Linha divisória preta inferior */
+    border-bottom: 2px solid var(--ink); 
     margin-bottom: 2.5rem; 
     text-align: center; 
     color: var(--burgundy); 
 }
 
-/* Card principal que guarda os poemas e análises */
+/* --- ESTE É O FUNDO PRINCIPAL DAS ANÁLISES (BRANCO, ARREDONDADO E COM SOMBRA) --- */
 .obra-card { 
-    background-color: #fff; 
+    background-color: #ffffff; 
     margin-bottom: 3rem; 
     padding: 2.5rem; 
     border: 1px solid #e2dac5; 
-    box-shadow: 6px 6px 0px var(--ink); /* Efeito de sombra sólida "blocada" bem modernista */
-    border-radius: 12px; /* MODIFICADO: Cantos ligeiramente arredondados adicionados anteriormente */
+    box-shadow: 6px 6px 0px var(--ink); 
+    border-radius: 12px; /* Cantos arredondados aplicados com sucesso */
 }
 
-/* Alinhamento do Título da Obra com o Ano */
 .obra-header { 
     display: flex; 
     justify-content: space-between; 
@@ -283,53 +259,46 @@ body {
     font-family: 'Playfair Display', serif; 
 }
 
-/* Caixa de trechos/poemas da obra */
 .extract { 
-    background: #fdfbf7; /* Tom de papel esbranquiçado claro */
+    background: #fdfbf7; 
     padding: 1.5rem; 
     font-style: italic; 
-    border-left: 5px solid var(--burgundy); /* Faixa vermelha vertical à esquerda */
+    border-left: 5px solid var(--burgundy); 
     margin: 1.5rem 0; 
-    font-family: 'Courier New', monospace; /* Fonte monoespaçada simulando máquina de escrever */
-    border-radius: 0 8px 8px 0; /* MODIFICADO: Cantos arredondados na direita para preservar a faixa reta da esquerda */
+    font-family: 'Courier New', monospace; 
+    border-radius: 0 8px 8px 0; 
 }
 
-/* --- MODIFICADO: UNIÃO E CORREÇÃO DO SEU PEDIDO ---
-   Unifiquei o estilo abaixo para que a análise, o bloco de texto da biografia e o bloco do legado de 22 puxem exatamente a mesma identidade visual de fundo destacado, borda e arredondamento. */
-.analysis, 
-.text-block, 
-.legacy-box { 
-    background: #fdfbf7; /* MODIFICADO: Fundo alterado para off-white real para destacar visivelmente do fundo geral do site */
-    padding: 1.5rem; 
-    border: 1px dashed var(--accent); /* MODIFICADO: Borda fina tracejada cor ocre adicionada a todos */
-    border-radius: 8px; /* MODIFICADO: Pontas arredondadas em 8px inseridas simultaneamente para as 3 áreas */
+/* Caixa tracejada interna para os textos descritivos */
+.analysis { 
+    background: var(--parchment); 
+    padding: 1.2rem; 
+    border: 1px dashed var(--accent); 
+    border-radius: 8px; 
 }
 
-/* Estrutura Grid de duas colunas para alinhar texto e frase na biografia */
+/* Grid da Biografia */
 .content-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr; /* Coluna do texto é duas vezes maior que a da citação */
+    grid-template-columns: 2fr 1fr;
     gap: 2rem;
     align-items: center;
 }
 
-/* Bloco de Citação estilizado na Biografia */
 .quote-block blockquote {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
     font-style: italic;
     color: var(--burgundy);
-    border-left: 3px solid var(--accent); /* Barrinha ocre decorativa à esquerda da citação */
+    border-left: 3px solid var(--accent);
     padding-left: 1rem;
 }
 
-/* Listagem de tópicos na aba Legado */
 .modernist-list ul {
     margin-top: 1rem;
-    padding-left: 1.5rem; /* Margem interna para alinhar os bullets da lista */
+    padding-left: 1.5rem;
 }
 
-/* Rodapé escuro do site */
 .main-footer { 
     background-color: var(--ink); 
     color: var(--accent); 
@@ -340,12 +309,12 @@ body {
     z-index: 5; 
 }
 
-/* Ajustes Responsivos (Garante que tudo continue bonito em telas pequenas e celulares) */
+/* Responsivo */
 @media (max-width: 768px) {
-    .carousel { height: 320px; } /* Reduz a altura do carrossel na tela do celular */
-    .home-header h1 { font-size: 2.5rem; } /* Diminui o título principal para não quebrar a tela */
-    .prev-modal { left: 10px; }  /* Encosta as setas mais perto do canto da tela mobile */
-    .next-modal { right: 10px; } 
-    .modal-arrow { width: 45px; height: 45px; font-size: 2rem; } /* Diminui o tamanho das setas */
-    .content-grid { grid-template-columns: 1fr; gap: 1.5rem; } /* Desfaz as colunas da biografia e quebra o texto pra cima e frase pra baixo */
+    .carousel { height: 320px; }
+    .home-header h1 { font-size: 2.5rem; }
+    .prev-modal { left: 10px; }
+    .next-modal { right: 10px; }
+    .modal-arrow { width: 45px; height: 45px; font-size: 2rem; }
+    .content-grid { grid-template-columns: 1fr; gap: 1.5rem; }
 }
