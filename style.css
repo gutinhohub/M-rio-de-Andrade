@@ -323,3 +323,15 @@ body {
     .modal-arrow { width: 45px; height: 45px; font-size: 2rem; }
     .content-grid { grid-template-columns: 1fr; gap: 1.5rem; }
 }
+
+#bioImg {
+    view-transition-name: imagem-obra;
+}
+
+.morfose-imagem-pauliceia {
+    view-transition-name: imagem-obra;
+}
+
+.morfose-imagem-macunaima {
+    view-transition-name: imagem-obra;
+}
