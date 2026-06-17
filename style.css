@@ -21,7 +21,6 @@ body {
     min-height: 100vh;
 }
 
-
 .diagonal-bg-pattern {
     position: fixed;
     top: -50%;
@@ -34,7 +33,6 @@ body {
     pointer-events: none;
     z-index: 0;
 }
-
 
 .main-nav {
     background-color: var(--ink);
@@ -65,7 +63,6 @@ body {
     color: var(--ink);
 }
 
-/* Telas */
 .screen {
     display: none;
     min-height: 90vh;
@@ -95,8 +92,8 @@ body {
     height: 460px;
     margin: 0 auto;
     overflow: hidden;
-    border: 4px solid var(--ink);
-    border-radius: 90px;
+    border: 1px solid var(--ink);
+    border-radius: 80px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
@@ -133,7 +130,6 @@ body {
     margin-bottom: 0.4rem;
 }
 
-/* Controles do Carrossel */
 .carousel-control {
     position: absolute;
     top: 50%;
@@ -154,7 +150,6 @@ body {
 .carousel-control.prev { left: 0; }
 .carousel-control.next { right: 0; }
 
-
 .modal {
     display: none;
     position: fixed;
@@ -171,6 +166,8 @@ body {
 .modal-content {
     position: relative;
     max-width: 75vw;
+    border-radius: 24px; /* Garante o formato do conjunto */
+    overflow: hidden;    /* Recorta elementos filhos como a legenda */
 }
 
 .modal-content img {
@@ -178,6 +175,7 @@ body {
     max-height: 70vh;
     object-fit: contain;
     border: 3px solid var(--accent);
+    border-radius: 24px; /* ADICIONADO: Cantos arredondados na imagem em tela cheia */
 }
 
 .close-modal {
@@ -273,6 +271,14 @@ body {
     align-items: center;
 }
 
+/* Imagens genéricas que entram dentro do content-grid ganham o arredondamento */
+.content-grid img {
+    border-radius: 16px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
 .quote-block blockquote {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
@@ -297,28 +303,13 @@ body {
     z-index: 5; 
 }
 
-
+/* --- CONFIGURAÇÕES DE VIEW TRANSITIONS (Morfose e Combinação) --- */
 .section-title {
     view-transition-name: titulo-secao;
 }
 
-
 .obra-card {
     view-transition-name: card-conteudo;
-}
-
-::view-transition-old(root),
-::view-transition-new(root) {
-    animation-duration: 0.5s;
-}
-
-@media (max-width: 768px) {
-    .carousel { height: 320px; }
-    .home-header h1 { font-size: 2.5rem; }
-    .prev-modal { left: 10px; }
-    .next-modal { right: 10px; }
-    .modal-arrow { width: 45px; height: 45px; font-size: 2rem; }
-    .content-grid { grid-template-columns: 1fr; gap: 1.5rem; }
 }
 
 #bioImg {
@@ -331,4 +322,19 @@ body {
 
 .morfose-imagem-macunaima {
     view-transition-name: imagem-obra;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 0.5s;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .carousel { height: 320px; }
+    .home-header h1 { font-size: 2.5rem; }
+    .prev-modal { left: 10px; }
+    .next-modal { right: 10px; }
+    .modal-arrow { width: 45px; height: 45px; font-size: 2rem; }
+    .content-grid { grid-template-columns: 1fr; gap: 1.5rem; }
 }
