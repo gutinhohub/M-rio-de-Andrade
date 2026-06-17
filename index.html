@@ -154,22 +154,22 @@
 
     <script>
         function showScreen(screenId) {
-            const screens = document.querySelectorAll('.screen');
-            
-            // Verifica se o navegador suporta a View Transitions API nativamente
-            if (document.startViewTransition) {
-                document.startViewTransition(() => {
-                    screens.forEach(s => s.classList.remove('active'));
-                    document.getElementById(screenId).classList.add('active');
-                });
-            } else {
-                // Fallback para navegadores antigos (executa a troca sem animação)
-                screens.forEach(s => s.classList.remove('active'));
-                document.getElementById(screenId).classList.add('active');
-            }
-            
-            window.scrollTo(0, 0);
-        }
+    const screens = document.querySelectorAll('.screen');
+    
+    // Suporte nativo à View Transitions API
+    if (document.startViewTransition) {
+        document.startViewTransition(() => {
+            screens.forEach(s => s.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+        });
+    } else {
+        // Fallback
+        screens.forEach(s => s.classList.remove('active'));
+        document.getElementById(screenId).classList.add('active');
+    }
+    
+    window.scrollTo(0, 0);
+}
 
         let slideIndex = 0;
         const slides = document.querySelectorAll('.carousel-item');
