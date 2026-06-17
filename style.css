@@ -76,12 +76,7 @@ body {
 
 .screen.active {
     display: block;
-    animation: filterFade 0.4s ease-out;
-}
-
-@keyframes filterFade {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    /* CORREÇÃO: Removido o 'animation: filterFade' antigo para não quebrar a View Transition API */
 }
 
 /* Tipografia e Títulos */
@@ -162,7 +157,7 @@ body {
 .carousel-control.prev { left: 0; }
 .carousel-control.next { right: 0; }
 
-/* Modal */
+
 .modal {
     display: none;
     position: fixed;
@@ -226,7 +221,6 @@ body {
 .prev-modal { left: 40px; }
 .next-modal { right: 40px; }
 
-/* Blocos de Conteúdo (Abas Secundárias) */
 .container { 
     max-width: 900px; 
     margin: 0 auto; 
@@ -241,14 +235,13 @@ body {
     color: var(--burgundy); 
 }
 
-/* --- ESTE É O FUNDO PRINCIPAL DAS ANÁLISES (BRANCO, ARREDONDADO E COM SOMBRA) --- */
 .obra-card { 
     background-color: #ffffff; 
     margin-bottom: 3rem; 
     padding: 2.5rem; 
     border: 1px solid #e2dac5; 
     box-shadow: 6px 6px 0px var(--ink); 
-    border-radius: 12px; /* Cantos arredondados aplicados com sucesso */
+    border-radius: 12px;
 }
 
 .obra-header { 
@@ -269,7 +262,6 @@ body {
     border-radius: 0 8px 8px 0; 
 }
 
-/* Caixa tracejada interna para os textos descritivos */
 .analysis { 
     background: var(--parchment); 
     padding: 1.2rem; 
@@ -277,7 +269,6 @@ body {
     border-radius: 8px; 
 }
 
-/* Grid da Biografia */
 .content-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -309,7 +300,21 @@ body {
     z-index: 5; 
 }
 
-/* Responsivo */
+
+.section-title {
+    view-transition-name: titulo-secao;
+}
+
+
+.obra-card {
+    view-transition-name: card-conteudo;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 0.5s;
+}
+
 @media (max-width: 768px) {
     .carousel { height: 320px; }
     .home-header h1 { font-size: 2.5rem; }
