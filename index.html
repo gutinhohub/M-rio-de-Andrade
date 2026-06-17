@@ -148,8 +148,19 @@
     <script>
         function showScreen(screenId) {
             const screens = document.querySelectorAll('.screen');
-            screens.forEach(s => s.classList.remove('active'));
-            document.getElementById(screenId).classList.add('active');
+            
+            // Verifica se o navegador suporta a View Transitions API nativamente
+            if (document.startViewTransition) {
+                document.startViewTransition(() => {
+                    screens.forEach(s => s.classList.remove('active'));
+                    document.getElementById(screenId).classList.add('active');
+                });
+            } else {
+                // Fallback para navegadores antigos (executa a troca sem animação)
+                screens.forEach(s => s.classList.remove('active'));
+                document.getElementById(screenId).classList.add('active');
+            }
+            
             window.scrollTo(0, 0);
         }
 
@@ -177,17 +188,15 @@
             modal.classList.add('active');
         }
 
-        // TRECHO CORRIGIDO: Protege o código contra elementos que sumiram do HTML
         function updateModalContent() {
             const currentSlide = slides[currentModalIndex];
             modalImg.src = currentSlide.querySelector('img').src;
             
-            // Verifica se a legenda existe antes de tentar copiar o conteúdo
             const captionElement = currentSlide.querySelector('.carousel-caption');
             if (captionElement) {
                 modalCaption.innerHTML = captionElement.innerHTML;
             } else {
-                modalCaption.innerHTML = ""; // Se não tiver legenda, limpa o espaço de texto do modal
+                modalCaption.innerHTML = "";
             }
         }
 
