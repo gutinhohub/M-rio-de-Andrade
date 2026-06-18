@@ -243,6 +243,7 @@ body {
     border-radius: 12px;
     font-size: 1.25rem;  
     line-height: 1.8;    
+    text-align: justify; /* Alinha o texto perfeitamente nos dois lados */
 }
 
 .obra-header { 
