@@ -1,4 +1,6 @@
-// Executa o script do carrossel e modal apenas se estiver na página index.html
+// ==========================================================================
+// 1. CÓDIGO DO CARROSSEL (RODA APENAS NA PÁGINA COM CARROSSEL / INDEX)
+// ==========================================================================
 if (document.querySelector('.carousel')) {
     let slideIndex = 0;
     const slides = document.querySelectorAll('.carousel-item');
@@ -65,3 +67,29 @@ if (document.querySelector('.carousel')) {
         }
     });
 }
+
+// ==========================================================================
+// 2. CÓDIGO DA BIOGRAFIA (RODA EM QUALQUER TELA / DISPONÍVEL GLOBALMENTE)
+// ==========================================================================
+window.abrirModal = function(idModal) {
+    const bioModal = document.getElementById(idModal);
+    if (bioModal) {
+        bioModal.style.display = 'flex';
+    } else {
+        console.error('Modal de biografia não encontrado: ' + idModal);
+    }
+}
+
+window.fecharModal = function(idModal) {
+    const bioModal = document.getElementById(idModal);
+    if (bioModal) {
+        bioModal.style.display = 'none';
+    }
+}
+
+// Fecha os modais de biografia ao clicar na área escura de fundo
+window.addEventListener('click', function(event) {
+    if (event.target.classList.contains('modal-biografia')) {
+        event.target.style.display = 'none';
+    }
+});
