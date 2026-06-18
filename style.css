@@ -1,425 +1,340 @@
-/* ==========================================
-   1. CONFIGURAÇÕES GERAIS E RESETS
-   ========================================== */
+:root {
+    --parchment: #fdfaf1; 
+    --ink: #2b2621;      
+    --burgundy: #7a2021;  
+    --accent: #d4a373;    
+    --modal-bg: rgba(12, 10, 9, 0.97);
+}
 
-/* O seletor universal '*' aplica as regras a todos os elementos da página */
 * {
-    margin: 10;             /* Remove as margens padrão do navegador */
-    padding: 0;            /* Remove o preenchimento (padding) padrão do navegador */
-    box-sizing: border-box; /* Garante que a largura/altura incluam as bordas e paddings, evitando quebras */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Define regras para o corpo inteiro da página */
 body {
-    font-family: 'Lora', serif; /* Aplica a fonte 'Lora' (estilo com serifa) para os textos comuns */
-    background-color: #f4f1ea;  /* Define uma cor de fundo off-white, comum no design modernista */
-    color: #2b2b2b;             /* Define a cor padrão do texto para um cinza quase preto */
-    overflow-x: hidden;         /* Evita barras de rolagem horizontais indesejadas */
-    line-height: 1.6;           /* Melhora o espaçamento vertical entre as linhas de texto */
+    background-color: var(--parchment);
+    color: var(--ink);
+    font-family: 'Lora', serif;
+    line-height: 1.6;
+    position: relative;
+    min-height: 100vh;
 }
 
-/* ==========================================
-   2. PADRÃO DE FUNDO (BACKGROUND PATTERN)
-   ========================================== */
-
-/* Caixa que segura o padrão geométrico SVG de fundo */
 .diagonal-bg-pattern {
-    position: fixed; /* Mantém o fundo preso na tela enquanto o usuário rola a página */
-    top: 0;          /* Alinha no topo esquerdo */
-    left: 0;
-    width: 100vw;    /* Ocupa 100% da largura visível do navegador */
-    height: 100vh;   /* Ocupa 100% da altura visível do navegador */
-    z-index: -1;     /* Envia o SVG para trás de todo o conteúdo e textos */
-    opacity: 0.08;   /* Deixa o padrão muito suave e transparente para não atrapalhar a leitura */
-    color: #a33b26;  /* Define a cor "currentColor" que o SVG usa (um tom de vermelho terracota) */
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    transform: rotate(-45deg);
+    color: var(--ink);
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 0;
 }
 
-/* ==========================================
-   3. MENU DE NAVEGAÇÃO
-   ========================================== */
-
-/* Barra de menu que fica no topo */
 .main-nav {
-    display: flex;             /* Ativa o Flexbox para alinhar os botões em linha */
-    justify-content: center;    /* Centraliza os botões horizontalmente */
-    background-color: #2b2b2b;  /* Fundo cinza escuro para a barra */
-    padding: 15px;              /* Espaçamento interno na barra */
-    position: sticky;           /* Faz o menu grudar no topo ao rolar a página */
-    top: 0;                     /* Ponto onde o menu vai grudar */
-    z-index: 100;               /* Garante que o menu passe por cima de qualquer outro elemento */
+    background-color: var(--ink);
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-/* Estilo dos links que agem como botões de navegação */
 .nav-btn {
-    color: #f4f1ea;             /* Texto claro */
-    text-decoration: none;      /* Remove o sublinhado padrão de links HTML */
-    padding: 10px 20px;         /* Espaço em volta do texto do link */
-    margin: 0 10px;             /* Afasta um botão do outro */
-    font-family: 'Playfair Display', serif; /* Fonte marcante para os títulos do menu */
-    font-weight: 700;           /* Deixa a fonte em negrito */
-    text-transform: uppercase;  /* Transforma o texto em letras maiúsculas */
-    letter-spacing: 1px;        /* Espaçamento sutil entre as letras */
-    transition: all 0.3s ease;  /* Suaviza mudanças de cor e efeitos visualmente */
-    border-bottom: 2px solid transparent; /* Cria uma borda invisível abaixo para evitar pulos no hover */
+    background: none;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 0.6rem 1.4rem;
+    cursor: pointer;
+    font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s;
 }
 
-/* Efeito quando o mouse passa por cima do botão */
 .nav-btn:hover {
-    color: #e6b041;                   /* Muda o texto para um tom dourado/amarelado */
-    border-bottom: 2px solid #e6b041; /* Mostra a linha dourada embaixo do botão */
+    background-color: var(--accent);
+    color: var(--ink);
 }
 
-/* Classe aplicada via HTML para indicar em qual página o usuário está */
-.active-nav {
-    color: #e6b041;
-    border-bottom: 2px solid #e6b041;
-}
-
-/* ==========================================
-   4. ESTRUTURA DAS SEÇÕES (SCREENS) E CONTAINER
-   ========================================== */
-
-/* Define o comportamento das seções de conteúdo */
 .screen {
-    display: none; /* Por padrão esconde, mas como agora usamos páginas reais... */
+    display: none;
+    min-height: 90vh;
+    padding: 4rem 2rem;
+    position: relative;
+    z-index: 2;
 }
 
-/* ... a classe .active força a página atual a aparecer na tela */
 .screen.active {
     display: block;
-    animation: fadeIn 0.5s ease-in-out; /* Aplica um efeito suave de surgimento ao carregar */
 }
 
-/* Limita a largura máxima do conteúdo central */
-.container {
-    max-width: 1200px;  /* Largura máxima do conteúdo */
-    margin: 40px auto;  /* Centraliza o container na tela e afasta do menu/rodapé */
-    padding: 0 20px;    /* Margem de segurança interna nas laterais para telas mobile */
-}
-
-/* Cabeçalho principal da página inicial */
 .home-header {
-    text-align: center; /* Centraliza o título e subtítulo */
-    padding: 60px 20px; /* Grande espaçamento vertical */
+    text-align: center;
+    margin-bottom: 3rem;
 }
 
 .home-header h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;  /* Letra bem grande */
-    color: #a33b26;     /* Cor terracota modernista */
-    margin-bottom: 10px;
+    font-size: 4rem;
+    color: var(--burgundy);
 }
 
-.tagline {
-    font-style: italic; /* Texto em itálico */
-    font-size: 1.2rem;
-    color: #666;
-}
-
-.section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    color: #a33b26;
-    margin-bottom: 30px;
-    border-bottom: 3px solid #a33b26; /* Linha grossa abaixo do título da seção */
-    padding-bottom: 10px;
-}
-
-/* ==========================================
-   5. CARROSSEL DE IMAGENS (HOME)
-   ========================================== */
-
-/* Caixa principal que delimita o tamanho do carrossel */
 .carousel {
-    max-width: 800px;
-    margin: 0 auto 60px auto; /* Centraliza horizontalmente e joga margem para baixo */
-    position: relative;       /* Permite posicionar as setas direcionais absolutamente dentro dele */
-    overflow: hidden;         /* Esconde os slides que não estão ativos */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* Sombra elegante nas bordas */
-}
-
-/* Área interna que segura as imagens */
-.carousel-inner {
-    width: 100%;
-    height: 450px; /* Altura fixa do carrossel */
     position: relative;
+    max-width: 820px;
+    height: 460px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid var(--ink);
+    border-radius: 80px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
-/* Cada slide individual */
 .carousel-item {
-    position: absolute; /* Sobrepõe todos os slides no mesmo espaço */
-    top: 0; left: 0; width: 100%; height: 100%;
-    opacity: 0;         /* Esconde o slide deixando-o invisível */
-    transition: opacity 0.6s ease-in-out; /* Transição suave de esmaecimento */
-    cursor: pointer;    /* Mostra a "mãozinha" indicando que é clicável (abre o modal) */
+    display: none;
+    height: 100%;
+    position: relative;
+    cursor: zoom-in;
 }
 
-/* O slide que tiver a classe .active fica visível */
-.carousel-item.active {
-    opacity: 1;
-    z-index: 1; /* Fica no topo da pilha de imagens */
-}
+.carousel-item.active { display: block; }
 
-/* Faz a imagem preencher todo o espaço do slide sem distorcer */
 .carousel-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Corta a imagem proporcionalmente para preencher o bloco */
+    object-fit: cover;
+    border-radius: 80px;
 }
 
-/* Setas de avançar e voltar do carrossel */
-.carousel-control {
+.carousel-caption {
     position: absolute;
-    top: 50%;               /* Centraliza verticalmente */
-    transform: translateY(-50%); /* Alinhamento fino para compensar o tamanho do botão */
-    background: rgba(43, 43, 43, 0.6); /* Fundo preto transparente */
-    color: #fff;
-    border: none;
-    font-size: 24px;
-    padding: 12px 16px;
-    cursor: pointer;
-    z-index: 10;            /* Fica acima das imagens */
-    transition: background 0.3s;
-}
-
-.carousel-control:hover {
-    background: rgba(43, 43, 43, 0.9); /* Escurece o fundo da seta ao passar o mouse */
-}
-
-.prev { left: 10px; }  /* Posiciona a seta de voltar na esquerda */
-.next { right: 10px; } /* Posiciona a seta de avançar na direita */
-
-/* ==========================================
-   6. CARDS DE CONTEÚDO (BIOGRAFIA E OBRAS)
-   ========================================== */
-
-/* Bloco base para organizar textos e mídias */
-.obra-card {
-    background: #fff;
-    padding: 30px;
-    margin-bottom: 40px;
-    border-radius: 4px; /* Bordas levemente arredondadas */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    border-left: 5px solid #a33b26; /* Detalhe visual de linha vertical na esquerda do card */
-}
-
-/* Divisor em grade de duas colunas */
-.content-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Divide o espaço igualmente em duas colunas */
-    gap: 30px;                     /* Espaço entre as duas colunas */
-    align-items: center;           /* Alinha o conteúdo verticalmente ao centro */
-}
-
-/* Bloco de texto */
-.text-block p {
-    font-size: 1.15rem;
-    margin-bottom: 15px;
-}
-
-/* Garante que imagens dentro de blocos de texto não quebrem o layout */
-.text-block img {
+    bottom: 0;
+    background: linear-gradient(transparent, rgba(43, 38, 33, 0.95) 60%);
+    color: var(--parchment);
     width: 100%;
-    height: auto;
-    border-radius: 4px;
-}
-
-/* Cabeçalho interno dos cards de obras */
-.obra-header {
-    display: flex;
-    justify-content: space-between; /* Joga o título para a esquerda e o ano para a direita */
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.obra-header h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    color: #2b2b2b;
-}
-
-/* Estilo do ano da obra */
-.year {
-    background-color: #a33b26;
-    color: #fff;
-    padding: 4px 12px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    border-radius: 20px; /* Estilo formato pílula */
-}
-
-/* Caixa de destaque para trechos de poemas/livros */
-.poema-box {
-    background-color: #fcfbfa;
-    padding: 20px;
-    border-inline-start: 3px dashed #ccc; /* Linha tracejada na lateral do poema */
-}
-
-.obra-sub {
-    font-weight: bold;
-    color: #666;
-    margin-bottom: 10px;
-}
-
-/* Estilo visual do trecho literário extraído */
-.extract {
-    font-style: italic;
-    color: #555;
-    background: #f4f1ea;
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: 4px;
-}
-
-.analysis {
-    font-size: 1rem;
-    color: #333;
-}
-
-/* Lista estilizada na aba Legado */
-.modernist-list ul {
-    list-style: none; /* Remove as bolinhas padrão da lista */
-    margin-top: 20px;
-}
-
-.modernist-list li {
-    padding: 10px 0 10px 25px;
-    position: relative;
-    font-size: 1.1rem;
-}
-
-/* Cria um marcador customizado vermelho antes de cada item da lista */
-.modernist-list li::before {
-    content: "✦"; /* Usa um losango como marcador */
-    position: absolute;
-    left: 0;
-    color: #a33b26;
-    font-weight: bold;
-}
-
-/* ==========================================
-   7. MODAL EM TELA CHEIA (FULLSCREEN MODAL)
-   ========================================== */
-
-/* Fundo escuro que cobre o site inteiro ao abrir o modal */
-.modal {
-    display: none;       /* Escondido por padrão */
-    position: fixed;     /* Fixado sobre a tela */
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* Preto com 90% de opacidade */
-    z-index: 2000;       /* Valor altíssimo para ficar acima de absolutamente tudo */
-    justify-content: center;
-    align-items: center;
-}
-
-/* Ativado via JavaScript para abrir o modal */
-.modal.active {
-    display: flex; /* Exibe usando flexbox para centralizar a imagem interna */
-}
-
-/* Container do conteúdo dentro do modal */
-.modal-content {
-    max-width: 80%;
-    max-height: 80%;
+    padding: 4rem 2rem 2rem 2rem;
     text-align: center;
 }
 
-/* Força a imagem do modal a respeitar as bordas da tela */
-#modalImg {
-    max-width: 100%;
-    max-height: 70vh;
-    object-fit: contain; /* Garante que a imagem inteira apareça sem cortes */
-    border: 3px solid #fff;
+.carousel-caption h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
 }
 
-/* Botão de fechar (X) no topo direito */
-.close-modal {
-    position: absolute;
-    top: 20px; right: 30px;
-    color: #fff;
-    font-size: 20px;
-    cursor: pointer;
-    background: rgba(255,255,255,0.1);
-    padding: 8px 16px;
-    border-radius: 4px;
-}
-
-/* Setas de navegação dentro do modal */
-.modal-arrow {
+.carousel-control {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: none;
+    background: rgba(212, 163, 115, 0.85);
     border: none;
-    color: #fff;
-    font-size: 40px;
+    color: var(--ink);
+    font-size: 1.6rem;
+    width: 45px;
+    height: 45px;
     cursor: pointer;
-    padding: 20px;
-    transition: color 0.3s;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.modal-arrow:hover { color: #e6b041; }
-.prev-modal { left: 20px; }   /* Seta esquerda do modal */
-.next-modal { right: 20px; }  /* Seta direita do modal */
+.carousel-control.prev { left: 0; }
+.carousel-control.next { right: 0; }
 
-/* Legenda da imagem no modal */
-.modal-caption {
-    color: #fff;
-    margin-top: 15px;
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: var(--modal-bg);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.modal.active { display: flex; }
+
+.modal-content {
+    position: relative;
+    max-width: 75vw;
+    border-radius: 24px; /* Garante o formato do conjunto */
+    overflow: hidden;    /* Recorta elementos filhos como a legenda */
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border: 3px solid var(--accent);
+    border-radius: 24px; /* ADICIONADO: Cantos arredondados na imagem em tela cheia */
+}
+
+.close-modal {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: var(--accent);
     font-size: 1.2rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: 'Playfair Display', serif;
+    z-index: 2020;
 }
 
-/* ==========================================
-   8. RODAPÉ (FOOTER)
-   ========================================== */
-.main-footer {
-    background-color: #2b2b2b;
-    color: #888;
-    text-align: center;
-    padding: 20px;
-    margin-top: 60px;
-    font-size: 0.9rem;
+.modal-arrow {
+    background: none;
+    border: 1px solid rgba(212, 163, 115, 0.4);
+    color: var(--accent);
+    font-size: 3rem;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2015;
+    transition: all 0.2s;
 }
 
-/* ==========================================
-   9. ANIMAÇÕES (KEYFRAMES)
-   ========================================== */
-
-/* Efeito usado na transição para fazer o conteúdo surgir suavemente */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); } /* Inicia transparente e levemente deslocado para baixo */
-    to { opacity: 1; transform: translateY(0); }     /* Termina visível na posição original */
+.modal-arrow:hover {
+    background-color: var(--accent);
+    color: var(--ink);
 }
 
-/* ==========================================
-   10. RESPONSIVIDADE (MOBILE)
-   ========================================== */
+.prev-modal { left: 40px; }
+.next-modal { right: 40px; }
 
-/* Regras aplicadas apenas para telas menores que 768px (Celulares e Tablets) */
+.container { 
+    max-width: 900px; 
+    margin: 0 auto; 
+}
+
+.section-title { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 2.8rem; 
+    border-bottom: 2px solid var(--ink); 
+    margin-bottom: 2.5rem; 
+    text-align: center; 
+    color: var(--burgundy); 
+}
+
+.obra-card { 
+    background-color: #ffffff; 
+    margin-bottom: 3rem; 
+    padding: 2.5rem; 
+    border: 1px solid #e2dac5; 
+    box-shadow: 6px 6px 0px var(--ink); 
+    border-radius: 12px;
+}
+
+.obra-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 1.5rem; 
+    font-family: 'Playfair Display', serif; 
+}
+
+.extract { 
+    background: #fdfbf7; 
+    padding: 1.5rem; 
+    font-style: italic; 
+    border-left: 5px solid var(--burgundy); 
+    margin: 1.5rem 0; 
+    font-family: 'Courier New', monospace; 
+    border-radius: 0 8px 8px 0; 
+}
+
+.analysis { 
+    background: var(--parchment); 
+    padding: 1.2rem; 
+    border: 1px dashed var(--accent); 
+    border-radius: 8px; 
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+/* Imagens genéricas que entram dentro do content-grid ganham o arredondamento */
+.content-grid img {
+    border-radius: 16px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.quote-block blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--burgundy);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+}
+
+.modernist-list ul {
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+}
+
+.main-footer { 
+    background-color: var(--ink); 
+    color: var(--accent); 
+    text-align: center; 
+    padding: 2rem; 
+    margin-top: 4rem; 
+    position: relative; 
+    z-index: 5; 
+}
+
+/* --- CONFIGURAÇÕES DE VIEW TRANSITIONS (Morfose e Combinação) --- */
+.section-title {
+    view-transition-name: titulo-secao;
+}
+
+.obra-card {
+    view-transition-name: card-conteudo;
+}
+
+#bioImg {
+    view-transition-name: imagem-obra;
+}
+
+.morfose-imagem-pauliceia {
+    view-transition-name: imagem-obra;
+}
+
+.morfose-imagem-macunaima {
+    view-transition-name: imagem-obra;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 0.5s;
+}
+
+/* Responsivo */
 @media (max-width: 768px) {
-    .content-grid {
-        grid-template-columns: 1fr; /* Transforma as duas colunas em uma única coluna vertical */
-    }
-    
-    .reverse-grid {
-        direction: ltr; /* Garante que a ordem de leitura não inverta em telas pequenas */
-    }
-    
-    .home-header h1 {
-        font-size: 2.5rem; /* Reduz o tamanho do título em telas menores */
-    }
-    
-    .main-nav {
-        flex-wrap: wrap; /* Permite que os botões do menu quebrem para a linha de baixo se não couberem */
-    }
-    
-    .nav-btn {
-        padding: 8px 12px;
-        margin: 5px;
-        font-size: 0.9rem;
-    }
-    
-    .carousel-inner {
-        height: 300px; /* Diminui a altura do carrossel no celular */
-    }
+    .carousel { height: 320px; }
+    .home-header h1 { font-size: 2.5rem; }
+    .prev-modal { left: 10px; }
+    .next-modal { right: 10px; }
+    .modal-arrow { width: 45px; height: 45px; font-size: 2rem; }
+    .content-grid { grid-template-columns: 1fr; gap: 1.5rem; }
 }
