@@ -241,6 +241,8 @@ body {
     border: 1px solid #e2dac5; 
     box-shadow: 6px 6px 0px var(--ink); 
     border-radius: 12px;
+    font-size: 1.25rem;  
+    line-height: 1.8;    
 }
 
 .obra-header { 
