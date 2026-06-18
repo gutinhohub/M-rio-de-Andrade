@@ -74,17 +74,14 @@ if (document.getElementById('cardSliderTrack')) {
         // Oculta a tag <img> já que vamos exibir apenas o texto estilizado
         if (modalImg) modalImg.style.display = 'none';
         
-        // Pega o HTML interno do card ativo e joga dentro da caixa de conteúdo do modal
+        // Pega o HTML interno do card ativo
         const activeCardHtml = cardSlides[currentCardIndex].innerHTML;
         
-        // Estiliza o container para apresentar o texto em tamanho grande e centralizado
-        modalCaption.style.position = 'static';
-        modalCaption.style.background = 'transparent';
-        modalCaption.style.color = 'var(--parchment)';
-        modalCaption.style.fontSize = '2rem';
-        modalCaption.style.lineHeight = '1.8';
-        modalCaption.style.maxWidth = '800px';
-        modalCaption.style.padding = '2rem';
+        // Remove estilos injetados diretamente por JS que quebravam o layout do modal
+        modalCaption.removeAttribute('style');
+        
+        // Limpa classes antigas e adiciona uma classe de conteúdo para o modal
+        modalCaption.className = 'modal-text-content';
         modalCaption.innerHTML = activeCardHtml;
     }
 
