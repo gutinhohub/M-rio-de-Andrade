@@ -19,6 +19,8 @@ body {
     line-height: 1.6;
     position: relative;
     min-height: 100vh;
+    padding-bottom: 60px;
+
 }
 
 .diagonal-bg-pattern {
@@ -305,15 +307,12 @@ body {
     text-align: center; 
     text-transform: uppercase;
     padding: 0.8rem; 
-
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    z-index: 1005
+    z-index: 2000; /* Aumentado e corrigido: adicionado o ponto e vírgula (;) no final */
 }
-
-/* --- CONFIGURAÇÕES DE VIEW TRANSITIONS (Morfose e Combinação) --- */
 .section-title {
     view-transition-name: titulo-secao;
 }
