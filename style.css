@@ -299,6 +299,7 @@ body {
     background-color: var(--ink); 
     color: var(--accent); 
     text-align: center; 
+    text-transform: uppercase;
     padding: 2rem; 
     margin-top: 4rem; 
     position: relative; 
