@@ -386,3 +386,44 @@ body {
     .next-modal { right: 10px; }
     .modal-arrow { width: 45px; height: 45px; font-size: 2rem; }
 }
+/* ==========================================================================
+   CORREÇÃO DO TEXTO EM TELA CHEIA (MODAL) E FOOTER
+   ========================================================================== */
+
+/* Caixa elegante para o texto dentro do modal */
+.modal-text-content {
+    background-color: var(--parchment);
+    color: var(--ink);
+    padding: 3.5rem 3rem;
+    border-radius: 24px;
+    max-width: 700px;
+    width: 90%;
+    margin: 0 auto;
+    border: 3px solid var(--accent);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    animation: surgimentoModal 0.3s ease-out;
+}
+
+/* Formatação do parágrafo do zoom */
+.modal-text-content p {
+    font-family: 'Lora', serif;
+    font-size: 1.45rem;
+    line-height: 1.8;
+    color: var(--ink);
+}
+
+/* Oculta o rodapé fixo da tela sempre que o modal estiver ativo/aberto */
+.modal.active ~ .main-footer {
+    display: none !important;
+}
+
+/* Ajuste responsivo para telas menores no modo zoom */
+@media (max-width: 768px) {
+    .modal-text-content {
+        padding: 2rem 1.5rem;
+    }
+    .modal-text-content p {
+        font-size: 1.15rem;
+    }
+}
