@@ -300,14 +300,17 @@ body {
 }
 
 .main-footer { 
-    background-color: var(--ink); 
+    background-color: var(--burgundy); 
     color: var(--accent); 
     text-align: center; 
     text-transform: uppercase;
-    padding: 2rem; 
-    margin-top: 4rem; 
-    position: relative; 
-    z-index: 5; 
+    padding: 0.8rem; 
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1005
 }
 
 /* --- CONFIGURAÇÕES DE VIEW TRANSITIONS (Morfose e Combinação) --- */
