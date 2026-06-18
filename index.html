@@ -36,23 +36,35 @@
             <p class="tagline">O Polímata da Identidade Brasileira</p>
         </header>
 
-        <div class="carousel">
-            <div class="carousel-inner" id="carouselInner">
-                <div class="carousel-item active" onclick="openModal(0)">
-                    <img src="slide1.jpg">
-                </div>
-                <div class="carousel-item" onclick="openModal(1)">
-                    <img src="slide2.jpg">
-                </div>
-                <div class="carousel-item" onclick="openModal(2)">
-                    <img src="slide3.jpg">
-                </div>
-                <div class="carousel-item" onclick="openModal(3)">
-                    <img src="slide4.jpg">
+        <div class="slider-container">
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="cardProgressBar"></div>
+            </div>
+
+            <div class="slider-wrapper">
+                <div class="slider-track" id="cardSliderTrack">
+                    
+                    <div class="slide-card">
+                        <p>Ao longo deste estudo, serão desenvolvidos tópicos que abordam desde a sua breve biografia e a análise de obras seminais, como Paulicéia Desvairada e Macunaíma, até o seu papel como guia espiritual no contexto modernista.</p>
+                    </div>
+
+                    <div class="slide-card">
+                        <p><strong>Biografia Resumida:</strong> Nascido em São Paulo em 1893, Mário de Andrade foi um dos pilares da Semana de Arte Moderna de 1922, transformando radicalmente a literatura e a cultura do país.</p>
+                    </div>
+
+                    <div class="slide-card">
+                        <p><strong>Macunaíma (1928):</strong> A rapsódia que busca sintetizar o caráter (ou a falta dele) do brasileiro. Um herói sem nenhum caráter que viaja pelo folclore e pela fauna do Brasil.</p>
+                    </div>
+
+                    <div class="slide-card">
+                        <p><strong>O Legado Modernista:</strong> Além de escritor, sua atuação como musicólogo e gestor cultural deixou bases sólidas para a preservação do patrimônio histórico nacional.</p>
+                    </div>
+
                 </div>
             </div>
-            <button class="carousel-control prev" onclick="moveCarousel(-1, event)">&#10094;</button>
-            <button class="carousel-control next" onclick="moveCarousel(1, event)">&#10095;</button>
+
+            <button class="nav-card-btn card-prev" id="cardPrevBtn">&#10094;</button>
+            <button class="nav-card-btn card-next" id="cardNextBtn">&#10095;</button>
         </div>
     </section>
 
