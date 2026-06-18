@@ -298,7 +298,7 @@ body {
 }
 
 .main-footer { 
-    background-color: var(--ink); 
+    background-color: var(--burgundy); 
     color: var(--accent); 
     text-align: center; 
     text-transform: uppercase;
