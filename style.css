@@ -1,7 +1,7 @@
 :root {
     --parchment: #fdfaf1; 
     --ink: #2b2621;      
-    --burgundy: #582B1D;  
+    --burgundy: #733726;  
     --accent: #d4a373;    
     --modal-bg: rgba(12, 10, 9, 0.97);
 }
@@ -61,7 +61,7 @@ body {
     border-radius: 6px;
 }
 
-/* Efeito ao passar o mouse (que você já tem) */
+/* Efeito ao passar o mouse */
 .nav-btn:hover {
     background-color: var(--accent);
     color: var(--ink);
@@ -298,7 +298,7 @@ body {
 }
 
 .main-footer { 
-    background-color: var(--burgundy); 
+    background-color: var(--ink); 
     color: var(--accent); 
     text-align: center; 
     text-transform: uppercase;
