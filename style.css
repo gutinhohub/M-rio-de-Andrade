@@ -57,11 +57,10 @@ body {
     font-family: 'Playfair Display', serif;
     text-transform: uppercase;
     font-weight: bold;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
     border-radius: 6px;
 }
 
-/* Efeito ao passar o mouse */
 .nav-btn:hover {
     background-color: var(--accent);
     color: var(--ink);
