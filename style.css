@@ -50,6 +50,8 @@ body {
     background: none;
     border: 1px solid var(--accent);
     color: var(--accent);
+    text-decoration: none; /* ADICIONADO: Remove o sublinhado */
+    display: inline-block; /* Opcional: Garante que o espaçamento (padding) funcione bem se for uma tag <a> */
     padding: 0.6rem 1.4rem;
     cursor: pointer;
     font-family: 'Playfair Display', serif;
