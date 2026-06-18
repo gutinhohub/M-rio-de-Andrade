@@ -28,10 +28,10 @@ body {
     width: 200%;
     height: 200%;
     transform: rotate(-45deg);
-    color: var(--ink);
     opacity: 0.05;
     pointer-events: none;
     z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cdefs%3E%3Cpattern id='modernistStamp' width='250' height='250' patternUnits='userSpaceOnUse'%3E%3Cpath d='M30,140 C30,90 60,80 80,110 C90,125 75,160 110,160 C130,160 140,130 140,170 C140,190 30,190 30,140 Z' fill='%232b2621' /%3E%3Ccircle cx='65' cy='75' r='12' fill='%232b2621' /%3E%3Ccircle cx='180' cy='60' r='22' fill='%232b2621' /%3E%3Cpath d='M180,20 L180,30 M180,90 L180,100 M140,60 L150,60 M210,60 L220,60' stroke='%232b2621' stroke-width='6' stroke-linecap='round' /%3E%3Crect x='20' y='20' width='30' height='30' fill='%232b2621' transform='rotate(15 20 20)' /%3E%3Cpolygon points='120,20 150,50 100,60' fill='%232b2621' /%3E%3Cpath d='M200,120 C220,120 230,140 210,160 C190,180 170,150 190,130 Z' fill='%232b2621' /%3E%3Cpath d='M20,210 L20,240 M20,220 Q5,215 5,205 L5,195 M20,230 Q35,225 35,215 L35,200' stroke='%232b2621' stroke-width='5' stroke-linecap='round' fill='none' /%3E%3Cpath d='M90,210 L130,210 M95,218 L125,218 M100,226 L120,226' stroke='%232b2621' stroke-width='3' stroke-linecap='round' /%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23modernistStamp)' /%3E%3C/svg%3E");
 }
 
 .main-nav {
