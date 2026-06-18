@@ -9,9 +9,7 @@
 </head>
 <body>
 
-    <div class="diagonal-bg-pattern">
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect width="100%" height="100%" fill="url(#modernistStamp)" /></svg>
-    </div>
+    <div class="diagonal-bg-pattern"></div>
 
     <nav class="main-nav">
         <a href="index.html" class="nav-btn">Início</a>
@@ -20,64 +18,38 @@
         <a href="legado.html" class="nav-btn">Legado 22</a>
     </nav>
 
-   <section class="screen active">
+    <section class="screen active">
         <div class="container">
             <h2 class="section-title">O Homem por trás da Obra</h2>
             
+            <div class="obra-card">
+                <p>Nascido em São Paulo em 1893, Mário de Andrade foi um dos pilares da cultura brasileira. Embora tenha iniciado sua trajetória no piano clássico, uma tragédia familiar o afastou dos palcos, direcionando seu talento genial para a literatura, a musicologia e a fotografia — áreas onde redefiniu a identidade do país.</p>
+            </div>
+
+            <div class="obra-card">
+                <p>O ano de 1922 consolidou sua leadership na Semana de Arte Moderna, integrando o célebre “Grupo dos Cinco” ao lado de Tarsila do Amaral e Oswald de Andrade. Foi nesse período que publicou <em>Paulicéia Desvairada</em>, obra que revolucionou a poesia nacional com versos livres e linguagem coloquial. Movido pela busca da essência nacional, Mário realizou expedições pelo Amazonas e Nordeste, documentando o folclore e os ritmos do país. Dessas pesquisas nasceu sua obra-prima, <em>Macunaíma</em> (1928), uma rapsódia que sintetiza as contradições e a rica diversidade da identidade brasileira.</p>
+            </div>
+
             <div class="grid-gatilhos">
-              
-                <div class="card-gatilho" onclick="abrirModal('modal-joao')">
-                    <h3>A Juventude e o Piano</h3>
-                    <p>Nascido em São Paulo em 1893...</p>
-                    <span class="leia-mais">Clique para ler tudo</span>
-                </div>
-
-                <div class="card-gatilho" onclick="abrirModal('modal-maria')">
-                    <h3>O Ápice de 1922</h3>
-                    <p>A Semana de Arte Moderna e Macunaíma...</p>
-                    <span class="leia-mais">Clique para ler tudo</span>
-                </div>
-
-                <div class="card-gatilho" onclick="abrirModal('modal-steffany')">
-                    <h3>O Gestor Cultural</h3>
-                    <p>A criação do IPHAN e políticas públicas...</p>
-                    <span class="leia-mais">Clique para ler tudo</span>
+                <div class="card-gatilho" onclick="abrirModal('modal-patrimonio')">
+                    <h3>Atuação Pública</h3>
+                    <p>Clique para ver detalhes sobre o seu trabalho na gestão cultural e preservação do património nacional.</p>
                 </div>
 
                 <div class="card-gatilho" onclick="abrirModal('modal-vicenty')">
                     <h3>Vida Pessoal e Legado</h3>
-                    <p>As complexidades, tensões e memórias...</p>
-                    <span class="leia-mais">Clique para ler tudo</span>
+                    <p>Clique para descobrir os bastidores da sua vida, amizades intelectuais e o seu impacto duradouro.</p>
                 </div>
-
             </div>
         </div>
 
-        <div id="modal-joao" class="modal-biografia">
+        <div id="modal-patrimonio" class="modal-biografia">
             <div class="modal-conteudo-bio">
-                <span class="botao-fechar-bio" onclick="fecharModal('modal-joao')">✕</span>
-                <h2>A Juventude e o Piano</h2>
+                <span class="botao-fechar-bio" onclick="fecharModal('modal-patrimonio')">✕</span>
+                <h2>Atuação Pública e Gestão Cultural</h2>
                 <hr>
-                <p>Nascido em São Paulo em 1893, Mário de Andrade foi um dos pilares da cultura brasileira. Embora tenha iniciado sua trajetória no piano clássico, uma tragédia familiar o afastou dos palcos, direcionando seu talento genial para a literatura, a musicologia e a fotografia — áreas onde redefiniu a identidade do país.</p>
-            </div>
-        </div>
-
-        <div id="modal-maria" class="modal-biografia">
-            <div class="modal-conteudo-bio">
-                <span class="botao-fechar-bio" onclick="fecharModal('modal-maria')">✕</span>
-                <h2>O Ápice de 1922</h2>
-                <hr>
-                <p>O ano de 1922 consolidou sua liderança na Semana de Arte Moderna, integrando o célebre “Grupo dos Cinco” ao lado de Tarsila do Amaral e Oswald de Andrade. Foi nesse período que publicou <em>Paulicéia Desvairada</em>, obra que revolucionou a poesia nacional com versos livres e linguagem coloquial.</p>
-                <p>Movido pela busca da essência nacional, Mário realizou expedições pelo Amazonas e Nordeste, documentando o folclore e os ritmos do país. Dessas pesquisas nasceu sua obra-prima, <em>Macunaíma</em> (1928), uma rapsódia que sintetiza as contradições e a rica diversidade da identidade brasileira.</p>
-            </div>
-        </div>
-
-        <div id="modal-steffany" class="modal-biografia">
-            <div class="modal-conteudo-bio">
-                <span class="botao-fechar-bio" onclick="fecharModal('modal-steffany')">✕</span>
-                <h2>O Gestor Cultural</h2>
-                <hr>
-                <p>Além da arte, Mário de Andrade foi um pioneiro na gestão cultural brasileira. Como diretor do Departamento de Cultura de São Paulo, fundou a Discoteca Municipal e redigiu o anteprojeto que deu origem ao atual IPHAN, blindando a proteção do patrimônio histórico nacional.</p>
+                <p>Além de criador pioneiro, Mário foi um gestor público visionário. Como diretor do Departamento de Cultura de São Paulo, criou as bibliotecas públicas circulantes e os parques infantis, democratizando o acesso ao conhecimento.</p>
+                <p>O seu maior feito institucional foi a redação do anteprojeto que deu origem ao atual IPHAN, blindando a proteção do património histórico nacional.</p>
                 <p>Mesmo enfrentando o exílio temporário no Rio de Janeiro devido às instabilidades políticas da Era Vargas, sua atuação como professor universitário e intelectual público consolidou as bases de como o Brasil preserva e valoriza sua própria memória até hoje.</p>
             </div>
         </div>
@@ -87,16 +59,16 @@
                 <span class="botao-fechar-bio" onclick="fecharModal('modal-vicenty')">✕</span>
                 <h2>Vida Pessoal e Legado</h2>
                 <hr>
-                <p>A vida pessoal de Mário foi marcada por profundas tensões, como o rompimento com Oswald de Andrade devido a ironias sobre sua sexualidade. Esse tema, envolto em silêncio por décadas, foi iluminado pela publicação de uma carta a Manuel Bandeira, na qual Mário desabafava sobre sua homossexualidade em uma época de extrema repressão social.</p>
-                <p>Mário de Andrade faleceu precocemente in 1945, aos 51 anos. Seu legado monumental foi eternizado na Biblioteca Mário de Andrade e na memória de um país que, décadas depois, reconheceu nele um dos maiores arquitetos da nossa identidade nacional.</p>
+                <p>A vida pessoal de Mário foi marcada por profundas tensões, como o rompimento com Oswald de Andrade devido a ironias sobre sua sexualidade. Esse tema, envolto em silêncio por décadas, foi iluminado pela publicação de uma carta a Manuel Bandeira, na qual Mário desabafava sobre as pressões morais da sua época.</p>
+                <p>Mário de Andrade faleceu precocemente em 1945, aos 51 anos. Seu legado monumental foi eternizado na Biblioteca Mário de Andrade e na memória de um país que, décadas depois, reconheceu nele um dos maiores arquitetos da nossa identidade nacional.</p>
             </div>
         </div>
-
     </section>
 
     <footer class="main-footer">
         <p>Apresentação: Mário de Andrade - Modernismo Brasileiro</p>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
