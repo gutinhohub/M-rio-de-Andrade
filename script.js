@@ -1,73 +1,47 @@
 // ==========================================================================
-// 1. CÓDIGO DO CARROSSEL (RODA APENAS NA PÁGINA COM CARROSSEL / INDEX)
+// 1. CÓDIGO DO SLIDER DE COMPONENTES INTERATIVO (INDEX)
 // ==========================================================================
-if (document.querySelector('.carousel')) {
-    let slideIndex = 0;
-    const slides = document.querySelectorAll('.carousel-item');
-    let currentModalIndex = 0;
+if (document.getElementById('cardSliderTrack')) {
+    const cardTrack = document.getElementById('cardSliderTrack');
+    const cardPrevBtn = document.getElementById('cardPrevBtn');
+    const cardNextBtn = document.getElementById('cardNextBtn');
+    const cardProgressBar = document.getElementById('cardProgressBar');
 
-    function moveCarousel(n, event) {
-        if (event) event.stopPropagation();
-        slides[slideIndex].classList.remove('active');
-        slideIndex = (slideIndex + n + slides.length) % slides.length;
-        slides[slideIndex].classList.add('active');
-    }
+    const cardSlides = Array.from(cardTrack.children);
+    const totalCardSlides = cardSlides.length;
+    let currentCardIndex = 0;
 
-    let autoPlayInterval = setInterval(() => moveCarousel(1), 5000);
-
-    const modal = document.getElementById('fullscreenModal');
-    const modalImg = document.getElementById('modalImg');
-    const modalCaption = document.getElementById('modalCaption');
-
-    window.openModal = function(index) {
-        clearInterval(autoPlayInterval);
-        currentModalIndex = index;
-        updateModalContent();
-        modal.classList.add('active');
-    }
-
-    function updateModalContent() {
-        const currentSlide = slides[currentModalIndex];
-        modalImg.src = currentSlide.querySelector('img').src;
+    function updateCardSlider() {
+        // Desloca horizontalmente o track baseado no item ativo
+        cardTrack.style.transform = `translateX(-${currentCardIndex * 100}%)`;
         
-        const captionElement = currentSlide.querySelector('.carousel-caption');
-        if (captionElement) {
-            modalCaption.innerHTML = captionElement.innerHTML;
+        // Renderiza o preenchimento proporcional e desloca o marcador branco
+        const stepWidth = 100 / totalCardSlides;
+        cardProgressBar.style.width = `${stepWidth}%`;
+        cardProgressBar.style.transform = `translateX(${currentCardIndex * 100}%)`;
+    }
+
+    cardNextBtn.addEventListener('click', () => {
+        if (currentCardIndex < totalCardSlides - 1) {
+            currentCardIndex++;
         } else {
-            modalCaption.innerHTML = "";
+            currentCardIndex = 0; // Loop contínuo: volta para o primeiro
         }
-    }
-
-    window.moveModalCarousel = function(n, event) {
-        if (event) event.stopPropagation();
-        currentModalIndex = (currentModalIndex + n + slides.length) % slides.length;
-        updateModalContent();
-        
-        slides[slideIndex].classList.remove('active');
-        slideIndex = currentModalIndex;
-        slides[slideIndex].classList.add('active');
-    }
-
-    window.closeModal = function(event) {
-        if (!event || event.target === modal || event.target.classList.contains('close-modal')) {
-            modal.classList.remove('active');
-            autoPlayInterval = setInterval(() => moveCarousel(1), 5000);
-        }
-    }
-
-    document.addEventListener('keydown', function(event) {
-        if (modal.classList.contains('active')) {
-            if (event.key === "ArrowRight") {
-                moveModalCarousel(1);
-            } else if (event.key === "ArrowLeft") {
-                moveModalCarousel(-1);
-            } else if (event.key === "Escape") {
-                closeModal();
-            }
-        }
+        updateCardSlider();
     });
-}
 
+    cardPrevBtn.addEventListener('click', () => {
+        if (currentCardIndex > 0) {
+            currentCardIndex--;
+        } else {
+            currentCardIndex = totalCardSlides - 1; // Loop contínuo: pula para o último
+        }
+        updateCardSlider();
+    });
+
+    // Inicialização da posição do card ao carregar a página
+    updateCardSlider();
+}
 // ==========================================================================
 // 2. CÓDIGO DA BIOGRAFIA (RODA EM QUALQUER TELA / DISPONÍVEL GLOBALMENTE)
 // ==========================================================================
