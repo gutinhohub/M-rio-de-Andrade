@@ -46,12 +46,13 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
+/* Estado padrão do botão (limpa o visual de link) */
 .nav-btn {
+    display: inline-block;   
+    text-decoration: none;   /* Remove o sublinhado */
     background: none;
     border: 1px solid var(--accent);
     color: var(--accent);
-    text-decoration: none; /* ADICIONADO: Remove o sublinhado */
-    display: inline-block; /* Opcional: Garante que o espaçamento (padding) funcione bem se for uma tag <a> */
     padding: 0.6rem 1.4rem;
     cursor: pointer;
     font-family: 'Playfair Display', serif;
@@ -60,6 +61,7 @@ body {
     transition: all 0.3s;
 }
 
+/* Efeito ao passar o mouse (que você já tem) */
 .nav-btn:hover {
     background-color: var(--accent);
     color: var(--ink);
