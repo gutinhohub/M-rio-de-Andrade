@@ -22,12 +22,24 @@
 
     <div id="fullscreenModal" class="modal">
         <span class="close-modal">Fechar ✕</span>
-        <button class="modal-arrow prev-modal">&#10094;</button>
-        <div class="modal-content">
-            <img id="modalImg" src="" alt="Conteúdo em tela cheia">
-            <div id="modalCaption" class="carousel-caption modal-caption"></div>
+        
+        <div class="modal-card-container">
+            <div class="card-deco modal-papel-pardo"></div>
+            <div class="card-deco modal-papel-verde"></div>
+            <div class="card-deco modal-fita-azul"></div>
+
+            <div class="progress-bar-container modal-progress-bar-container">
+                <div class="progress-bar modal-progress-bar" id="modalProgressBar"></div>
+            </div>
+
+            <div class="modal-content">
+                <img id="modalImg" src="" alt="Conteúdo em tela cheia" style="display:none;">
+                <div id="modalCaption" class="modal-caption-text"></div>
+            </div>
+
+            <button class="nav-card-btn modal-arrow prev-modal">&#10094;</button>
+            <button class="nav-card-btn modal-arrow next-modal">&#10095;</button>
         </div>
-        <button class="modal-arrow next-modal">&#10095;</button>
     </div>
 
     <section class="screen active">
@@ -47,9 +59,9 @@
 
             <div class="slider-wrapper">
                 <div class="slider-track" id="cardSliderTrack">
-                    
+    
                     <div class="slide-card" onclick="zoomCard(0)" style="cursor: zoom-in;">
-                        <p>Este trabalho apresenta uma análise detalhada da trajetória e da produção literária de Mário de Andrade, figura central e "arquiteto" da Primeira Geração do Modernismo brasileiro.</p>
+                        <p>Este portal destina-se a analisar e divulgar a vida e a obra de Mário de Andrade, um dos intelectuais mais influentes do Brasil e figura central do Modernismo literário e cultural brasileiro.</p>
                     </div>
 
                     <div class="slide-card" onclick="zoomCard(1)" style="cursor: zoom-in;">
