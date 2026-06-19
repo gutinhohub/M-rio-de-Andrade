@@ -521,3 +521,13 @@ body {
         gap: 1.5rem !important;
     }
 }
+/* Linha decorativa embaixo do título principal */
+.section-title::after {
+    content: "";
+    display: block;
+    width: 120px;               /* Comprimento da linha */
+    height: 3px;                /* Espessura da linha */
+    background-color: #733726;  /* Cor Vinho (combina com o título) */
+    margin: 0.8rem auto 0 auto; /* Centraliza perfeitamente abaixo do texto */
+    border-radius: 10px;        /* Deixa as pontas da linha levemente arredondadas */
+}
