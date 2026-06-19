@@ -5,7 +5,7 @@
     --accent: #d4a373;    
     --modal-bg: rgba(12, 10, 9, 0.95);
     --vicenty: #ff8b80;      /* Vermelho claro */
-    --steffany: #ffb7b2;     /* Rosa claro */
+    --steffany: #FA57AB;     /* Rosa claro */
     --maria-clara: #e8dbfc;  /* Lilás */
     --joao-felipe: #bdf7b7;  /* Verde claro */
 }
@@ -798,38 +798,49 @@ body {
     transform-origin: 52% 28% !important; /* Centraliza o zoom exatamente nas primeiras estrofes do poema */
     display: block !important;
 }
-.card-analise-bloco, .card-poema-foto, .slide-card {
+.card-analise-bloco, .card-poema-foto, .slide-card, .modal-card-container {
     position: relative !important;
-    padding-left: 3.5rem !important; /* Espaço extra na esquerda para a barra e o texto não colarem */
-    overflow: visible !important;    /* Impede que o CSS esconda a barra vertical */
+    overflow: visible !important;    /* Impede o CSS de esconder a barra vertical */
 }
 
-/* Estrutura corrigida e visível da linha vertical */
-.card-analise-bloco::before, .card-poema-foto::before, .slide-card::before {
+/* Adiciona o recuo à esquerda nos cards normais para a linha não cobrir o texto */
+.card-analise-bloco, .card-poema-foto, .slide-card {
+    padding-left: 3.5rem !important; 
+}
+
+/* Adiciona o recuo à esquerda no conteúdo do modal aberto */
+.modal-card-container .modal-content {
+    padding-left: 2rem !important;
+}
+
+/* Estrutura da linha vertical (Cards normais) */
+.card-analise-bloco::before, .card-poema-foto::before, .slide-card::before,
+/* Estrutura da linha vertical (Modal/Zoom) */
+.modal-card-container::before {
     content: "" !important;
     position: absolute !important;
-    top: 25px !important;       /* Alinhado verticalmente com o topo interno */
-    bottom: 25px !important;    /* Alinhado verticalmente com a base interna */
-    left: 1.5rem !important;    /* Afastamento ideal da borda esquerda do card */
-    width: 6px !important;      /* Espessura bem visível da linha */
+    top: 25px !important;       
+    bottom: 25px !important;    
+    left: 1.5rem !important;    
+    width: 6px !important;      /* Espessura idêntica à margem vermelha */
     border-radius: 4px !important;
-    z-index: 10 !important;     /* Força a barra a ficar por cima do fundo do card */
+    z-index: 999 !important;    /* Força a barra a ficar na frente de qualquer fundo */
     background-color: transparent; 
 }
 
-/* Classes que aplicam as cores oficiais de cada leitor */
-.leitor-vicenty::before {
+/* Classes que aplicam as cores oficiais nos cards e no modal clonado */
+.leitor-vicenty::before, .modal-card-container.leitor-vicenty::before {
     background-color: var(--vicenty) !important;
 }
 
-.leitor-steffany::before {
+.leitor-steffany::before, .modal-card-container.leitor-steffany::before {
     background-color: var(--steffany) !important;
 }
 
-.leitor-maria-clara::before {
+.leitor-maria-clara::before, .modal-card-container.leitor-maria-clara::before {
     background-color: var(--maria-clara) !important;
 }
 
-.leitor-joao-felipe::before {
+.leitor-joao-felipe::before, .modal-card-container.leitor-joao-felipe::before {
     background-color: var(--joao-felipe) !important;
 }
