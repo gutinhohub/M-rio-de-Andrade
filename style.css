@@ -809,38 +809,38 @@ body {
 }
 
 /* Adiciona o recuo à esquerda no conteúdo do modal aberto */
-.modal-card-container .modal-content {
-    padding-left: 2rem !important;
+/* ==========================================================================
+   AJUSTE DE VISIBILIDADE DA LINHA VERTICAL NO MODAL COM ZOOM
+   ========================================================================== */
+
+/* Garante o posicionamento absoluto da linha em relação à caixa do modal */
+.modal-card-container {
+    position: relative !important;
+    overflow: visible !important;
 }
 
-/* Estrutura da linha vertical (Cards normais) */
-.card-analise-bloco::before, .card-poema-foto::before, .slide-card::before,
-/* Estrutura da linha vertical (Modal/Zoom) */
+/* Dá o recuo necessário no texto interno do modal para a linha não ficar em cima das letras */
+.modal-card-container .modal-content {
+    padding-left: 2.2rem !important;
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+/* Desenha a barra vertical dentro do modal flutuante */
 .modal-card-container::before {
     content: "" !important;
     position: absolute !important;
-    top: 25px !important;       
-    bottom: 25px !important;    
-    left: 1.5rem !important;    
-    width: 6px !important;      /* Espessura idêntica à margem vermelha */
+    top: 40px !important;       /* Alinha um pouco abaixo do topo do papel */
+    bottom: 40px !important;    /* Alinha um pouco acima do rodapé do papel */
+    left: 25px !important;      /* Margem esquerda exata do caderno */
+    width: 6px !important;      /* Espessura bem visível da linha */
     border-radius: 4px !important;
-    z-index: 999999 !important;    /* Força a barra a ficar na frente de qualquer fundo */
+    z-index: 9999 !important;   /* Força a barra a ficar na frente de TODOS os papéis decorativos */
     background-color: transparent; 
 }
 
-/* Classes que aplicam as cores oficiais nos cards e no modal clonado */
-.leitor-vicenty::before, .modal-card-container.leitor-vicenty::before {
-    background-color: var(--vicenty) !important;
-}
-
-.leitor-steffany::before, .modal-card-container.leitor-steffany::before {
-    background-color: var(--steffany) !important;
-}
-
-.leitor-maria-clara::before, .modal-card-container.leitor-maria-clara::before {
-    background-color: var(--maria-clara) !important;
-}
-
-.leitor-joao-felipe::before, .modal-card-container.leitor-joao-felipe::before {
-    background-color: var(--joao-felipe) !important;
-}
+/* Aplica as cores correspondentes herdadas do JavaScript no modal */
+.modal-card-container.leitor-vicenty::before { background-color: var(--vicenty) !important; }
+.modal-card-container.leitor-maria-clara::before { background-color: var(--maria-clara) !important; }
+.modal-card-container.leitor-joao-felipe::before { background-color: var(--joao-felipe) !important; }
+.modal-card-container.leitor-steffany::before { background-color: var(--steffany) !important; }
