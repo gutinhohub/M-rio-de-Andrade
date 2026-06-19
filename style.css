@@ -4,6 +4,10 @@
     --burgundy: #733726;  
     --accent: #d4a373;    
     --modal-bg: rgba(12, 10, 9, 0.95);
+    --vicenty: #ff8b80;      /* Vermelho claro */
+    --steffany: #ffb7b2;     /* Rosa claro */
+    --maria-clara: #e8dbfc;  /* Lilás */
+    --joao-felipe: #bdf7b7;  /* Verde claro */
 }
 
 * {
@@ -793,4 +797,37 @@ body {
     transform: scale(2.1) !important; /* Aplica um zoom de 210% na imagem */
     transform-origin: 52% 28% !important; /* Centraliza o zoom exatamente nas primeiras estrofes do poema */
     display: block !important;
+}
+.card-analise-bloco, .card-poema-foto {
+    position: relative !important;
+    padding-left: 3.2rem !important; /* Aumenta um pouco o espaço interno esquerdo para acomodar a linha */
+}
+
+/* A estrutura da linha vertical indicadora */
+.card-analise-bloco::before, .card-poema-foto::before {
+    content: "";
+    position: absolute;
+    top: 2rem;      /* Alinhado com o início do padding do card */
+    bottom: 2rem;   /* Alinhado com o fim do padding do card */
+    left: 1.2rem;   /* Posicionado bem no canto esquerdo interno */
+    width: 6px;     /* Espessura da linha vertical */
+    border-radius: 10px;
+    background-color: transparent; /* Por padrão começa transparente */
+}
+
+/* Classes específicas para cada leitor (Basta adicionar a classe no HTML do card) */
+.leitor-vicenty::before {
+    background-color: var(--vicenty) !important;
+}
+
+.leitor-steffany::before {
+    background-color: var(--steffany) !important;
+}
+
+.leitor-maria-clara::before {
+    background-color: var(--maria-clara) !important;
+}
+
+.leitor-joao-felipe::before {
+    background-color: var(--joao-felipe) !important;
 }
