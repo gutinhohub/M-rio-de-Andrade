@@ -616,3 +616,157 @@ body {
     margin: 0.8rem auto 0 auto !important; 
     border-radius: 10px !important;        
 }
+/* ==========================================================================
+   ESTILOS DA ANÁLISE DAS OBRAS (PAULICEIA E MACUNAÍMA)
+   ========================================================================== */
+
+/* Container Flex para a Pauliceia */
+.container-obra-flex {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Colunas da Pauliceia */
+.coluna-esquerda-cards {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Espaço entre o card do livro e o do poema */
+}
+
+.coluna-direita-poema {
+    flex: 1;
+}
+
+/* Estilo Base dos Cards de Análise */
+.card-analise-bloco {
+    background-color: #fdfbf7 !important;
+    border: 2px solid #2b2621 !important;
+    border-radius: 20px !important;
+    padding: 2.2rem !important;
+    box-shadow: 6px 6px 0px #2b2621 !important;
+}
+
+.card-analise-bloco h3, .card-poema-foto h3 {
+    font-family: 'Playfair Display', serif !important;
+    color: #733726 !important;
+    font-size: 1.6rem !important;
+    margin-bottom: 0.8rem !important;
+    text-align: left !important;
+}
+
+.card-analise-bloco p {
+    font-family: 'Lora', serif !important;
+    color: #2b2621 !important;
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+    text-align: justify !important;
+}
+
+/* Card Direito do Poema / Foto do Livro */
+.card-poema-foto {
+    background-color: #fdfbf7 !important;
+    border: 2px solid #2b2621 !important;
+    border-radius: 20px !important;
+    padding: 2.2rem !important;
+    box-shadow: 6px 6px 0px #2b2621 !important;
+    height: 100%; /* Faz o card ocupar a altura total combinada dos dois da esquerda */
+    display: flex;
+    flex-direction: column;
+}
+
+.espaco-foto-livro {
+    flex: 1;
+    border: 2px dashed #d4a373;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000 !important; /* Cor preta conforme solicitado anteriormente */
+    padding: 1rem;
+    margin-top: 1rem;
+    min-height: 300px;
+}
+
+.placeholder-foto {
+    color: #d4a373 !important;
+    font-family: 'Lora', serif;
+    font-style: italic;
+    text-align: center;
+}
+
+.espaco-foto-livro img {
+    max-width: 100%;
+    max-height: 450px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Elementos do Divisor (Linha Pontilhada e Imagens) */
+.divisor-obras {
+    max-width: 900px;
+    margin: 4rem auto;
+    text-align: center;
+}
+
+.linha-pontilhada-separadora {
+    border: 0 !important;
+    border-top: 3px dashed #d4a373 !important;
+    margin: 2rem 0 !important;
+}
+
+.container-imagens-geradas {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 2rem 0;
+}
+
+.bloco-imagem-gerada {
+    flex: 1;
+    max-width: 400px;
+}
+
+.legenda-imagem {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: #733726;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.img-modernista-gerada {
+    width: 100%;
+    height: auto;
+    border: 2px solid #2b2621;
+    border-radius: 16px;
+    box-shadow: 4px 4px 0px #2b2621;
+}
+
+/* Grid para a seção do Macunaíma (2 colunas iguais) */
+.container-macunaima-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2.5rem !important;
+    max-width: 900px;
+    margin: 2rem auto 4rem auto;
+}
+
+/* Responsividade para Celulares */
+@media (max-width: 768px) {
+    .container-obra-flex, .container-macunaima-grid, .container-imagens-geradas {
+        flex-direction: column !important;
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        padding: 0 1rem;
+    }
+    
+    .espaco-foto-livro {
+        min-height: 250px;
+    }
+}
