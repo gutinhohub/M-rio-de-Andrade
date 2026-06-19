@@ -11,7 +11,7 @@ if (document.getElementById('cardSliderTrack')) {
     const modal = document.getElementById('fullscreenModal');
     const modalImg = document.getElementById('modalImg');
     const modalCaption = document.getElementById('modalCaption');
-    const closeModalBtn = modal.querySelector('.close-modal');
+    const modalProgressBar = document.getElementById('modalProgressBar');
 
     const cardSlides = Array.from(cardTrack.children);
     const totalCardSlides = cardSlides.length;
@@ -25,6 +25,15 @@ if (document.getElementById('cardSliderTrack')) {
         const stepWidth = 100 / totalCardSlides;
         cardProgressBar.style.width = `${stepWidth}%`;
         cardProgressBar.style.transform = `translateX(${currentCardIndex * 100}%)`;
+    }
+
+    // Sincroniza e atualiza a barra de progresso interna do Modal
+    function updateModalProgress() {
+        if (modalProgressBar) {
+            const stepWidth = 100 / totalCardSlides;
+            modalProgressBar.style.width = `${stepWidth}%`;
+            modalProgressBar.style.transform = `translateX(${currentCardIndex * 100}%)`;
+        }
     }
 
     function nextSlide() {
@@ -47,68 +56,62 @@ if (document.getElementById('cardSliderTrack')) {
         if (modal.classList.contains('active')) updateModalContent();
     }
 
-    // Ouvintes dos botões físicos na tela
     cardNextBtn.addEventListener('click', nextSlide);
     cardPrevBtn.addEventListener('click', prevSlide);
 
-    // === NOVO: NAVEGAÇÃO POR TECLADO ===
-    document.addEventListener('keydown', (event) => {
-        if (event.key === "ArrowRight") {
-            nextSlide();
-        } else if (event.key === "ArrowLeft") {
-            prevSlide();
-        } else if (event.key === "Escape" && modal.classList.contains('active')) {
-            closeModal();
-        }
-    });
-
-    // === NOVO: FUNÇÃO DE TELA CHEIA (ZOOM) ===
+    // Captura o clique nos cards para abrir o Zoom de Leitura
     window.zoomCard = function(index) {
         currentCardIndex = index;
         updateCardSlider();
         updateModalContent();
         modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Trava o scroll de fundo
     };
 
     function updateModalContent() {
-        // Oculta a tag <img> já que vamos exibir apenas o texto estilizado
-        if (modalImg) modalImg.style.display = 'none';
-        
-        // Pega o HTML interno do card ativo e joga dentro da caixa de conteúdo do modal
-        const activeCardHtml = cardSlides[currentCardIndex].innerHTML;
-        
-        // Estiliza o container para apresentar o texto em tamanho grande e centralizado
-        modalCaption.style.position = 'static';
-        modalCaption.style.background = 'transparent';
-        modalCaption.style.color = 'var(--parchment)';
-        modalCaption.style.fontSize = '2rem';
-        modalCaption.style.lineHeight = '1.8';
-        modalCaption.style.maxWidth = '800px';
-        modalCaption.style.padding = '2rem';
-        modalCaption.innerHTML = activeCardHtml;
+        const activeSlide = cardSlides[currentCardIndex];
+        if (activeSlide) {
+            // Extrai o texto interno preservando tags HTML como <strong> ou <em>
+            modalCaption.innerHTML = activeSlide.innerHTML;
+            if (modalImg) modalImg.style.display = 'none'; 
+            updateModalProgress();
+        }
     }
 
-    // Configuração para fechar o Modal
-    window.closeModal = function() {
+    function closeModal() {
         modal.classList.remove('active');
-    };
+        document.body.style.overflow = ''; // Liberta o scroll
+    }
 
-    // Fechar ao clicar no botão ou no fundo escuro
+    // Fecha o modal ao clicar fora do card ou no botão fechar
     modal.addEventListener('click', (event) => {
         if (event.target === modal || event.target.classList.contains('close-modal')) {
             closeModal();
         }
     });
     
-    // Vincula também os botões de seta do modal (se existirem) para navegar em tela cheia
+    // Vincula os botões de seta internos do modal
     const modalPrev = modal.querySelector('.prev-modal');
     const modalNext = modal.querySelector('.next-modal');
     if (modalPrev) modalPrev.addEventListener('click', (e) => { e.stopPropagation(); prevSlide(); });
     if (modalNext) modalNext.addEventListener('click', (e) => { e.stopPropagation(); nextSlide(); });
 
-    // Inicialização do slider
+    // Navegação via Teclado (Setas e Esc)
+    document.addEventListener('keydown', (e) => {
+        if (modal.classList.contains('active')) {
+            if (e.key === 'Escape') closeModal();
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        } else if (document.querySelector('.screen.active').contains(cardTrack)) {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        }
+    });
+
+    // Inicialização padrão do slider
     updateCardSlider();
 }
+
 // ==========================================================================
 // 2. CÓDIGO DA BIOGRAFIA (RODA EM QUALQUER TELA / DISPONÍVEL GLOBALMENTE)
 // ==========================================================================
@@ -128,7 +131,6 @@ window.fecharModal = function(idModal) {
     }
 }
 
-// Fecha os modais de biografia ao clicar na área escura de fundo
 window.addEventListener('click', function(event) {
     if (event.target.classList.contains('modal-biografia')) {
         event.target.style.display = 'none';
