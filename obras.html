@@ -21,7 +21,6 @@
 
     <section class="secao-obra">
     <div class="container-obra-flex">
-        <h2 class="section-title">Análise</h2>
         
         <div class="coluna-esquerda-cards">
             <div class="card-analise-bloco">
@@ -36,10 +35,11 @@
         </div>
 
         <div class="coluna-direita-poema">
-    <div class="card-analise-bloco card-com-imagem">
-        <img src="ode.png" alt="Ode ao Burguês - Mário de Andrade" class="imagem-full-card">
-    </div>
-    <div id="modal-poema-ode" class="modal-biografia">
+   <div class="card-analise-bloco card-com-imagem" onclick="abrirModal('modal-poema-ode')" style="cursor: pointer;">
+    <img src="ode.png" alt="Ode ao Burguês - Mário de Andrade" class="imagem-full-card">
+</div>
+
+<div id="modal-poema-ode" class="modal-biografia">
     <div class="modal-conteudo-bio poema-layout">
         <span class="botao-fechar-bio" onclick="fecharModal('modal-poema-ode')">✕</span>
         <h2>Ode ao Burguês</h2>
