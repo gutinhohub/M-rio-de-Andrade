@@ -787,8 +787,8 @@ body {
 }
 
 .espaco-foto-livro img {
-    width: 200% !important;
-    height: 200% !important;
+    width: 500% !important;
+    height: 500% !important;
     object-fit: cover !important; /* Aplica o zoom cobrindo toda a caixa */
     object-position: center 20% !important; /* Foca o topo da página onde começa o texto do poema */
     display: block !important;
