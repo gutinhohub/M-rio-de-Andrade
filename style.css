@@ -327,13 +327,13 @@ body {
     .slider-container { 
         padding: 55px 15px 25px 15px; 
         border-radius: 30px; 
-        width: 90%; /* Mantém margem confortável nas laterais da tela do celular */
+        width: 90%; 
         margin-bottom: 4rem;
     }
     
     .slide-card { 
         padding: 30px 15px; 
-        font-size: 1.05rem; /* Reduz ligeiramente a fonte para caber melhor no mobile */
+        font-size: 1.05rem; 
     }
     
     /* Reposiciona as setas físicas para não cobrirem o texto */
@@ -386,6 +386,7 @@ body {
     .next-modal { right: 10px; }
     .modal-arrow { width: 45px; height: 45px; font-size: 2rem; }
 }
+
 /* ==========================================================================
    ESTILOS EXCLUSIVOS DA BIOGRAFIA (COLE ISTO NO FINAL DO SEU STYLE.CSS)
    ========================================================================== */
@@ -521,13 +522,26 @@ body {
         gap: 1.5rem !important;
     }
 }
-/* Linha decorativa embaixo do título principal */
+
+/* ==========================================================================
+   CONFIGURAÇÃO DO TÍTULO PRINCIPAL E LINHA DECORATIVA (CORRIGIDO)
+   ========================================================================== */
+.section-title {
+    font-family: 'Playfair Display', serif !important;
+    color: var(--burgundy) !important;
+    text-align: center !important;            /* Centraliza o texto do título principal */
+    font-size: 2.5rem !important;
+    margin-top: 1rem !important;
+    margin-bottom: 3rem !important;
+    position: relative !important;
+}
+
 .section-title::after {
-    content: "";
-    display: block;
-    width: 120px;               /* Comprimento da linha */
-    height: 3px;                /* Espessura da linha */
-    background-color: #733726;  /* Cor Vinho (combina com o título) */
-    margin: 0.8rem auto 0 auto; /* Centraliza perfeitamente abaixo do texto */
-    border-radius: 10px;        /* Deixa as pontas da linha levemente arredondadas */
+    content: "" !important;
+    display: block !important;
+    width: 120px !important;               /* Comprimento da linha decorativa */
+    height: 3px !important;                /* Espessura da linha */
+    background-color: var(--burgundy) !important;  /* Cor Vinho oficial */
+    margin: 0.8rem auto 0 auto !important; /* Centraliza perfeitamente abaixo do texto */
+    border-radius: 10px !important;        /* Pontas levemente arredondadas */
 }
