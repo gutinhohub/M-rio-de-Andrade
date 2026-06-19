@@ -770,37 +770,32 @@ body {
         padding: 0 1rem;
     }
     
-    .espaco-foto-livro {
-        min-height: 250px;
-    }
-}
 .espaco-foto-livro {
     flex: 1;
     border: 2px dashed #d4a373;
     border-radius: 12px;
-    background-color: #000000 !important; /* Mantém o fundo preto nas bordas */
-    padding: 0 !important; /* Remove espaços internos */
+    background-color: #000000 !important; 
+    padding: 0 !important; 
     margin-top: 1rem;
-    min-height: 450px; /* Altura ideal para a visualização */
+    min-height: 480px; /* Excelente proporção vertical */
     position: relative;
-    overflow: hidden; /* Garante que nada saia das bordas arredondadas */
+    overflow: hidden; 
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
-/* 2. A Imagem em si (Zoom e Enquadramento) */
 .espaco-foto-livro img {
     width: 100% !important;
     height: 100% !important;
     
-    /* Esta propriedade faz a imagem preencher todo o espaço */
-    object-fit: cover !important;
+    /* Esta propriedade força o papel a esticar e cobrir as faixas pretas laterais */
+    object-fit: cover !important; 
     
-    /* Esta propriedade move o foco para o texto, escondendo a espiral */
-    object-position: 65% 20% !important; 
+    /* Enquadra perfeitamente as estrofes e esconde a espiral */
+    object-position: center 15% !important; 
     
     display: block !important;
+    transform: none !important; /* Remove conflitos com escalas antigas */
 }
 .card-analise-bloco, .card-poema-foto, .slide-card, .modal-card-container {
     position: relative !important;
