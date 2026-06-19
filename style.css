@@ -1,6 +1,3 @@
-/* ==========================================================================
-   VARIÁVEIS GLOBAIS E REGRAS BASE
-   ========================================================================== */
 :root {
     --parchment: #fdfaf1; 
     --ink: #2b2621;      
@@ -24,7 +21,6 @@ body {
     min-height: 100vh;
 }
 
-/* Padrão de Fundo Estilo Selo Modernista */
 .diagonal-bg-pattern {
     position: fixed;
     top: -50%;
@@ -35,635 +31,312 @@ body {
     opacity: 0.05;
     pointer-events: none;
     z-index: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cdefs%3E%3Cpattern id='modernistStamp' width='250' height='250' patternUnits='userSpaceOnUse'%3E%3Cpath d='M0 0h250v250H0z' fill='none'/%3E%3Cpath d='M30 30h190v190H30z' fill='none' stroke='%232b2621' stroke-width='1.5' stroke-dasharray='12,6'/%3E%3Ccircle cx='125' cy='125' r='65' fill='none' stroke='%232b2621' stroke-width='2'/%3E%3Cpath d='M85 85l80 80M165 85l-80 80' stroke='%232b2621' stroke-width='1.5'/%3E%3Ctext x='125' y='132' font-family='Playfair Display, serif' font-size='22' font-weight='bold' fill='%232b2621' text-anchor='middle'%3E1922%3C/text%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23modernistStamp)'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cdefs%3E%3Cpattern id='modernistStamp' width='250' height='250' patternUnits='userSpaceOnUse'%3E%3Cpath d='M30,140 C30,90 60,80 80,110 C90,125 75,160 110,160 C130,160 140,130 140,170 C140,190 30,190 30,140 Z' fill='%232b2621' /%3E%3Ccircle cx='65' cy='75' r='12' fill='%232b2621' /%3E%3Ccircle cx='180' cy='60' r='22' fill='%232b2621' /%3E%3Cpath d='M180,20 L180,30 M180,90 L180,100 M140,60 L150,60 M210,60 L220,60' stroke='%232b2621' stroke-width='6' stroke-linecap='round' /%3E%3Crect x='20' y='20' width='30' height='30' fill='%232b2621' transform='rotate(15 20 20)' /%3E%3Cpolygon points='120,20 150,50 100,60' fill='%232b2621' /%3E%3Cpath d='M200,120 C220,120 230,140 210,160 C190,180 170,150 190,130 Z' fill='%232b2621' /%3E%3Cpath d='M20,210 L20,240 M20,220 Q5,215 5,205 L5,195 M20,230 Q35,225 35,215 L35,200' stroke='%232b2621' stroke-width='5' stroke-linecap='round' fill='none' /%3E%3Cpath d='M90,210 L130,210 M95,218 L125,218 M100,226 L120,226' stroke='%232b2621' stroke-width='3' stroke-linecap='round' /%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23modernistStamp)' /%3E%3C/svg%3E");
 }
 
-/* ==========================================================================
-   MENU DE NAVEGAÇÃO FIXO
-   ========================================================================== */
 .main-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--parchment);
-    border-bottom: 2px solid var(--ink);
+    background-color: var(--burgundy);
+    padding: 1rem;
     display: flex;
     justify-content: center;
     gap: 1.5rem;
-    padding: 1rem 0;
+    position: sticky;
+    top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 20px rgba(43, 38, 33, 0.08);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .nav-btn {
+    display: inline-block;
     text-decoration: none;
-    font-family: 'Lora', serif;
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--ink);
-    padding: 0.5rem 1.5rem;
-    border-radius: 50px;
-    border: 2px solid transparent;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background: none;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 0.6rem 1.4rem;
+    cursor: pointer;
+    font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border-radius: 6px;
 }
 
 .nav-btn:hover {
-    color: var(--burgundy);
-    border-color: var(--burgundy);
-    background-color: rgba(115, 55, 38, 0.04);
+    background-color: var(--accent);
+    color: var(--ink);
 }
 
-.nav-btn.active-nav {
-    background-color: var(--burgundy);
-    color: var(--parchment);
-    border-color: var(--burgundy);
-    box-shadow: 4px 4px 0px var(--ink);
-}
-
-/* ==========================================================================
-   ESTRUTURA DE ECRÃS E CONTAINERS
-   ========================================================================== */
 .screen {
     display: none;
-    padding-top: 100px; /* Margem para não cobrir o menu fixo */
-    min-height: calc(100vh - 60px);
+    min-height: 90vh;
+    padding: 4rem 2rem;
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .screen.active {
     display: block;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-.section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
-    color: var(--burgundy);
-    margin-bottom: 3rem;
-    text-align: center;
-    position: relative;
-}
-
-/* ==========================================================================
-   PÁGINA INICIAL (SLIDER / CARDS ROTATIVOS)
-   ========================================================================== */
 .home-header {
     text-align: center;
-    margin-bottom: 4rem;
-    margin-top: 2rem;
+    margin-bottom: 3rem;
 }
 
 .home-header h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 4.5rem;
+    font-size: 4rem;
     color: var(--burgundy);
-    line-height: 1.1;
-    margin-bottom: 0.5rem;
 }
 
-.tagline {
-    font-family: 'Lora', serif;
-    font-style: italic;
-    font-size: 1.5rem;
-    color: var(--accent);
-    font-weight: 700;
-}
-
-.slider-container {
-    max-width: 800px;
-    margin: 0 auto 6rem auto;
-    position: relative;
-    background: #fdfbf7;
-    border: 3px solid var(--ink);
-    padding: 60px 40px 40px 40px;
-    border-radius: 40px;
-    box-shadow: 12px 12px 0px var(--ink);
-}
-
-.slider-wrapper {
-    overflow: hidden;
-    width: 100%;
-}
-
-.slider-track {
-    display: flex;
-    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
-    width: 100%;
-}
-
-.slide-card {
-    flex: 0 0 100%;
-    width: 100%;
-    padding: 20px 40px;
-    font-family: 'Lora', serif;
+.home-header .tagline {
     font-size: 1.3rem;
-    line-height: 1.8;
     color: var(--ink);
-    text-align: justify;
-    cursor: pointer;
-    transition: opacity 0.3s;
+    opacity: 0.85;
 }
 
-/* Componentes Ornamentais Internos do Slider */
-.papel-pardo {
-    position: absolute;
-    width: 50px;
-    height: 70px;
-    background-color: var(--accent);
-    opacity: 0.3;
-    left: 40px;
-    top: -20px;
-    transform: rotate(-15deg);
-    border: 1px solid var(--ink);
-    z-index: -1;
-}
-
-.papel-verde {
-    position: absolute;
-    width: 75px;
-    height: 50px;
-    background-color: #a3b19b;
-    opacity: 0.4;
-    right: 60px;
-    top: -15px;
-    transform: rotate(10deg);
-    border: 1px solid var(--ink);
-    z-index: -1;
-}
-
-/* Barra de Progresso do Slider */
-.progress-bar-container {
-    position: absolute;
-    top: 35px;
-    left: 25%;
-    width: 50%;
-    height: 4px;
-    background-color: rgba(43, 38, 33, 0.1);
-    border-radius: 2px;
-    overflow: hidden;
-}
-
-.progress-bar {
-    height: 100%;
-    background-color: var(--burgundy);
-    width: 0%;
-    transform: translateX(0%);
-    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1), width 0.6s;
-}
-
-/* Botões de Navegação Física do Slider */
-.nav-card-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: var(--parchment);
-    border: 2px solid var(--ink);
-    width: 44px;
-    height: 54px;
-    font-size: 1.4rem;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--ink);
-    box-shadow: 3px 3px 0px var(--ink);
-}
-
-.card-prev { left: -22px; border-radius: 12px 4px 4px 12px; }
-.card-next { right: -22px; border-radius: 4px 12px 12px 4px; }
-
-.nav-card-btn:hover {
-    background: var(--burgundy);
-    color: var(--parchment);
-    transform: translateY(-50%) translate(-2px, -2px);
-    box-shadow: 5px 5px 0px var(--ink);
-}
-
-.nav-card-btn:active {
-    transform: translateY(-50%) translate(0, 0);
-    box-shadow: 1px 1px 0px var(--ink);
-}
-
-/* ==========================================================================
-   PÁGINA DE ANÁLISE DAS OBRAS (LAYOUT EM BLOCOS DINÂMICOS)
-   ========================================================================== */
-.obra-secao {
-    margin-bottom: 5rem;
-}
-
-.obra-card {
-    background-color: #fdfbf7;
-    border: 2px solid var(--ink);
-    border-radius: 24px;
-    padding: 2.5rem;
-    margin-bottom: 2.5rem;
-    box-shadow: 6px 6px 0px var(--ink);
-    position: relative;
-    overflow: hidden;
-}
-
-.content-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-    align-items: stretch;
-}
-
-.obra-header {
-    border-bottom: 1px dashed var(--accent);
-    padding-bottom: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.obra-header h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    color: var(--burgundy);
-}
-
-.obra-sub {
-    font-family: 'Lora', serif;
-    font-style: italic;
-    color: var(--accent);
-    font-weight: bold;
-    font-size: 1rem;
-}
-
-.obra-texto p {
-    font-size: 1.15rem;
-    line-height: 1.7;
-    text-align: justify;
-    margin-bottom: 1.5rem;
-}
-
-/* Trecho / Citação em Destaque */
-.extract {
-    background-color: rgba(212, 163, 115, 0.1);
-    border-left: 4px solid var(--accent);
-    padding: 1.2rem;
-    font-style: italic;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    border-radius: 0 8px 8px 0;
-}
-
-/* Bloco de Análise Crítica */
-.analysis {
-    background-color: rgba(115, 55, 38, 0.03);
-    border: 1px solid rgba(115, 55, 38, 0.15);
-    padding: 1.2rem;
-    font-size: 1.05rem;
-    line-height: 1.6;
-    border-radius: 12px;
-}
-
-/* Imagens com Moldura e Efeito */
-.obra-imagem img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 16px;
-    border: 2px solid var(--ink);
-    box-shadow: 4px 4px 0px var(--ink);
-    transition: transform 0.3s ease;
-}
-
-.obra-imagem img:hover {
-    transform: scale(1.02);
-}
-
-/* ==========================================================================
-   SISTEMA DE GRID 2x2 DA BIOGRAFIA (CARDS GATILHOS CURTOS)
-   ========================================================================== */
-.grid-gatilhos {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-    margin-top: 2rem;
-    margin-bottom: 4rem;
-}
-
-.card-gatilho {
-    background-color: #fdfbf7;
-    border: 2px solid var(--ink);
-    border-radius: 20px;
-    padding: 2.2rem;
-    cursor: pointer;
-    position: relative;
-    box-shadow: 6px 6px 0px var(--ink);
-    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.2s ease, border-color 0.2s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.card-gatilho:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 9px 9px 0px var(--burgundy);
-    border-color: var(--burgundy);
-}
-
-.card-gatilho h3 {
-    font-family: 'Playfair Display', serif;
-    color: var(--burgundy);
-    font-size: 1.6rem;
-    margin-bottom: 0.8rem;
-}
-
-.card-gatilho p {
-    font-family: 'Lora', serif;
-    color: var(--ink);
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    text-align: justify;
-}
-
-.leia-mais {
-    font-family: 'Lora', serif;
-    font-size: 0.85rem;
-    font-weight: bold;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    align-self: flex-start;
-    border-bottom: 1px dashed var(--accent);
-    padding-bottom: 2px;
-    transition: color 0.2s;
-}
-
-.card-gatilho:hover .leia-mais {
-    color: var(--burgundy);
-    border-color: var(--burgundy);
-}
-
-/* ==========================================================================
-   JANELAS FLUTUANTES (SISTEMA DE MODAIS DA BIOGRAFIA)
-   ========================================================================== */
-.modal-biografia {
-    display: none; /* Controlado via JS globalmente */
+.modal {
+    display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0; width: 100%; height: 100%;
     background-color: var(--modal-bg);
-    z-index: 99999; /* Fica à frente de absolutamente tudo */
+    z-index: 9999;
     justify-content: center;
     align-items: center;
     padding: 2rem;
 }
 
-.modal-conteudo-bio {
-    background-color: var(--parchment) !important;
-    border: 3px solid var(--accent);
-    padding: 3.5rem 2.5rem;
-    border-radius: 24px;
-    max-width: 680px;
-    width: 100%;
+.modal.active { display: flex; }
+
+.modal-content {
     position: relative;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-    color: var(--ink) !important;
-    animation: surgimentoModal 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    max-width: 75vw;
+    border-radius: 24px;
+    overflow: hidden;
 }
 
-@keyframes surgimentoModal {
-    from { transform: scale(0.93); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-.botao-fechar-bio {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    font-size: 2.2rem;
-    color: var(--burgundy) !important;
-    cursor: pointer;
-    line-height: 1;
-    transition: transform 0.2s, color 0.2s;
-}
-
-.botao-fechar-bio:hover {
-    color: var(--accent) !important;
-    transform: scale(1.15);
-}
-
-.modal-conteudo-bio h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.4rem;
-    color: var(--burgundy) !important;
-    margin-bottom: 0.5rem;
-}
-
-.modal-conteudo-bio hr {
-    border: 0;
-    border-top: 1px dashed var(--accent);
-    margin-bottom: 1.5rem;
-}
-
-.modal-conteudo-bio p {
-    font-family: 'Lora', serif;
-    font-size: 1.15rem;
-    line-height: 1.8;
-    color: var(--ink) !important;
-    margin-bottom: 1.2rem;
-    text-align: justify;
-}
-
-.modal-conteudo-bio p em {
-    font-style: italic;
-    color: var(--burgundy) !important;
-}
-
-.modal-conteudo-bio p:last-child {
-    margin-bottom: 0;
-}
-
-/* ==========================================================================
-   MODAL DE ZOOM EM TEXTO (PÁGINA INICIAL)
-   ========================================================================== */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--modal-bg);
-    z-index: 10000;
-    justify-content: center;
-    align-items: center;
-    user-select: none;
+.modal-content img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border: 3px solid var(--accent);
+    border-radius: 24px;
 }
 
 .close-modal {
     position: absolute;
     top: 30px;
     right: 40px;
-    color: var(--parchment);
-    font-size: 1.3rem;
-    font-family: 'Lora', serif;
-    font-weight: 700;
+    color: var(--accent);
+    font-size: 1.2rem;
     cursor: pointer;
-    z-index: 10100;
-    background: rgba(115, 55, 38, 0.2);
-    padding: 0.5rem 1.2rem;
-    border-radius: 50px;
-    border: 1px solid rgba(253, 250, 241, 0.2);
-    transition: all 0.2s;
-}
-
-.close-modal:hover {
-    background: var(--burgundy);
-    color: var(--parchment);
-}
-
-.modal-content {
-    max-width: 85vw;
-    max-height: 85vh;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-#modalImg {
-    display: none; /* Ocultado por padrão já que usamos zoom de texto */
-}
-
-/* Caixa elegante para o texto dentro do modal */
-.modal-text-content {
-    background-color: var(--parchment);
-    color: var(--ink);
-    padding: 3.5rem 3rem;
-    border-radius: 24px;
-    max-width: 700px;
-    width: 90%;
-    margin: 0 auto;
-    border: 3px solid var(--accent);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    animation: surgimentoModal 0.3s ease-out;
-}
-
-.modal-text-content p {
-    font-family: 'Lora', serif;
-    font-size: 1.4rem;
-    line-height: 1.8;
-    color: var(--ink);
-    text-align: justify;
-}
-
-.modal-text-content p strong {
-    color: var(--burgundy);
+    text-transform: uppercase;
     font-family: 'Playfair Display', serif;
-    font-size: 1.7rem;
-    display: block;
-    margin-bottom: 1rem;
-    text-align: center;
-}
-
-.modal-caption {
-    display: none;
+    z-index: 10000;
 }
 
 .modal-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: 2px solid rgba(253, 250, 241, 0.3);
-    color: var(--parchment);
-    width: 55px;
-    height: 55px;
-    font-size: 2.2rem;
+    background: none;
+    border: 1px solid rgba(212, 163, 115, 0.4);
+    color: var(--accent);
+    font-size: 3rem;
+    width: 60px;
+    height: 60px;
     cursor: pointer;
-    border-radius: 50%;
-    z-index: 10100;
-    transition: all 0.2s;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2015;
+    transition: all 0.2s;
 }
 
 .modal-arrow:hover {
-    background: var(--burgundy);
-    border-color: var(--burgundy);
-    color: var(--parchment);
+    background-color: var(--accent);
+    color: var(--ink);
 }
 
 .prev-modal { left: 40px; }
 .next-modal { right: 40px; }
 
+.container { 
+    max-width: 900px; 
+    margin: 0 auto; 
+}
+
+.main-footer { 
+    background-color: var(--burgundy); 
+    color: var(--accent); 
+    text-align: center; 
+    text-transform: uppercase;
+    padding: 0.8rem; 
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2000; 
+}
+
 /* ==========================================================================
-   RODAPÉ DO PORTAL
+   ESTILOS DO SLIDER MODERNISTA DE COMPONENTES + RESPONSIVIDADE DO CELULAR
    ========================================================================== */
-.main-footer {
-    border-top: 2px solid var(--ink);
-    background-color: #f6f2e8;
-    padding: 2rem;
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 820px;
+    background-color: #d1cbb7; 
+    border: 3px solid var(--ink);
+    border-radius: 50px;
+    padding: 70px 40px 40px 40px;
+    box-sizing: border-box;
+    margin: 0 auto 5rem auto;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* Base Comum dos Elementos Decorativos Estilo Recortes */
+.card-deco {
+    position: absolute;
+    pointer-events: none; 
+    z-index: 1; 
+    box-shadow: 2px 3px 6px rgba(0,0,0,0.12);
+    border: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Recorte de Papel Pardo Superior Esquerdo */
+.papel-pardo {
+    top: -16px;
+    left: 45px;
+    width: 55px;
+    height: 75px;
+    background-color: #bfa07d;
+    transform: rotate(-12deg);
+    border-radius: 2px;
+}
+
+/* Recorte de Papel Verde Inferior Direito */
+.papel-verde {
+    bottom: -16px;
+    right: 65px;
+    width: 80px;
+    height: 55px;
+    background-color: #8da572;
+    transform: rotate(8deg);
+    border-radius: 3px;
+}
+
+/* Fita Azul Serrilhada Inferior Esquerda */
+.fita-azul {
+    bottom: -18px;
+    left: 55px;
+    width: 145px;
+    height: 28px;
+    background-color: #3c5aa7;
+    transform: rotate(-3deg);
+    box-shadow: 2px 4px 5px rgba(0,0,0,0.15);
+    clip-path: polygon(0 20%, 10% 0, 20% 20%, 30% 0, 40% 20%, 50% 0, 60% 20%, 70% 0, 80% 20%, 90% 0, 100% 20%, 100% 80%, 90% 100%, 80% 80%, 70% 100%, 60% 80%, 50% 100%, 40% 80%, 30% 100%, 20% 80%, 10% 100%, 0 80%);
+}
+
+/* Barra de Progresso Superior */
+.progress-bar-container {
+    position: absolute;
+    top: 32px;
+    left: 15%;
+    width: 70%;
+    height: 12px;
+    background-color: #5c8d93; 
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 25%; 
+    background-color: #ffffff;
+    border-radius: 10px;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    transform-origin: left;
+}
+
+/* Janela de Máscara */
+.slider-wrapper {
+    overflow: hidden;
+    width: 100%;
+    background: #fdfbf7; 
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.05);
+    position: relative;
+    z-index: 2; 
+}
+
+/* Linha contínua flexível */
+.slider-track {
+    display: flex;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    width: 100%;
+}
+
+/* Caixas dos componentes */
+.slide-card {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 45px 50px;
     text-align: center;
     font-family: 'Lora', serif;
-    font-size: 1.05rem;
+    font-size: 1.2rem;
+    line-height: 1.7;
     color: var(--ink);
-    font-weight: bold;
-    position: relative;
-    z-index: 5;
-    margin-top: auto;
 }
+
+/* Botões de Direção Laterais (Setas) */
+.nav-card-btn {
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    background-color: var(--accent);
+    border: 2px solid var(--ink);
+    border-radius: 6px;
+    width: 42px;
+    height: 52px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.1s;
+    z-index: 10;
+}
+
+.nav-card-btn:hover { background-color: #c59363; }
+.nav-card-btn:active { transform: translateY(-50%) scale(0.95); }
+
+.card-prev { left: -16px; }
+.card-next { right: -16px; }
 
 /* ==========================================================================
-   RESPONSIVIDADE COMPLETA (MOBILE E TABLETS)
+   CONFIGURAÇÃO RESPONSIVA - ADAPTAÇÃO PARA COMPUTADORES PEQUENOS E CELULARES
    ========================================================================== */
-@media (max-width: 1024px) {
-    .content-grid, .grid-gatilhos {
-        gap: 1.5rem;
-    }
-}
-
 @media (max-width: 768px) {
-    .section-title { font-size: 2.2rem; }
-    .home-header h1 { font-size: 2.8rem; }
-    .tagline { font-size: 1.2rem; }
+    .home-header h1 { font-size: 2.4rem; }
+    .home-header .tagline { font-size: 1.1rem; }
     
-    .main-nav {
-        gap: 0.5rem;
-        padding: 0.8rem 0.2rem;
-    }
-    
-    .nav-btn {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.8rem;
-    }
-    
-    /* Grid passa a empilhar em uma única coluna */
-    .content-grid, .grid-gatilhos {
-        grid-template-columns: 1fr !important;
-    }
-    
-    .slider-container {
-        padding: 45px 25px 25px 15px; 
+    .slider-container { 
+        padding: 55px 15px 25px 15px; 
         border-radius: 30px; 
-        width: 90%; 
+        width: 90%; /* Mantém margem confortável nas laterais da tela do celular */
         margin-bottom: 4rem;
     }
     
     .slide-card { 
         padding: 30px 15px; 
-        font-size: 1.05rem; 
+        font-size: 1.05rem; /* Reduz ligeiramente a fonte para caber melhor no mobile */
     }
     
+    /* Reposiciona as setas físicas para não cobrirem o texto */
     .nav-card-btn {
         width: 36px;
         height: 44px;
@@ -678,23 +351,173 @@ body {
         top: 24px;
     }
 
-    .papel-pardo { width: 36px; height: 52px; left: 20px; top: -12px; }
-    .papel-verde { width: 55px; height: 38px; right: 30px; top: -10px; }
-    
-    /* Ajustes dos Modais no Telemóvel */
-    .modal-conteudo-bio, .modal-text-content {
-        padding: 2.5rem 1.5rem;
-        max-height: 85vh;
-        overflow-y: auto;
+    /* Redimensiona proporcionalmente os ornamentos para telas de celular */
+    .papel-pardo {
+        width: 36px;
+        height: 52px;
+        left: 20px;
+        top: -12px;
+    }
+
+    .papel-verde {
+        width: 55px;
+        height: 38px;
+        right: 30px;
+        bottom: -12px;
+    }
+
+    .fita-azul {
+        width: 95px;
+        height: 18px;
+        left: 20px;
+        bottom: -10px;
     }
     
-    .modal-conteudo-bio h2 { font-size: 1.8rem; }
-    .modal-text-content p { font-size: 1.15rem; }
-    .modal-text-content p strong { font-size: 1.4rem; }
-    
-    .close-modal { top: 15px; right: 15px; font-size: 1.1rem; padding: 0.4rem 1rem; }
-    .modal-content { max-width: 90vw; }
+    /* Configuração responsiva do Modal em Tela Cheia */
+    .modal-content {
+        max-width: 90vw;
+    }
+    .modal-caption {
+        font-size: 1.3rem !important;
+        padding: 1.2rem !important;
+        line-height: 1.6 !important;
+    }
     .prev-modal { left: 10px; }
     .next-modal { right: 10px; }
     .modal-arrow { width: 45px; height: 45px; font-size: 2rem; }
+    /* ==========================================================================
+   LAYOUT GRID 2x2 PARA OS CARDS DA BIOGRAFIA
+   ========================================================================== */
+.grid-gatilhos {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Cria duas colunas idênticas */
+    gap: 2rem;                      /* Espaçamento perfeito entre os cards */
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+}
+
+/* Estilização individual de cada Card */
+.card-gatilho {
+    background-color: #fdfbf7;      /* Fundo claro marfim combinando com as obras */
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    padding: 2rem;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 4px 4px 0px var(--ink); /* Sombra sólida igual à das fotos anteriores */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Efeito sutil ao passar o rato por cima do card */
+.card-gatilho:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px var(--burgundy);
+    border-color: var(--burgundy);
+}
+
+/* Títulos dentro dos Cards */
+.card-gatilho h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--burgundy);
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+}
+
+/* Pequeno texto descritivo */
+.card-gatilho p {
+    font-family: 'Lora', serif;
+    color: var(--ink);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* O indicador "Clique para ler tudo" no fundo do card */
+.leia-mais {
+    font-family: 'Lora', serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    align-self: flex-start;
+    border-bottom: 1px dashed var(--accent);
+    padding-bottom: 2px;
+}
+
+/* ==========================================================================
+   ESTILOS ADICIONAIS PARA OS MODAIS DA BIOGRAFIA
+   ========================================================================== */
+.modal-biografia {
+    display: none; /* Controlado via JS */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--modal-bg);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.modal-conteudo-bio {
+    background-color: var(--parchment);
+    border: 3px solid var(--accent);
+    padding: 3rem 2.5rem;
+    border-radius: 24px;
+    max-width: 680px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    color: var(--ink);
+}
+
+.botao-fechar-bio {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 2rem;
+    color: var(--burgundy);
+    cursor: pointer;
+}
+
+.modal-conteudo-bio h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--burgundy);
+    margin-bottom: 0.5rem;
+}
+
+.modal-conteudo-bio hr {
+    border: 0;
+    border-top: 1px dashed var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.modal-conteudo-bio p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+    text-align: justify;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (CELULAR)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .grid-gatilhos {
+        grid-template-columns: 1fr; /* Vira uma coluna única no telemóvel */
+        gap: 1.5rem;
+    }
+    .modal-conteudo-bio {
+        padding: 2rem 1.5rem;
+        max-height: 85vh;
+        overflow-y: auto; /* Permite scroll se o texto for longo no ecrã pequeno */
+    }
+}
 }
