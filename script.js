@@ -113,26 +113,30 @@ if (document.getElementById('cardSliderTrack')) {
 }
 
 // ==========================================================================
-// 2. CÓDIGO DA BIOGRAFIA (RODA EM QUALQUER TELA / DISPONÍVEL GLOBALMENTE)
+// 2. CÓDIGO DE MODAIS GLOBAIS (BIOGRAFIA E POEMAS)
 // ==========================================================================
 window.abrirModal = function(idModal) {
-    const bioModal = document.getElementById(idModal);
-    if (bioModal) {
-        bioModal.style.display = 'flex';
+    const alvoModal = document.getElementById(idModal);
+    if (alvoModal) {
+        alvoModal.style.setProperty('display', 'flex', 'important');
+        document.body.classList.add('modal-aberto');
     } else {
-        console.error('Modal de biografia não encontrado: ' + idModal);
+        console.error('Modal não encontrado: ' + idModal);
     }
 }
 
 window.fecharModal = function(idModal) {
-    const bioModal = document.getElementById(idModal);
-    if (bioModal) {
-        bioModal.style.display = 'none';
+    const alvoModal = document.getElementById(idModal);
+    if (alvoModal) {
+        alvoModal.style.setProperty('display', 'none', 'important');
+        document.body.classList.remove('modal-aberto');
     }
 }
 
+// Fecha qualquer modal ao clicar na área escura de fundo de forma segura
 window.addEventListener('click', function(event) {
     if (event.target.classList.contains('modal-biografia')) {
-        event.target.style.display = 'none';
+        event.target.style.setProperty('display', 'none', 'important');
+        document.body.classList.remove('modal-aberto');
     }
 });
