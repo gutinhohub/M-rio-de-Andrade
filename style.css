@@ -798,24 +798,26 @@ body {
     transform-origin: 52% 28% !important; /* Centraliza o zoom exatamente nas primeiras estrofes do poema */
     display: block !important;
 }
-.card-analise-bloco, .card-poema-foto {
+.card-analise-bloco, .card-poema-foto, .slide-card {
     position: relative !important;
-    padding-left: 3.2rem !important; /* Aumenta um pouco o espaço interno esquerdo para acomodar a linha */
+    padding-left: 3.5rem !important; /* Espaço extra na esquerda para a barra e o texto não colarem */
+    overflow: visible !important;    /* Impede que o CSS esconda a barra vertical */
 }
 
-/* A estrutura da linha vertical indicadora */
-.card-analise-bloco::before, .card-poema-foto::before {
-    content: "";
-    position: absolute;
-    top: 2rem;      /* Alinhado com o início do padding do card */
-    bottom: 2rem;   /* Alinhado com o fim do padding do card */
-    left: 1.2rem;   /* Posicionado bem no canto esquerdo interno */
-    width: 6px;     /* Espessura da linha vertical */
-    border-radius: 10px;
-    background-color: transparent; /* Por padrão começa transparente */
+/* Estrutura corrigida e visível da linha vertical */
+.card-analise-bloco::before, .card-poema-foto::before, .slide-card::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 25px !important;       /* Alinhado verticalmente com o topo interno */
+    bottom: 25px !important;    /* Alinhado verticalmente com a base interna */
+    left: 1.5rem !important;    /* Afastamento ideal da borda esquerda do card */
+    width: 6px !important;      /* Espessura bem visível da linha */
+    border-radius: 4px !important;
+    z-index: 10 !important;     /* Força a barra a ficar por cima do fundo do card */
+    background-color: transparent; 
 }
 
-/* Classes específicas para cada leitor (Basta adicionar a classe no HTML do card) */
+/* Classes que aplicam as cores oficiais de cada leitor */
 .leitor-vicenty::before {
     background-color: var(--vicenty) !important;
 }
