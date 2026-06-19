@@ -781,14 +781,14 @@ body {
     background-color: #000000 !important; /* Mantém o fundo preto */
     padding: 0 !important; /* Remove o espaço interno para a imagem ocupar tudo */
     margin-top: 1rem;
-    min-height: 1000px; /* Dá uma altura boa para visualização */
+    min-height: 450px; /* Dá uma altura boa para visualização */
     position: relative;
     overflow: hidden; /* Garante que o zoom fique contido dentro das bordas arredondadas */
 }
 
 .espaco-foto-livro img {
-    width: 100% !important;
-    height: 100% !important;
+    width: 200% !important;
+    height: 200% !important;
     object-fit: cover !important; /* Aplica o zoom cobrindo toda a caixa */
     object-position: center 20% !important; /* Foca o topo da página onde começa o texto do poema */
     display: block !important;
