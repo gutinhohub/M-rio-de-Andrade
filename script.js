@@ -31,90 +31,84 @@ if (document.getElementById('cardSliderTrack')) {
         if (currentCardIndex < totalCardSlides - 1) {
             currentCardIndex++;
         } else {
-            currentCardIndex = 0; // Retorna ao primeiro card de forma cíclica
+            currentCardIndex = 0;
         }
         updateCardSlider();
-        if (modal.classList.contains('active')) {
-            updateModalContent();
-        }
+        if (modal.classList.contains('active')) updateModalContent();
     }
 
     function prevSlide() {
         if (currentCardIndex > 0) {
             currentCardIndex--;
         } else {
-            currentCardIndex = totalCardSlides - 1; // Vai para o último card
+            currentCardIndex = totalCardSlides - 1;
         }
         updateCardSlider();
-        if (modal.classList.contains('active')) {
-            updateModalContent();
-        }
+        if (modal.classList.contains('active')) updateModalContent();
     }
 
-    // Função que alimenta o conteúdo do modal de zoom de forma limpa e estruturada
-    function updateModalContent() {
-        if (modalImg) modalImg.style.display = 'none';
-        
-        // Pega o parágrafo ou conteúdo que está dentro do card ativo do slider
-        const activeCardHtml = cardSlides[currentCardIndex].innerHTML;
-        
-        // Remove estilos antigos injetados
-        modalCaption.removeAttribute('style');
-        
-        // Adiciona a classe correta para estilização via CSS
-        modalCaption.className = 'modal-text-content';
-        modalCaption.innerHTML = activeCardHtml;
-    }
-
-    function openModal() {
-        modal.classList.add('active');
-        document.body.classList.add('modal-aberto'); // Classe auxiliar para sumir com o footer
-        updateModalContent();
-    }
-
-    function closeModal() {
-        modal.classList.remove('active');
-        document.body.classList.remove('modal-aberto');
-    }
-
-    // Vincula a função zoomCard globalmente para os cliques nos cards do index.html
-    window.zoomCard = function(index) {
-        currentCardIndex = index;
-        updateCardSlider();
-        openModal();
-    };
-
-    // Ouvintes de Eventos para os botões do Slider
+    // Ouvintes dos botões físicos na tela
     cardNextBtn.addEventListener('click', nextSlide);
     cardPrevBtn.addEventListener('click', prevSlide);
 
-    // Navegação Avançada via Teclado (Setas e Esc)
+    // === NOVO: NAVEGAÇÃO POR TECLADO ===
     document.addEventListener('keydown', (event) => {
-        if (event.key === 'ArrowRight') {
+        if (event.key === "ArrowRight") {
             nextSlide();
-        } else if (event.key === 'ArrowLeft') {
+        } else if (event.key === "ArrowLeft") {
             prevSlide();
-        } else if (event.key === 'Escape' && modal.classList.contains('active')) {
+        } else if (event.key === "Escape" && modal.classList.contains('active')) {
             closeModal();
         }
     });
 
-    // Fecha o modal ao clicar no botão 'Fechar' ou fora da caixa de conteúdo
+    // === NOVO: FUNÇÃO DE TELA CHEIA (ZOOM) ===
+    window.zoomCard = function(index) {
+        currentCardIndex = index;
+        updateCardSlider();
+        updateModalContent();
+        modal.classList.add('active');
+    };
+
+    function updateModalContent() {
+        // Oculta a tag <img> já que vamos exibir apenas o texto estilizado
+        if (modalImg) modalImg.style.display = 'none';
+        
+        // Pega o HTML interno do card ativo e joga dentro da caixa de conteúdo do modal
+        const activeCardHtml = cardSlides[currentCardIndex].innerHTML;
+        
+        // Estiliza o container para apresentar o texto em tamanho grande e centralizado
+        modalCaption.style.position = 'static';
+        modalCaption.style.background = 'transparent';
+        modalCaption.style.color = 'var(--parchment)';
+        modalCaption.style.fontSize = '2rem';
+        modalCaption.style.lineHeight = '1.8';
+        modalCaption.style.maxWidth = '800px';
+        modalCaption.style.padding = '2rem';
+        modalCaption.innerHTML = activeCardHtml;
+    }
+
+    // Configuração para fechar o Modal
+    window.closeModal = function() {
+        modal.classList.remove('active');
+    };
+
+    // Fechar ao clicar no botão ou no fundo escuro
     modal.addEventListener('click', (event) => {
         if (event.target === modal || event.target.classList.contains('close-modal')) {
             closeModal();
         }
     });
     
-    // Vincula também os botões de seta do modal para navegar em tela cheia
+    // Vincula também os botões de seta do modal (se existirem) para navegar em tela cheia
     const modalPrev = modal.querySelector('.prev-modal');
     const modalNext = modal.querySelector('.next-modal');
     if (modalPrev) modalPrev.addEventListener('click', (e) => { e.stopPropagation(); prevSlide(); });
     if (modalNext) modalNext.addEventListener('click', (e) => { e.stopPropagation(); nextSlide(); });
 
+    // Inicialização do slider
     updateCardSlider();
 }
-
 // ==========================================================================
 // 2. CÓDIGO DA BIOGRAFIA (RODA EM QUALQUER TELA / DISPONÍVEL GLOBALMENTE)
 // ==========================================================================
@@ -122,7 +116,6 @@ window.abrirModal = function(idModal) {
     const bioModal = document.getElementById(idModal);
     if (bioModal) {
         bioModal.style.display = 'flex';
-        document.body.classList.add('modal-aberto'); // Oculta o footer quando aberto
     } else {
         console.error('Modal de biografia não encontrado: ' + idModal);
     }
@@ -132,7 +125,6 @@ window.fecharModal = function(idModal) {
     const bioModal = document.getElementById(idModal);
     if (bioModal) {
         bioModal.style.display = 'none';
-        document.body.classList.remove('modal-aberto'); // Reexibe o footer ao fechar
     }
 }
 
@@ -140,6 +132,5 @@ window.fecharModal = function(idModal) {
 window.addEventListener('click', function(event) {
     if (event.target.classList.contains('modal-biografia')) {
         event.target.style.display = 'none';
-        document.body.classList.remove('modal-aberto');
     }
 });
