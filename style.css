@@ -385,139 +385,139 @@ body {
     .prev-modal { left: 10px; }
     .next-modal { right: 10px; }
     .modal-arrow { width: 45px; height: 45px; font-size: 2rem; }
-    /* ==========================================================================
-   LAYOUT GRID 2x2 PARA OS CARDS DA BIOGRAFIA
-   ========================================================================== */
-.grid-gatilhos {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Cria duas colunas idênticas */
-    gap: 2rem;                      /* Espaçamento perfeito entre os cards */
-    margin-top: 3rem;
-    margin-bottom: 4rem;
 }
-
-/* Estilização individual de cada Card */
-.card-gatilho {
-    background-color: #fdfbf7;      /* Fundo claro marfim combinando com as obras */
-    border: 2px solid var(--ink);
-    border-radius: 16px;
-    padding: 2rem;
-    cursor: pointer;
-    position: relative;
-    box-shadow: 4px 4px 0px var(--ink); /* Sombra sólida igual à das fotos anteriores */
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-/* Efeito sutil ao passar o rato por cima do card */
-.card-gatilho:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0px var(--burgundy);
-    border-color: var(--burgundy);
-}
-
-/* Títulos dentro dos Cards */
-.card-gatilho h3 {
-    font-family: 'Playfair Display', serif;
-    color: var(--burgundy);
-    font-size: 1.4rem;
-    margin-bottom: 0.8rem;
-}
-
-/* Pequeno texto descritivo */
-.card-gatilho p {
-    font-family: 'Lora', serif;
-    color: var(--ink);
-    font-size: 1.05rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-}
-
-/* O indicador "Clique para ler tudo" no fundo do card */
-.leia-mais {
-    font-family: 'Lora', serif;
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    align-self: flex-start;
-    border-bottom: 1px dashed var(--accent);
-    padding-bottom: 2px;
-}
-
 /* ==========================================================================
-   ESTILOS ADICIONAIS PARA OS MODAIS DA BIOGRAFIA
+   ESTILOS EXCLUSIVOS DA BIOGRAFIA (COLE ISTO NO FINAL DO SEU STYLE.CSS)
    ========================================================================== */
+
+/* Força o alinhamento dos cards em formato de grade 2x2 */
+.grid-gatilhos {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2.5rem !important;
+    margin-top: 2rem !important;
+    margin-bottom: 4rem !important;
+}
+
+/* Estilo individual de cada card gatilho */
+.card-gatilho {
+    background-color: #fdfbf7 !important;
+    border: 2px solid #2b2621 !important;
+    border-radius: 20px !important;
+    padding: 2.2rem !important;
+    cursor: pointer !important;
+    position: relative !important;
+    box-shadow: 6px 6px 0px #2b2621 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+}
+
+/* Efeito de clique/hover Modernista nos cards */
+.card-gatilho:hover {
+    transform: translate(-3px, -3px) !important;
+    box-shadow: 9px 9px 0px #733726 !important;
+    border-color: #733726 !important;
+}
+
+.card-gatilho h3 {
+    font-family: 'Playfair Display', serif !important;
+    color: #733726 !important;
+    font-size: 1.6rem !important;
+    margin-bottom: 0.8rem !important;
+    text-align: left !important;
+}
+
+.card-gatilho p {
+    font-family: 'Lora', serif !important;
+    color: #2b2621 !important;
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.5rem !important;
+    text-align: justify !important;
+}
+
+.leia-mais {
+    font-family: 'Lora', serif !important;
+    font-size: 0.85rem !important;
+    font-weight: bold !important;
+    color: #d4a373 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    align-self: flex-start !important;
+    border-bottom: 1px dashed #d4a373 !important;
+    padding-bottom: 2px !important;
+}
+
+.card-gatilho:hover .leia-mais {
+    color: #733726 !important;
+    border-color: #733726 !important;
+}
+
+/* Mantém as janelas modais flutuantes escondidas por padrão */
 .modal-biografia {
-    display: none; /* Controlado via JS */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--modal-bg);
-    z-index: 9999;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
+    display: none; 
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: rgba(12, 10, 9, 0.96) !important;
+    z-index: 99999 !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 2rem !important;
 }
 
 .modal-conteudo-bio {
-    background-color: var(--parchment);
-    border: 3px solid var(--accent);
-    padding: 3rem 2.5rem;
-    border-radius: 24px;
-    max-width: 680px;
-    width: 100%;
-    position: relative;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    color: var(--ink);
+    background-color: #fdfaf1 !important;
+    border: 3px solid #d4a373 !important;
+    padding: 3.5rem 2.5rem !important;
+    border-radius: 24px !important;
+    max-width: 680px !important;
+    width: 100% !important;
+    position: relative !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6) !important;
+    color: #2b2621 !important;
 }
 
 .botao-fechar-bio {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    font-size: 2rem;
-    color: var(--burgundy);
-    cursor: pointer;
+    position: absolute !important;
+    top: 20px !important;
+    right: 25px !important;
+    font-size: 2.2rem !important;
+    color: #733726 !important;
+    cursor: pointer !important;
+    line-height: 1 !important;
 }
 
 .modal-conteudo-bio h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    color: var(--burgundy);
-    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif !important;
+    font-size: 2.4rem !important;
+    color: #733726 !important;
+    margin-bottom: 0.5rem !important;
 }
 
 .modal-conteudo-bio hr {
-    border: 0;
-    border-top: 1px dashed var(--accent);
-    margin-bottom: 1.5rem;
+    border: 0 !important;
+    border-top: 1px dashed #d4a373 !important;
+    margin-bottom: 1.5rem !important;
 }
 
 .modal-conteudo-bio p {
-    font-size: 1.15rem;
-    line-height: 1.8;
-    margin-bottom: 1.2rem;
-    text-align: justify;
+    font-family: 'Lora', serif !important;
+    font-size: 1.15rem !important;
+    line-height: 1.8 !important;
+    color: #2b2621 !important;
+    margin-bottom: 1.2rem !important;
+    text-align: justify !important;
 }
 
-/* ==========================================================================
-   RESPONSIVIDADE (CELULAR)
-   ========================================================================== */
+/* Responsividade: Transforma em 1 coluna apenas em telas pequenas */
 @media (max-width: 768px) {
     .grid-gatilhos {
-        grid-template-columns: 1fr; /* Vira uma coluna única no telemóvel */
-        gap: 1.5rem;
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
     }
-    .modal-conteudo-bio {
-        padding: 2rem 1.5rem;
-        max-height: 85vh;
-        overflow-y: auto; /* Permite scroll se o texto for longo no ecrã pequeno */
-    }
-}
 }
