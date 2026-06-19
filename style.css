@@ -866,18 +866,61 @@ body {
 }
 
 
-/* 2. Ajustes para o Modal que abre com a Letra do Poema */
-.modal-biografia {
-    overflow-y: auto !important; /* Permite rolar para baixo se o poema for longo */
+/* ==========================================================================
+   CORREÇÃO DO MODAL DE POEMA (ODE)
+   ========================================================================== */
+
+/* 1. Ajustes para o Card que segura a imagem ode.png */
+.card-analise-bloco.card-com-imagem {
+    padding: 0 !important;
+    overflow: hidden; 
+    display: flex;
+    position: relative;
+    cursor: pointer;
 }
 
+.card-analise-bloco.card-com-imagem::before {
+    display: none !important;
+}
+
+.imagem-full-card {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* 2. Força o modal de biografia/poema a aparecer ao ser ativado pelo JS */
+.modal-biografia[style*="display: flex"] {
+    display: flex !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--modal-bg);
+    z-index: 99999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto !important; /* Permite rolar se o poema for longo */
+}
+
+/* Ajustes da caixa interna branca/pergaminho */
 .modal-conteudo-bio.poema-layout {
-    text-align: center !important; /* Centraliza os títulos */
+    text-align: center !important; 
     max-width: 580px;
+    width: 100%;
+    margin: auto;
+    position: relative;
+    background-color: var(--parchment) !important;
+    border: 3px solid var(--accent);
+    padding: 3rem 2rem;
+    border-radius: 12px;
 }
 
 .modal-conteudo-bio.poema-layout::before {
-    display: none !important; /* Remove conflito de linhas coloridas no modal */
+    display: none !important; 
 }
 
 .poema-autor {
@@ -889,7 +932,7 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* Mantém os versos alinhados à esquerda, mas o bloco inteiro centralizado */
+/* Mantém as estrofes alinhadas à esquerda no centro */
 .poema-texto-bloco {
     display: inline-block;
     text-align: left; 
@@ -897,11 +940,10 @@ body {
     margin: 0 auto;
 }
 
-/* Formatação do texto dos versos */
 .poema-texto-bloco p {
     font-size: 1.15rem;
     line-height: 1.5;
     margin-bottom: 0.2rem !important;
-    white-space: nowrap; /* Evita quebras feias de linha no meio da frase */
+    white-space: nowrap; 
 }
     
