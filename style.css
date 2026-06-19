@@ -5,7 +5,7 @@
     --accent: #d4a373;    
     --modal-bg: rgba(12, 10, 9, 0.95);
     --vicenty: #ff8b80;      /* Vermelho claro */
-    --steffany: #FA57AB;     /* Rosa claro */
+    --steffany: #FF7DC0;     /* Rosa claro */
     --maria-clara: #e8dbfc;  /* Lilás */
     --joao-felipe: #bdf7b7;  /* Verde claro */
 }
@@ -824,7 +824,7 @@ body {
     left: 1.5rem !important;    
     width: 6px !important;      /* Espessura idêntica à margem vermelha */
     border-radius: 4px !important;
-    z-index: 999 !important;    /* Força a barra a ficar na frente de qualquer fundo */
+    z-index: 999999 !important;    /* Força a barra a ficar na frente de qualquer fundo */
     background-color: transparent; 
 }
 
