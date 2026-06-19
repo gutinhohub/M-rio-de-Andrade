@@ -777,7 +777,7 @@ body {
     background-color: #000000 !important; 
     padding: 0 !important; 
     margin-top: 1rem;
-    min-height: 480px; /* Excelente proporção vertical */
+    min-height: 1000px; /* Excelente proporção vertical */
     position: relative;
     overflow: hidden; 
     display: flex;
@@ -787,11 +787,7 @@ body {
 .espaco-foto-livro img {
     width: 100% !important;
     height: 100% !important;
-    
-    /* Esta propriedade força o papel a esticar e cobrir as faixas pretas laterais */
     object-fit: cover !important; 
-    
-    /* Enquadra perfeitamente as estrofes e esconde a espiral */
     object-position: center 15% !important; 
     
     display: block !important;
