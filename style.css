@@ -781,7 +781,7 @@ body {
     background-color: #000000 !important; /* Mantém o fundo preto */
     padding: 0 !important; /* Remove o espaço interno para a imagem ocupar tudo */
     margin-top: 1rem;
-    min-height: 450px; /* Dá uma altura boa para visualização */
+    min-height: 1000px; /* Dá uma altura boa para visualização */
     position: relative;
     overflow: hidden; /* Garante que o zoom fique contido dentro das bordas arredondadas */
 }
