@@ -774,28 +774,32 @@ body {
         min-height: 250px;
     }
 }
-/* ==========================================================================
-   AJUSTE DE ZOOM DA FOTO DO POEMA
-   ========================================================================== */
-
 .espaco-foto-livro {
     flex: 1;
     border: 2px dashed #d4a373;
     border-radius: 12px;
-    background-color: #FFFFFFF !important; /* Mantém o fundo preto */
-    padding: 0 !important; /* Remove o espaço interno para a imagem ocupar tudo */
+    background-color: #000000 !important; /* Mantém o fundo preto nas bordas */
+    padding: 0 !important; /* Remove espaços internos */
     margin-top: 1rem;
-    min-height: 450px; /* Dá uma altura boa para visualização */
+    min-height: 450px; /* Altura ideal para a visualização */
     position: relative;
-    overflow: hidden; /* Garante que o zoom fique contido dentro das bordas arredondadas */
+    overflow: hidden; /* Garante que nada saia das bordas arredondadas */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* 2. A Imagem em si (Zoom e Enquadramento) */
 .espaco-foto-livro img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: contain !important; /* Garante que a proporção não quebre */
-    transform: scale(2.1) !important; /* Aplica um zoom de 210% na imagem */
-    transform-origin: 52% 28% !important; /* Centraliza o zoom exatamente nas primeiras estrofes do poema */
+    
+    /* Esta propriedade faz a imagem preencher todo o espaço */
+    object-fit: cover !important;
+    
+    /* Esta propriedade move o foco para o texto, escondendo a espiral */
+    object-position: 65% 20% !important; 
+    
     display: block !important;
 }
 .card-analise-bloco, .card-poema-foto, .slide-card, .modal-card-container {
