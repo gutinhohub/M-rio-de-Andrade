@@ -3,7 +3,7 @@
     --ink: #2b2621;      
     --burgundy: #733726;  
     --accent: #d4a373;    
-    --modal-bg: rgba(12, 10, 9, 0.97);
+    --modal-bg: rgba(12, 10, 9, 0.95);
 }
 
 * {
@@ -95,72 +95,6 @@ body {
     opacity: 0.85;
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-color: var(--modal-bg);
-    z-index: 9999;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-}
-
-.modal.active { display: flex; }
-
-.modal-content {
-    position: relative;
-    max-width: 75vw;
-    border-radius: 24px;
-    overflow: hidden;
-}
-
-.modal-content img {
-    max-width: 100%;
-    max-height: 70vh;
-    object-fit: contain;
-    border: 3px solid var(--accent);
-    border-radius: 24px;
-}
-
-.close-modal {
-    position: absolute;
-    top: 30px;
-    right: 40px;
-    color: var(--accent);
-    font-size: 1.2rem;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-family: 'Playfair Display', serif;
-    z-index: 10000;
-}
-
-.modal-arrow {
-    background: none;
-    border: 1px solid rgba(212, 163, 115, 0.4);
-    color: var(--accent);
-    font-size: 3rem;
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2015;
-    transition: all 0.2s;
-}
-
-.modal-arrow:hover {
-    background-color: var(--accent);
-    color: var(--ink);
-}
-
-.prev-modal { left: 40px; }
-.next-modal { right: 40px; }
-
 .container { 
     max-width: 900px; 
     margin: 0 auto; 
@@ -180,9 +114,8 @@ body {
 }
 
 /* ==========================================================================
-   ESTILOS DO SLIDER MODERNISTA DE COMPONENTES + RESPONSIVIDADE DO CELULAR
+   ESTILOS DO SLIDER MODERNISTA DE COMPONENTES (CARD PRINCIPAL)
    ========================================================================== */
-
 .slider-container {
     position: relative;
     width: 100%;
@@ -318,6 +251,139 @@ body {
 .card-next { right: -16px; }
 
 /* ==========================================================================
+   ESTILOS DO NOVO CARD DE ZOOM EXCLUSIVO (MODAL EM TELA CHEIA)
+   ========================================================================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: var(--modal-bg);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.modal.active { display: flex; }
+
+/* Estrutura do Card interno do Modal (Mesmo fundo Caqui/Bege) */
+.modal-card-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    min-height: 380px;
+    background-color: #d1cbb7; 
+    border: 3px solid var(--ink);
+    border-radius: 50px;
+    padding: 80px 50px 50px 50px;
+    box-sizing: border-box;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+    animation: zoomAparecer 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes zoomAparecer {
+    from { transform: scale(0.94); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* ORNAMENTOS EXCLUSIVOS DO MODAL (INVERTIDOS DO DESIGN ORIGINAL) */
+.modal-papel-pardo {
+    top: -18px;
+    right: 55px; /* Invertido para a direita */
+    left: auto;
+    width: 58px;
+    height: 78px;
+    transform: rotate(14deg);
+}
+
+.modal-papel-verde {
+    bottom: -18px;
+    left: 75px; /* Invertido para a esquerda */
+    right: auto;
+    width: 82px;
+    height: 58px;
+    transform: rotate(-10deg);
+}
+
+.modal-fita-azul {
+    bottom: -16px;
+    right: 70px; /* Invertido para a direita */
+    left: auto;
+    width: 150px;
+    height: 28px;
+    background-color: #3c5aa7;
+    transform: rotate(4deg);
+    box-shadow: 2px 4px 5px rgba(0,0,0,0.15);
+    clip-path: polygon(0 20%, 10% 0, 20% 20%, 30% 0, 40% 20%, 50% 0, 60% 20%, 70% 0, 80% 20%, 90% 0, 100% 20%, 100% 80%, 90% 100%, 80% 80%, 70% 100%, 60% 80%, 50% 100%, 40% 80%, 30% 100%, 20% 80%, 10% 100%, 0 80%);
+}
+
+.modal-progress-bar-container {
+    top: 35px;
+}
+
+/* Bloco de Papel Interno de Leitura */
+.modal-content {
+    position: relative;
+    max-width: 100%;
+    background: #fdfbf7;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.05);
+    padding: 50px 45px;
+    text-align: center;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+/* Texto ampliado do modal */
+.modal-caption-text {
+    font-family: 'Lora', serif;
+    font-size: 1.7rem;
+    line-height: 1.7;
+    color: var(--ink);
+}
+
+/* Botões de navegação e fechar do Modal */
+.modal-arrow {
+    background-color: var(--accent);
+    border: 2px solid var(--ink);
+    color: var(--ink);
+    font-size: 1.3rem;
+    width: 42px;
+    height: 52px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    z-index: 2015;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.modal-arrow:hover { background-color: #c59363; }
+.modal-arrow:active { transform: translateY(-50%) scale(0.95); }
+
+.prev-modal { left: -16px; }
+.next-modal { right: -16px; }
+
+.close-modal {
+    position: absolute;
+    top: -45px;
+    right: 5px;
+    color: #fdfaf1;
+    font-size: 1.25rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1px;
+    z-index: 10000;
+    transition: color 0.2s;
+}
+.close-modal:hover { color: var(--accent); }
+
+/* ==========================================================================
    CONFIGURAÇÃO RESPONSIVA - ADAPTAÇÃO PARA COMPUTADORES PEQUENOS E CELULARES
    ========================================================================== */
 @media (max-width: 768px) {
@@ -336,7 +402,6 @@ body {
         font-size: 1.05rem; 
     }
     
-    /* Reposiciona as setas físicas para não cobrirem o texto */
     .nav-card-btn {
         width: 36px;
         height: 44px;
@@ -351,7 +416,6 @@ body {
         top: 24px;
     }
 
-    /* Redimensiona proporcionalmente os ornamentos para telas de celular */
     .papel-pardo {
         width: 36px;
         height: 52px;
@@ -373,25 +437,36 @@ body {
         bottom: -10px;
     }
     
-    /* Configuração responsiva do Modal em Tela Cheia */
-    .modal-content {
-        max-width: 90vw;
+    /* Adaptação Responsiva do Card de Zoom no Mobile */
+    .modal { padding: 1rem; }
+    
+    .modal-card-container {
+        padding: 60px 15px 25px 15px;
+        border-radius: 32px;
+        min-height: auto;
+        width: 95%;
     }
-    .modal-caption {
-        font-size: 1.3rem !important;
-        padding: 1.2rem !important;
+    
+    .modal-content { padding: 30px 15px; }
+    
+    .modal-caption-text {
+        font-size: 1.25rem !important;
         line-height: 1.6 !important;
     }
-    .prev-modal { left: 10px; }
-    .next-modal { right: 10px; }
-    .modal-arrow { width: 45px; height: 45px; font-size: 2rem; }
+    
+    .modal-papel-pardo { right: 20px; top: -12px; width: 36px; height: 50px; }
+    .modal-papel-verde { left: 30px; bottom: -10px; width: 54px; height: 36px; }
+    .modal-fita-azul { right: 20px; bottom: -10px; width: 100px; height: 18px; }
+    
+    .modal-arrow { width: 36px; height: 44px; font-size: 1.1rem; }
+    .prev-modal { left: -10px; }
+    .next-modal { right: -10px; }
+    .close-modal { top: -35px; right: 5px; font-size: 1.1rem; }
 }
 
 /* ==========================================================================
-   ESTILOS EXCLUSIVOS DA BIOGRAFIA (COLE ISTO NO FINAL DO SEU STYLE.CSS)
+   ESTILOS EXCLUSIVOS DA BIOGRAFIA (MANTIDOS E PRESERVADOS)
    ========================================================================== */
-
-/* Força o alinhamento dos cards em formato de grade 2x2 */
 .grid-gatilhos {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
@@ -400,7 +475,6 @@ body {
     margin-bottom: 4rem !important;
 }
 
-/* Estilo individual de cada card gatilho */
 .card-gatilho {
     background-color: #fdfbf7 !important;
     border: 2px solid #2b2621 !important;
@@ -415,7 +489,6 @@ body {
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
 }
 
-/* Efeito de clique/hover Modernista nos cards */
 .card-gatilho:hover {
     transform: translate(-3px, -3px) !important;
     box-shadow: 9px 9px 0px #733726 !important;
@@ -456,7 +529,6 @@ body {
     border-color: #733726 !important;
 }
 
-/* Mantém as janelas modais flutuantes escondidas por padrão */
 .modal-biografia {
     display: none; 
     position: fixed !important;
@@ -515,7 +587,6 @@ body {
     text-align: justify !important;
 }
 
-/* Responsividade: Transforma em 1 coluna apenas em telas pequenas */
 @media (max-width: 768px) {
     .grid-gatilhos {
         grid-template-columns: 1fr !important;
@@ -524,12 +595,12 @@ body {
 }
 
 /* ==========================================================================
-   CONFIGURAÇÃO DO TÍTULO PRINCIPAL E LINHA DECORATIVA (CORRIGIDO)
+   CONFIGURAÇÃO DO TÍTULO PRINCIPAL E LINHA DECORATIVA (MANTIDOS E PRESERVADOS)
    ========================================================================== */
 .section-title {
     font-family: 'Playfair Display', serif !important;
     color: var(--burgundy) !important;
-    text-align: center !important;            /* Centraliza o texto do título principal */
+    text-align: center !important;
     font-size: 2.5rem !important;
     margin-top: 1rem !important;
     margin-bottom: 3rem !important;
@@ -539,9 +610,9 @@ body {
 .section-title::after {
     content: "" !important;
     display: block !important;
-    width: 400px !important;               /* Comprimento da linha decorativa */
-    height: 3px !important;                /* Espessura da linha */
-    background-color: #000000 !important;  /* Cor Preta */
-    margin: 0.8rem auto 0 auto !important; /* Centraliza perfeitamente abaixo do texto */
-    border-radius: 10px !important;        /* Pontas levemente arredondadas */
+    width: 500px !important;               
+    height: 3px !important;                
+    background-color: #000000 !important;  
+    margin: 0.8rem auto 0 auto !important; 
+    border-radius: 10px !important;        
 }
