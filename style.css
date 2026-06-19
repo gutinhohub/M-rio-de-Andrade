@@ -539,7 +539,7 @@ body {
 .section-title::after {
     content: "" !important;
     display: block !important;
-    width: 300px !important;               /* Comprimento da linha decorativa */
+    width: 400px !important;               /* Comprimento da linha decorativa */
     height: 3px !important;                /* Espessura da linha */
     background-color: #000000 !important;  /* Cor Preta */
     margin: 0.8rem auto 0 auto !important; /* Centraliza perfeitamente abaixo do texto */
