@@ -60,14 +60,40 @@ if (document.getElementById('cardSliderTrack')) {
     cardPrevBtn.addEventListener('click', prevSlide);
 
     // Captura o clique nos cards para abrir o Zoom de Leitura
-    window.zoomCard = function(index) {
-        currentCardIndex = index;
-        updateCardSlider();
-        updateModalContent();
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Trava o scroll de fundo
-    };
+  window.zoomCard = function(index) {
+    const cardSlides = Array.from(document.getElementById('cardSliderTrack').children);
+    const activeSlide = cardSlides[index];
+    const modal = document.getElementById('fullscreenModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalCaption = document.getElementById('modalCaption');
+    const modalContainer = document.querySelector('.modal-card-container');
 
+    if (!activeSlide || !modal) return;
+
+    // Limpa qualquer classe de leitor que já estava no modal antes
+    modalContainer.classList.remove('leitor-vicenty', 'leitor-maria-clara', 'leitor-joao-felipe', 'leitor-steffany');
+
+    // Identifica qual classe de leitor o slide original possui e copia para o modal
+    if (activeSlide.classList.contains('leitor-vicenty')) modalContainer.classList.add('leitor-vicenty');
+    if (activeSlide.classList.contains('leitor-maria-clara')) modalContainer.classList.add('leitor-maria-clara');
+    if (activeSlide.classList.contains('leitor-joao-felipe')) modalContainer.classList.add('leitor-joao-felipe');
+    if (activeSlide.classList.contains('leitor-steffany')) modalContainer.classList.add('leitor-steffany');
+
+    // Mantém a lógica original do seu script de pegar o texto/parágrafo
+    const paragraph = activeSlide.querySelector('p');
+    if (paragraph) {
+        modalCaption.innerHTML = paragraph.innerHTML;
+        modalCaption.style.display = 'block';
+        modalImg.style.display = 'none';
+    }
+
+    modal.classList.add('active');
+    modal.style.display = 'flex';
+    
+    if (typeof updateModalProgressBar === 'function') {
+        updateModalProgressBar();
+    }
+}
     function updateModalContent() {
         const activeSlide = cardSlides[currentCardIndex];
         if (activeSlide) {
