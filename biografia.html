@@ -20,31 +20,31 @@
 
     <section class="screen active">
         <div class="container">
-            <h2 class="section-title">O Homem por trás da Obra</h2>
+            <h2 class="section-title" style="font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--burgundy); text-align: center; margin-top: 2rem; margin-bottom: 3rem;">O Homem por trás da Obra</h2>
             
-            <div class="grid-gatilhos">
+            <div class="grid-gatilhos" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 4rem;">
                 
                 <div class="card-gatilho" onclick="abrirModal('modal-joao')">
                     <h3>A Juventude e o Piano</h3>
-                    <p>Nascido em São Paulo em 1893, iniciou sua trajetória na música antes de redefinir a literatura nacional.</p>
+                    <p>Nascido em São Paulo em 1893, Mário de Andrade iniciou sua trajetória na música antes de redefinir toda a literatura nacional.</p>
                     <span class="leia-mais">Clique para ler tudo</span>
                 </div>
 
                 <div class="card-gatilho" onclick="abrirModal('modal-maria')">
                     <h3>O Ápice de 1922</h3>
-                    <p>O ano de 1922 consolidou sua liderança na Semana de Arte Moderna e abriu caminhos para sua obra-prima.</p>
+                    <p>O ano de 1922 consolidou sua liderança absoluta na Semana de Arte Moderna e pavimentou o caminho para Macunaíma.</p>
                     <span class="leia-mais">Clique para ler tudo</span>
                 </div>
 
                 <div class="card-gatilho" onclick="abrirModal('modal-steffany')">
                     <h3>O Gestor Cultural</h3>
-                    <p>Descubra sua atuação pioneira na criação do IPHAN e na proteção do patrimônio histórico do Brasil.</p>
+                    <p>Sua atuação como pioneiro e intelectual público na proteção e preservação ativa do patrimônio histórico nacional.</p>
                     <span class="leia-mais">Clique para ler tudo</span>
                 </div>
 
                 <div class="card-gatilho" onclick="abrirModal('modal-vicenty')">
                     <h3>Vida Pessoal e Legado</h3>
-                    <p>As complexidades de sua vida pessoal, cartas históricas reveladas e o impacto eterno de sua memória.</p>
+                    <p>As complexidades íntimas, as tensões de sua época e as memórias de um dos maiores arquitetos da identidade brasileira.</p>
                     <span class="leia-mais">Clique para ler tudo</span>
                 </div>
 
@@ -90,6 +90,15 @@
             </div>
         </div>
     </section>
+
+    <style>
+        @media (max-width: 768px) {
+            .grid-gatilhos {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+        }
+    </style>
 
     <footer class="main-footer">
         <p>Apresentação: Mário de Andrade - Modernismo Brasileiro</p>
