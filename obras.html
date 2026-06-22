@@ -8,46 +8,63 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
-        /* Estilo para o botão de expandir leitura integrado ao tema do site */
+        /* Layout do divisor integrado com texto e fundo branco */
+        .container-imagens-geradas {
+            display: flex;
+            align-items: stretch;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 2rem auto;
+        }
+
+        .bloco-imagem-gerada {
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .bloco-texto-gerado {
+            flex: 1.2;
+            min-width: 320px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Estilo do botão de expansão do texto */
         .btn-expandir-texto {
-            background-color: #733726;
-            color: #fdfaf1;
-            border: 2px solid #2b2621;
-            padding: 0.6rem 1.2rem;
+            align-self: flex-start;
+            margin-top: auto;
+            border: 1px solid #733726;
+            color: #733726;
+            background: none;
+            border-radius: 6px;
+            padding: 0.5rem 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
             font-family: 'Playfair Display', serif;
             font-weight: bold;
-            font-size: 0.95rem;
-            cursor: pointer;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-            box-shadow: 3px 3px 0px #2b2621;
-            align-self: flex-start;
-            margin-top: 1rem;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
         }
 
         .btn-expandir-texto:hover {
-            background-color: #d4a373;
-            color: #2b2621;
-            transform: translate(-2px, -2px);
-            box-shadow: 5px 5px 0px #2b2621;
+            background-color: #733726;
+            color: #ffffff;
         }
 
-        .btn-expandir-texto:active {
-            transform: translate(1px, 1px);
-            box-shadow: 2px 2px 0px #2b2621;
-        }
-
-        /* Estilo da ficha de leitura dentro do modal */
+        /* Customização para o modal de leitura */
         .modal-leitura-container {
-            background-color: #fdfbf7;
-            border: 3px solid #2b2621;
-            border-radius: 20px;
+            background-color: #ffffff !important;
             padding: 3rem;
-            max-width: 650px;
-            width: 90%;
-            box-shadow: 8px 8px 0px #733726;
+            max-width: 680px;
+            width: 100%;
+            border-radius: 20px;
+            border: 3px solid #2b2621;
+            box-shadow: 10px 10px 0px #733726;
+            max-height: 85vh;
+            overflow-y: auto;
             position: relative;
-            animation: modalAppear 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: modalZoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         @keyframes modalAppear {
@@ -163,19 +180,17 @@
             modal.classList.add('active');
         }
 
-        // Função segura para fechar o modal de leitura do texto apenas nos gatilhos corretos
+        // Função para fechar o modal de leitura do texto
         function closeTextReadModal(event) {
-            if (!event || event.target.id === 'textReadModal' || event.target.classList.contains('close-modal')) {
-                const modal = document.getElementById('textReadModal');
-                modal.classList.remove('active');
-            }
+            const modal = document.getElementById('textReadModal');
+            modal.classList.remove('active');
         }
 
-        // Suporte para fechar o modal com a tecla Escape
+        // Suporte para fechar ambos os modais com a tecla Escape
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
-                const modal = document.getElementById('textReadModal');
-                modal.classList.remove('active');
+                closeImageZoom();
+                closeTextReadModal();
             }
         });
     </script>
