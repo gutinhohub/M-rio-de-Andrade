@@ -29,8 +29,77 @@
             display: block;
         }
 
+        /* Layout do divisor integrado com texto e fundo branco */
+        .container-imagens-geradas {
+            display: flex;
+            align-items: stretch;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 2rem auto;
+        }
+
+        .bloco-imagem-gerada {
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .bloco-texto-gerado {
+            flex: 1.2;
+            min-width: 320px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Estilo do botão de expansão do texto */
+        .btn-expandir-texto {
+            align-self: flex-start;
+            margin-top: auto;
+            border: 1px solid #733726;
+            color: #733726;
+            background: none;
+            border-radius: 6px;
+            padding: 0.5rem 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .btn-expandir-texto:hover {
+            background-color: #733726;
+            color: #ffffff;
+        }
+
+        /* Customização para o modal de leitura */
+        .modal-leitura-container {
+            background-color: #ffffff !important;
+            padding: 3rem;
+            max-width: 680px;
+            width: 100%;
+            border-radius: 20px;
+            border: 3px solid #2b2621;
+            box-shadow: 10px 10px 0px #733726;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalZoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes modalZoom {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
         /* Responsividade e ajustes de layout */
         @media (max-width: 768px) {
+            .container-imagens-geradas {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
             .content-grid {
                 grid-template-columns: 1fr !important;
                 gap: 1.5rem !important;
@@ -60,7 +129,7 @@
             <div class="coluna-esquerda-cards">
                 <div class="card-analise-bloco">
                     <h3>Paulicéia Desvairada</h3>
-                    <p>Publicada em 1922, Paulicéia Desvairada é considerada a primeira obra de vanguarda do modernismo brasileiro. O livro rompeu com o formalismo tradicional ao introduzir o uso de versos livres e uma linguagem que capturava a urbanização acelerada de São Paulo. No seu 'Prefácio Interessantíssimo', Mário estabelece as bases do Desvairismo, defendendo a liberdade de criação e zombando da própria arte para romper os limites entre a seriedade e a piada.</p>
+                    <p>Publicada in 1922, Paulicéia Desvairada é considerada a primeira obra de vanguarda do modernismo brasileiro. O livro rompeu com o formalismo tradicional ao introduzir o uso de versos livres e uma linguagem que capturava a urbanização acelerada de São Paulo. No seu 'Prefácio Interessantíssimo', Mário estabelece as bases do Desvairismo, defendendo a liberdade de criação e zombando da própria arte para romper os limites entre a seriedade e a piada.</p>
                 </div>
                 
                 <div class="card-analise-bloco">
@@ -80,10 +149,24 @@
 
     <div class="divisor-obras">
         <hr class="linha-pontilhada-separadora">
-        <div class="container-imagens-geradas" style="justify-content: center;">
-            <div class="bloco-imagem-gerada" style="max-width: 800px; margin: 0 auto;">
+        <div class="container-imagens-geradas">
+            <!-- Imagem Gerada -->
+            <div class="bloco-imagem-gerada">
                 <p class="legenda-imagem">Imagem gerada pelo GEMINI</p>
                 <img src="ci,mae do mato.jpeg" alt="Ci, mãe do mato" class="img-modernista-gerada zoom-img-trigger" onclick="openImageZoom(this.src, this.alt)">
+            </div>
+            
+            <!-- Caixa de Texto com Fundo Branco Focado -->
+            <div class="bloco-texto-gerado">
+                <div class="card-analise-bloco" style="background-color: #ffffff !important; box-shadow: 6px 6px 0px #2b2621 !important; border: 2px solid #2b2621 !important; text-align: left; height: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: 2.2rem !important;">
+                    <div>
+                        <h3 style="color: #733726 !important; font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 0.8rem;">Ci, Mãe do Mato</h3>
+                        <p style="font-family: 'Lora', serif; color: #2b2621; font-size: 1.05rem; line-height: 1.6; text-align: justify; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 1.2rem;">
+                            Macunaíma escoteiro topou com uma cunhã dormindo. Era Ci, Mãe do Mato. Logo viu pelo peito destro seco dela, que a moça fazia parte dessa tribo de mulheres sozinhas parando lá nas praias da lagoa Espelho da Lua, coada pelo Nhamundá. A cunhã era linda com o corpo chupado pelos vícios, colorido com jenipapo. Macunaíma ficou espiando. Teve desejo. Mas Ci acordou e num abrir d’olhos enxergou o herói...
+                        </p>
+                    </div>
+                    <button class="btn-expandir-texto" onclick="openTextReadModal()">Expandir Leitura ↗</button>
+                </div>
             </div>
         </div>
     </div>
@@ -105,7 +188,7 @@
 
             <div class="coluna-direita-poema">
                 <div class="card-analise-bloco" style="height: 100%; display: flex; align-items: center; justify-content: center;">
-                    <!-- Ajuste na proporção da imagem e adição da gatilho de zoom ao clicar -->
+                    <!-- Imagem Macunáima com Zoom -->
                     <img src="macunaima.png" alt="Macunaíma - Mário de Andrade" class="imagem-full-card zoom-img-trigger" onclick="openImageZoom(this.src, this.alt)">
                 </div>
             </div>
@@ -113,11 +196,25 @@
         </div>
     </section>
 
-    <!-- Utiliza perfeitamente as definições de classe .modal já presentes no style.css -->
+    <!-- Modal de Zoom de Imagens -->
     <div id="imageZoomModal" class="modal" onclick="closeImageZoom(event)">
         <span class="close-modal" onclick="closeImageZoom(event)">FECHAR ✕</span>
         <div class="modal-content" onclick="event.stopPropagation()">
             <img id="modalZoomedImage" src="" alt="Imagem ampliada">
+        </div>
+    </div>
+
+    <!-- Modal de Leitura de Texto Completo (Ci, Mãe do Mato) -->
+    <div id="textReadModal" class="modal" onclick="closeTextReadModal(event)">
+        <span class="close-modal" onclick="closeTextReadModal(event)">FECHAR ✕</span>
+        <div class="modal-leitura-container" onclick="event.stopPropagation()">
+            <h3 style="font-family: 'Playfair Display', serif; color: #733726; font-size: 2rem; margin-bottom: 1.5rem; border-bottom: 2px dashed rgba(43, 38, 33, 0.15); padding-bottom: 0.5rem; text-align: left;">Ci, Mãe do Mato</h3>
+            <div style="font-family: 'Lora', serif; font-size: 1.15rem; line-height: 1.8; color: #2b2621; text-align: justify;">
+                <p style="margin-bottom: 1.2rem;">Macunaíma escoteiro topou com uma cunhã dormindo. Era Ci, Mãe do Mato. Logo viu pelo peito destro seco dela, que a moça fazia parte dessa tribo de mulheres sozinhas parando lá nas praias da lagoa Espelho da Lua, coada pelo Nhamundá. A cunhã era linda com o corpo chupado pelos vícios, colorido com jenipapo. Macunaíma ficou espiando. Teve desejo.</p>
+                <p style="margin-bottom: 1.2rem;">Mas Ci acordou e num abrir d’olhos enxergou o herói. Deu um grito de guerra, bateu na boca e pulou em cima de Macunaíma. Mas que braço! Era a Mãe do Mato. Macunaíma lutou capoeira, rasteira, negaça, canutilho, mas Ci era mais forte. Derrubou o herói, amarrou ele bem amarrado com cipó-titica e já ia dar o sumiço no infeliz quando Maanape e Jiguê chegaram pra acudir o mano.</p>
+                <p style="margin-bottom: 1.2rem;">Bateram os dois na cunhã. Maanape segurava a cabeça e Jiguê batia. Bateram de porrete, de canela de ema, de sapopema, de pau-santo, de canela-preta, bateram. Ci caiu desmaiada. Macunaíma desamarrou os cipós e pulou na cunhã. Brincaram.</p>
+                <p>Vieram então muitas jandaias, muitas araras vermelhas tuins coricas periquitos, muitos papagaios saudar Macunaíma, o novo Imperador do Mato-Virgem.</p>
+            </div>
         </div>
     </div>
 
@@ -126,7 +223,7 @@
     </footer>
 
     <script>
-        // Função para abrir o modal de zoom com a imagem correspondente
+        // Função para abrir o modal de zoom de imagens
         function openImageZoom(imageSrc, imageAlt) {
             const modal = document.getElementById('imageZoomModal');
             const modalImg = document.getElementById('modalZoomedImage');
@@ -136,16 +233,29 @@
             modal.classList.add('active');
         }
 
-        // Função para fechar o modal ao clicar fora ou no botão de fechar
+        // Função para fechar o modal de imagens
         function closeImageZoom(event) {
             const modal = document.getElementById('imageZoomModal');
             modal.classList.remove('active');
         }
 
-        // Suporte para fechar o modal com a tecla Escape
+        // Função para abrir o modal de leitura do texto
+        function openTextReadModal() {
+            const modal = document.getElementById('textReadModal');
+            modal.classList.add('active');
+        }
+
+        // Função para fechar o modal de leitura do texto
+        function closeTextReadModal(event) {
+            const modal = document.getElementById('textReadModal');
+            modal.classList.remove('active');
+        }
+
+        // Suporte para fechar ambos os modais com a tecla Escape
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeImageZoom();
+                closeTextReadModal();
             }
         });
     </script>
