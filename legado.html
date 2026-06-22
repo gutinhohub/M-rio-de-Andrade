@@ -5,14 +5,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O Legado de 22 - Mário de Andrade</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&family=Azeret+Mono:wght@300;400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           SISTEMA DE CORES DOS LEITORES (MODERNISTA PALETTE)
+           ========================================================================== */
+        :root {
+            --maria-clara: #c95a49;   /* Terracota */
+            --steffany: #4a7c59;      /* Verde */
+            --joao-felipe: #d4a373;   /* Ocre */
+            --vicenty: #7a2021;       /* Bordô */
+            --ink-dark: #2b2621;
+            --paper-light: #fdfbf7;
+        }
+
+        .grid-modernista {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+            margin: 2rem auto 5rem auto;
+            max-width: 1100px;
+        }
+
+        /* Base do Bloco de Card */
+        .card-conclusao {
+            background-color: var(--paper-light) !important;
+            padding: 2.5rem !important;
+            border: 2px solid var(--ink-dark) !important;
+            border-radius: 16px !important;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s var(--canva-transition, ease), 
+                        box-shadow 0.3s var(--canva-transition, ease) !important;
+        }
+
+        .card-conclusao:hover {
+            transform: translate(-5px, -5px);
+        }
+
+        /* Números em marca d'água */
+        .numero-bg {
+            position: absolute;
+            right: 1rem;
+            top: -1rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 9rem;
+            font-weight: 700;
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .card-conclusao h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--ink-dark);
+            margin-bottom: 1.5rem;
+            z-index: 2;
+            text-align: left;
+        }
+
+        .card-conclusao p {
+            font-family: 'Lora', serif;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--ink-dark);
+            z-index: 2;
+            text-align: justify; /* Alinhamento editorial */
+        }
+
+        /* Bordas e Sombras Customizadas */
+        .borda-maria { border-left: 10px solid var(--maria-clara) !important; box-shadow: 8px 8px 0px var(--maria-clara) !important; }
+        .borda-steffany { border-left: 10px solid var(--steffany) !important; box-shadow: 8px 8px 0px var(--steffany) !important; }
+        .borda-joao { border-left: 10px solid var(--joao-felipe) !important; box-shadow: 8px 8px 0px var(--joao-felipe) !important; }
+        .borda-vicenty { border-left: 10px solid var(--vicenty) !important; box-shadow: 8px 8px 0px var(--vicenty) !important; }
+
+        /* Posicionamento Esquerda/Direita do Grid */
+        .quadrante-1 { grid-column: span 7; } /* Esquerda mais larga */
+        .quadrante-2 { grid-column: span 5; } /* Direita mais estreita */
+        .quadrante-3 { grid-column: span 6; } /* Divisão igual */
+        .quadrante-4 { grid-column: span 6; } /* Divisão igual */
+
+        /* Lista de Vanguardas em Grid Interno */
+        .lista-vanguardas {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .lista-vanguardas li {
+            background: rgba(255,255,255,0.5);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.05);
+            font-size: 0.95rem;
+        }
+        .lista-vanguardas li strong { color: var(--vicenty); display: block; margin-bottom: 0.2rem; }
+
+        /* Bibliografia */
+        .ficha-bibliografica {
+            margin-top: 1rem;
+            padding: 1.5rem;
+            background-color: rgba(0,0,0,0.02);
+            border-radius: 8px;
+            border: 1px dashed rgba(0,0,0,0.1);
+        }
+        .secao-bibliografica-titulo {
+            font-family: 'Azeret Mono', monospace;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--vicenty);
+            margin-bottom: 1rem;
+            display: block;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        .ref-item { 
+            text-indent: -1.5rem; 
+            padding-left: 1.5rem; 
+            margin-bottom: 0.8rem; 
+            font-size: 0.9rem !important;
+            text-align: left !important;
+        }
+
+        @media (max-width: 900px) {
+            .quadrante-1, .quadrante-2, .quadrante-3, .quadrante-4 { grid-column: span 12; }
+            .lista-vanguardas { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Fundo Geométrico Fixo -->
-    <div class="diagonal-bg-pattern"></div>
+    <div class="diagonal-bg-pattern">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <rect width="100%" height="100%" fill="none" />
+        </svg>
+    </div>
 
-    <!-- Menu de Navegação -->
     <nav class="main-nav">
         <a href="index.html" class="nav-btn">Início</a>
         <a href="biografia.html" class="nav-btn">Biografia</a>
@@ -20,152 +153,69 @@
         <a href="legado.html" class="nav-btn active-nav">Legado 22</a>
     </nav>
 
-    <section class="screen active">
-        <header class="home-header">
+    <section class="secao-obra">
+        <header class="home-header" style="margin-bottom: 3.5rem;">
             <h1>O Legado e Conclusão</h1>
             <p class="tagline">A Nova Consciência Criadora Nacional</p>
         </header>
 
-        <!-- SLIDER MODERNISTA (Layout Criativo estilo Recortes) -->
-        <div class="slider-container">
-            <!-- Elementos Decorativos (Papéis e Fitas do CSS) -->
-            <div class="card-deco papel-pardo"></div>
-            <div class="card-deco papel-verde"></div>
-            <div class="card-deco fita-azul"></div>
-
-            <!-- Barra de Progresso Superior -->
-            <div class="progress-bar-container">
-                <div class="progress-bar" id="progressBar"></div>
-            </div>
-
-            <!-- Janela do Slider -->
-            <div class="slider-wrapper">
-                <div class="slider-track" id="sliderTrack">
-                    
-                    <!-- Slide 1: Maria Clara -->
-                    <div class="slide-card leitor-maria-clara" onclick="openModal(0)">
-                        <h3>A Força Motriz e o Desvairismo</h3>
-                        <p>"Mário de Andrade consolidou-se como a força motriz intelectual e o 'guia espiritual' da primeira geração modernista..."</p>
-                        <span class="leia-mais">Clique para expandir</span>
-                    </div>
-
-                    <!-- Slide 2: Steffany -->
-                    <div class="slide-card leitor-steffany" onclick="openModal(1)">
-                        <h3>O Legado Cultural e Político</h3>
-                        <p>"O legado de Mário transcende as páginas dos livros, consolidando-se na estruturação das políticas culturais do Brasil..."</p>
-                        <span class="leia-mais">Clique para expandir</span>
-                    </div>
-
-                    <!-- Slide 3: João Felipe -->
-                    <div class="slide-card leitor-joao-felipe" onclick="openModal(2)">
-                        <h3>O Arquiteto e as Vanguardas</h3>
-                        <p>"Ao concluir este estudo, o grupo observa que Mário de Andrade foi o verdadeiro 'arquiteto' da modernidade brasileira..."</p>
-                        <span class="leia-mais">Clique para expandir</span>
-                    </div>
-
-                    <!-- Slide 4: Vicenty -->
-                    <div class="slide-card leitor-vicenty" onclick="openModal(3)">
-                        <h3>Bibliografia do Trabalho</h3>
-                        <p>Consulte as fontes bibliográficas, artigos acadêmicos e portais digitais utilizados nesta pesquisa.</p>
-                        <span class="leia-mais">Ver Referências</span>
-                    </div>
-
+        <div class="container">
+            <div class="grid-modernista">
+                
+                <!-- 01. Maria Clara (Esquerda - Destaque) -->
+                <div class="card-conclusao quadrante-1 borda-maria">
+                    <span class="numero-bg">01</span>
+                    <h3>A Força Motriz e o Desvairismo</h3>
+                    <p>"Mário de Andrade consolidou-se como a força motriz intelectual e o 'guia espiritual' da primeira geração modernista, também conhecida como Fase Heroica. Sua contribuição foi muito além da produção poética, estabelecendo os parâmetros teóricos que permitiram à vanguarda brasileira romper definitivamente com o academicismo parnasiano e com a rigidez da métrica tradicional. Através do conceito de 'Desvairismo', Mário defendeu uma liberdade criativa que 'digeria' as técnicas das Vanguardas Europeias para transformá-las em uma expression autenticamente nacional. Esse projeto não era apenas estético, mas um nacionalismo crítico e multicultural, que buscava entender a alma brasileira longe da idealização romântica, apresentando a identidade do país como uma figura híbrida em permanente formação."</p>
                 </div>
-            </div>
 
-            <!-- Botões de Navegação (Setas) -->
-            <button class="nav-card-btn card-prev" onclick="moveSlide(-1)">&#10094;</button>
-            <button class="nav-card-btn card-next" onclick="moveSlide(1)">&#10095;</button>
+                <!-- 02. Steffany (Direita) -->
+                <div class="card-conclusao quadrante-2 borda-steffany">
+                    <span class="numero-bg">02</span>
+                    <h3>O Legado Cultural e Político</h3>
+                    <p>"O legado de Mário transcende as páginas dos livros, consolidando-se na estruturação das políticas culturais do Brasil. Como polímata, ele foi pioneiro na etnomusicologia, realizando expedições etnográficas para registrar a música e o folclore do interior, o que fundamentou sua busca por uma 'língua brasileira' que elevasse o falar coloquial ao status de linguagem literária legítima. Institucionalmente, sua visão foi decisiva na criação do SPHAN (atual IPHAN) e na fundação da Discoteca Pública de São Paulo, garantindo a preservação do patrimônio histórico e artístico nacional."</p>
+                </div>
+
+                <!-- 03. João Felipe (Esquerda Inferior) -->
+                <div class="card-conclusao quadrante-3 borda-joao">
+                    <span class="numero-bg">03</span>
+                    <h3>O Arquiteto e as Vanguardas</h3>
+                    <p>"Ao concluir este estudo, o grupo observa que Mário de Andrade foi o verdadeiro 'arquiteto' da modernidade brasileira. Suas obras valorizam as raízes populares como base para uma arte erudita inovadora, com influências claras das vanguardas europeias adaptadas:"</p>
+                    
+                    <ul class="lista-vanguardas">
+                        <li><strong>Futurismo:</strong> Dinamismo da vida urbana e das máquinas de São Paulo.</li>
+                        <li><strong>Expressionismo:</strong> Representação distorcida da burguesia e mazelas sociais.</li>
+                        <li><strong>Surrealismo:</strong> Caráter onírico e metamorfoses ilógicas de Macunaíma.</li>
+                        <li><strong>Dadaísmo:</strong> Irreverência e tom jocoso do 'Prefácio Interessantíssimo'.</li>
+                    </ul>
+                    
+                    <p>"Concluímos que ele utilizou o experimentalismo para construir uma consciência criadora nacional autêntica."</p>
+                </div>
+                
+                <!-- 04. Vicenty (Direita Inferior - Referências) -->
+                <div class="card-conclusao quadrante-4 borda-vicenty">
+                    <span class="numero-bg">04</span>
+                    <h3>Bibliografia do Trabalho</h3>
+                    
+                    <div class="ficha-bibliografica">
+                        <span class="secao-bibliografica-titulo">Livros e Edições Críticas</span>
+                        <p class="ref-item">ANDRADE, Mário de. <em>Macunaíma: o herói sem nenhum caráter</em>. Org. Miguel Sanches Neto. Chapecó: Ed. UFFS, 2019.</p>
+                        <p class="ref-item">ANDRADE, Mário de. <em>Poesias completas</em>. Belo Horizonte: Itatiaia; São Paulo: EDUSP, 1987.</p>
+                        
+                        <span class="secao-bibliografica-titulo" style="margin-top:1rem;">Artigos e Portais</span>
+                        <p class="ref-item">MARQUES, Ivan Francisco. <em>Publicação de Macunaíma</em>. FFLCH-USP, 2024.</p>
+                        <p class="ref-item">MORAES, Marcos Antonio de. <em>Pauliceia desvairada nas malhas da memória</em>. Belo Horizonte, v. 24, 2015.</p>
+                        <p style="font-style: italic; opacity: 0.7; font-size: 0.85rem; margin-top: 1rem; text-align: left;">Fontes digitais consultadas em junho de 2026 via Brasil Escola, Toda Matéria e Wikipédia.</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
-
-    <!-- MODAL DE ZOOM (TELA CHEIA) - Puxa os estilos modal-card-container do CSS -->
-    <div id="fullscreenModal" class="modal" onclick="closeModal(event)">
-        <span class="close-modal" onclick="closeModal(event)">Fechar ✕</span>
-        
-        <div class="modal-card-container" id="modalCard">
-            <!-- Ornamentos do Modal -->
-            <div class="card-deco modal-papel-pardo"></div>
-            <div class="card-deco modal-papel-verde"></div>
-            <div class="card-deco modal-fita-azul"></div>
-
-            <button class="modal-arrow prev-modal" onclick="moveModalCarousel(-1, event)">&#10094;</button>
-            
-            <div class="modal-content">
-                <div id="modalCaption" class="modal-caption-text"></div>
-            </div>
-            
-            <button class="modal-arrow next-modal" onclick="moveModalCarousel(1, event)">&#10095;</button>
-        </div>
-    </div>
 
     <footer class="main-footer">
         <p>Apresentação: Mário de Andrade - Modernismo Brasileiro</p>
     </footer>
 
-    <script>
-        // Dados dos textos (Sem alterar nenhuma palavra)
-        const textos = [
-            {
-                titulo: "A Força Motriz e o Desvairismo",
-                cor: "leitor-maria-clara",
-                html: `<h3>A Força Motriz e o Desvairismo</h3><p>"Mário de Andrade consolidou-se como a força motriz intelectual e o 'guia espiritual' da primeira geração modernista, também conhecida como Fase Heroica. Sua contribuição foi muito além da produção poética, estabelecendo os parâmetros teóricos que permitiram à vanguarda brasileira romper definitivamente com o academicismo parnasiano e com a rigidez da métrica tradicional. Através do conceito de 'Desvairismo', Mário defendeu uma liberdade criativa que 'digeria' as técnicas das Vanguardas Europeias para transformá-las em uma expression autenticamente nacional. Esse projeto não era apenas estético, mas um nacionalismo crítico e multicultural, que buscava entender a alma brasileira longe da idealização romântica, apresentando a identidade do país como uma figura híbrida em permanente formação."</p>`
-            },
-            {
-                titulo: "O Legado Cultural e Político",
-                cor: "leitor-steffany",
-                html: `<h3>O Legado Cultural e Político</h3><p>"O legado de Mário transcende as páginas dos livros, consolidando-se na estruturação das políticas culturais do Brasil. Como polímata, ele foi pioneiro na etnomusicologia, realizando expedições etnográficas para registrar a música e o folclore do interior, o que fundamentou sua busca por uma 'língua brasileira' que elevasse o falar coloquial ao status de linguagem literária legítima. Institucionalmente, sua visão foi decisiva na criação do SPHAN (atual IPHAN) e na fundação da Discoteca Pública de São Paulo, garantindo a preservação do patrimônio histórico e artístico nacional. Atualmente, sua figura passa por revisões críticas que rompem a 'conspiração do silêncio' sobre sua sexualidade, permitindo novas interpretações de sua obra sob o viés da liberdade e diversidade."</p>`
-            },
-            {
-                titulo: "O Arquiteto e as Vanguardas Europeias",
-                cor: "leitor-joao-felipe",
-                html: `<h3>O Arquiteto e as Vanguardas Europeias</h3><p>"Ao concluir este estudo, o grupo observa que Mário de Andrade foi o verdadeiro 'arquiteto' da modernidade brasileira. Suas obras são marcadas pelo uso de versos livres, estruturas fragmentárias em mosaico e pela valorização das raízes populares como base para uma arte erudita inovadora. Identificamos em sua produção influências claras das vanguardas europeias, adaptadas ao contexto nacional:"</p><ul style="text-align:left; margin: 1rem auto; display:inline-block;"><li><strong>Futurismo:</strong> No dinamismo da vida urbana.</li><li><strong>Expressionismo:</strong> Na representação da burguesia.</li><li><strong>Surrealismo:</strong> No caráter onírico de Macunaíma.</li><li><strong>Dadaísmo:</strong> Na irreverência do Prefácio Interessantíssimo.</li></ul><p>"Dessa forma, concluímos que Mário de Andrade utilizou o experimentalismo não para imitar o estrangeiro, mas como ferramenta para construir uma consciência criadora nacional."</p>`
-            },
-            {
-                titulo: "Bibliografia do Trabalho",
-                cor: "leitor-vicenty",
-                html: `<h3>Bibliografia do Trabalho</h3><div style="text-align:left; font-size:1rem;"><strong>Livros:</strong><br>ANDRADE, Mário de. Macunaíma: o herói sem nenhum caráter. 2019.<br>ANDRADE, Mário de. Poesias completas. 1987.<br><br><strong>Artigos:</strong><br>MARQUES, Ivan. Publicação de Macunaíma. 2024.<br>MORAES, Marcos. Pauliceia desvairada. 2015.</div>`
-            }
-        ];
-
-        let currentIndex = 0;
-
-        function updateSlider() {
-            const track = document.getElementById('sliderTrack');
-            const bar = document.getElementById('progressBar');
-            track.style.transform = `translateX(-${currentIndex * 100}%)`;
-            bar.style.transform = `scaleX(${(currentIndex + 1) / textos.length})`;
-        }
-
-        function moveSlide(n) {
-            currentIndex = (currentIndex + n + textos.length) % textos.length;
-            updateSlider();
-        }
-
-        function openModal(index) {
-            currentIndex = index;
-            const modal = document.getElementById('fullscreenModal');
-            const content = document.getElementById('modalCaption');
-            const card = document.getElementById('modalCard');
-            
-            // Limpa cores anteriores e aplica a cor do leitor atual
-            card.className = "modal-card-container " + textos[currentIndex].cor;
-            content.innerHTML = textos[currentIndex].html;
-            modal.classList.add('active');
-        }
-
-        function closeModal(e) {
-            if (!e || e.target.id === "fullscreenModal" || e.target.className === "close-modal") {
-                document.getElementById('fullscreenModal').classList.remove('active');
-            }
-        }
-
-        function moveModalCarousel(n, e) {
-            if (e) e.stopPropagation();
-            currentIndex = (currentIndex + n + textos.length) % textos.length;
-            openModal(currentIndex);
-            updateSlider();
-        }
-    </script>
 </body>
 </html>
