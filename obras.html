@@ -6,94 +6,55 @@
     <title>Obras - Mário de Andrade</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="diagonal-bg-pattern">
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect width="100%" height="100%" fill="url(#modernistStamp)" /></svg>
-    </div>
-
-    <nav class="main-nav">
-        <a href="index.html" class="nav-btn">Início</a>
-        <a href="biografia.html" class="nav-btn">Biografia</a>
-        <a href="obras.html" class="nav-btn active-nav">Análise das Obras</a>
-        <a href="legado.html" class="nav-btn">Legado 22</a>
-    </nav>
-
-    <section class="secao-obra">
-    <div class="container-obra-flex">
-        
-        <div class="coluna-esquerda-cards">
-            <div class="card-analise-bloco">
-                <h3>Paulicéia Desvairada</h3>
-                <p>Publicada em 1922, Paulicéia Desvairada é considerada a primeira obra de vanguarda do modernismo brasileiro. O livro rompeu com o formalismo tradicional ao introduzir o uso de versos livres e uma linguagem que capturava a urbanização acelerada de São Paulo. No seu 'Prefácio Interessantíssimo', Mário estabelece as bases do Desvairismo, defendendo a liberdade de criação e zombando da própria arte para romper os limites entre a seriedade e a piada.</p>
-            </div>
-            
-            <div class="card-analise-bloco">
-                <h3>Análise: Ode ao Burguês</h3>
-                <p>Escolhemos este poema por representar o ápice do confronto dramático do período. Nele, Mário utiliza uma estética expressionista para deformar e insultar a hipocrisia da elite paulistana, utilizando expressões como 'homem-nádegas' e 'morte à gordura'. A leitura deste texto durante a Semana de Arte Moderna, sob fortes vaias, exigia uma performance que o autor definiu como um 'urro', simbolizando a agressividade necessária para o nascimento da nova arte</p>
-            </div>
-        </div>
-
-        <div class="coluna-direita-poema">
-            <div class="card-analise-bloco">
-                <a href="http://www.horizonte.unam.mx/brasil/mario4.html" target="_blank" style="text-decoration: none;">
-                    <img src="ode.png" alt="Ode ao Burguês - Mário de Andrade" class="imagem-full-card">
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="divisor-obras">
-    <hr class="linha-pontilhada-separadora">
-    <div class="container-imagens-geradas" style="justify-content: center;">
-        <div class="bloco-imagem-gerada" style="max-width: 800px; margin: 0 auto;">
-            <p class="legenda-imagem">Imagem gerada pelo GEMINI</p>
-            <img src="ci,mae do mato.jpeg" alt="Ci, mãe do mato" class="img-modernista-gerada">
-        </div>
-    </div>
-
-    <div class="bloco-texto-gerado">
-        <div class="card-analise-bloco" style="background-color: #ffffff !important; box-shadow: 6px 6px 0px #2b2621 !important; border: 2px solid #2b2621 !important; text-align: left; height: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: 2.2rem !important;">
-            <div>
-                <h3 style="color: #733726 !important; font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 0.8rem;">Ci, Mãe do Mato</h3>
-                <p style="font-family: 'Lora', serif; color: #2b2621; font-size: 1.05rem; line-height: 1.6; text-align: justify; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 1.2rem;">
-                    "Macunaíma escoteiro topou com uma cunhã dormindo. Era Ci, Mãe do Mato. Logo viu pelo peito destro seco dela, que a moça fazia parte dessa tribo de mulheres sozinhas parando lá nas praias da lagoa Espelho da Lua, coada pelo Nhamundá. A cunhã era linda com o corpo chupado pelos vícios, colorido com jenipapo. Macunaíma ficou espiando. Teve desejo. Mas Ci acordou e num abrir d’olhos enxergou o herói..."
-                </p>
-            </div>
-            <button class="btn-expandir-texto" onclick="openTextReadModal()">Expandir Leitura ↗</button>
-        </div>
-    </div>
-</div>
-
-<section class="secao-obra">
-    <div class="container-macunaima-grid">
-        <div class="card-analise-bloco">
-            <h3>Macunaíma: O Livro</h3>
-            <p>Definida como uma rapsódia, a obra-prima de 1928 funde lendas indígenas, folclore e a realidade urbana para 'inventar' o Brasil. O livro acompanha a jornada de Macunaíma, o 'herói sem nenhum caráter', que personifica a identidade híbrida e as contradições do povo brasileiro. A obra é um marco das pesquisas linguísticas de Mário, que buscou elevar o 'brasileiro falado' ao status de literatura erudita, fundindo falares de diversas regiões em um projeto de desgeograficação cultural.</p>
-        </div>
-        
-        <div class="card-analise-bloco">
-            <h3>Macunaíma: Análise Crítica</h3>
-            <p>Selecionamos esta passagem por seu caráter romântico e simbólico. Nela, narra-se o encontro de Macunaíma com Ci, líder das Icamiabas e seu 'único amor'. Após a perda trágica de um filho e a subida de Ci ao céu para tornar-se estrela, ela deixa para o herói a muiraquitã, um amuleto de pedra verde. A perda subsequente deste talismã mergulha o herói em uma profunda saudade, sentimento que atua como o motor emocional que impulsiona suas aventuras em São Paulo para recuperar a lembrança de seu amor perdido.</p>
-        </div>
-    </div>
-</section>
-
-<div id="textReadModal" class="modal" onclick="closeTextReadModal(event)">
-    <span class="close-modal" onclick="closeTextReadModal(event)">FECHAR ✕</span>
-    <div class="modal-leitura-container" onclick="event.stopPropagation()">
-        <h3 style="font-family: 'Playfair Display', serif; color: #733726; font-size: 2rem; margin-bottom: 1.5rem; border-bottom: 2px dashed rgba(43, 38, 33, 0.15); padding-bottom: 0.5rem; text-align: left;">Ci, Mãe do Mato</h3>
-        <div style="font-family: 'Lora', serif; font-size: 1.15rem; line-height: 1.8; color: #2b2621; text-align: justify;">
-            <p style="margin-bottom: 1.2rem;">"Macunaíma escoteiro topou com uma cunhã dormindo. Era Ci, Mãe do Mato. Logo viu pelo peito destro seco dela, que a moça fazia parte dessa tribo de mulheres sozinhas parando lá nas praias da lagoa Espelho da Lua, coada pelo Nhamundá. A cunhã era linda com o corpo chupado pelos vícios, colorido com jenipapo. Macunaíma ficou espiando. Teve desejo."</p>
-            <p style="margin-bottom: 1.2rem;">"Mas Ci acordou e num abrir d’olhos enxergou o herói. Deu um grito de guerra, bateu na boca e pulou em cima de Macunaíma. Mas que braço! Era a Mãe do Mato. Macunaíma lutou capoeira, rasteira, negaça, canutilho, mas Ci era mais forte. Derrubou o herói, amarrou ele bem amarrado com cipó-titica e já ia dar o sumiço no infeliz quando Maanape e Jiguê chegaram pra acudir o mano."</p>
-            <p style="margin-bottom: 1.2rem;">"Bateram os dois na cunhã. Maanape segurava a cabeça e Jiguê batia. Bateram de porrete, de canela de ema, de sapopema, de pau-santo, de canela-preta, bateram. Ci caiu desmaiada. Macunaíma desamarrou os cipós e pulou na cunhã. Brincaram."</p>
-            <p>"Vieram então muitas jandaias, muitas araras vermelhas tuins coricas periquitos, muitos papagaios saudar Macunaíma, o novo Imperador do Mato-Virgem."</p>
-        </div>
-    </div>
-</div>
-
+    
     <style>
+        /* Estilo para o botão de expandir leitura integrado ao tema do site */
+        .btn-expandir-texto {
+            background-color: #733726;
+            color: #fdfaf1;
+            border: 2px solid #2b2621;
+            padding: 0.6rem 1.2rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            font-size: 0.95rem;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            box-shadow: 3px 3px 0px #2b2621;
+            align-self: flex-start;
+            margin-top: 1rem;
+        }
+
+        .btn-expandir-texto:hover {
+            background-color: #d4a373;
+            color: #2b2621;
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px #2b2621;
+        }
+
+        .btn-expandir-texto:active {
+            transform: translate(1px, 1px);
+            box-shadow: 2px 2px 0px #2b2621;
+        }
+
+        /* Estilo da ficha de leitura dentro do modal */
+        .modal-leitura-container {
+            background-color: #fdfbf7;
+            border: 3px solid #2b2621;
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 650px;
+            width: 90%;
+            box-shadow: 8px 8px 0px #733726;
+            position: relative;
+            animation: modalAppear 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes modalAppear {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
         @media (max-width: 768px) {
             .content-grid {
                 grid-template-columns: 1fr !important;
@@ -102,26 +63,119 @@
             .obra-imagem-gigante img {
                 max-height: 280px !important;
             }
+            .modal-leitura-container {
+                padding: 2rem 1.5rem;
+            }
         }
     </style>
+</head>
+<body>
+
+    <!-- Padrão Geométrico de Fundo gerado via CSS -->
+    <div class="diagonal-bg-pattern"></div>
+
+    <!-- Menu de Navegação Superior Integrado -->
+    <nav class="main-nav">
+        <a href="index.html" class="nav-btn">Início</a>
+        <a href="biografia.html" class="nav-btn">Biografia</a>
+        <a href="obras.html" class="nav-btn active-nav">Análise das Obras</a>
+        <a href="legado.html" class="nav-btn">Legado 22</a>
+    </nav>
+
+    <section class="secao-obra">
+        <div class="container-obra-flex">
+            
+            <div class="coluna-esquerda-cards">
+                <div class="card-analise-bloco">
+                    <h3>Paulicéia Desvairada</h3>
+                    <p>Publicada in 1922, Paulicéia Desvairada é considerada a primeira obra de vanguarda do modernismo brasileiro. O livro rompeu com o formalismo tradicional ao introduzir o uso de versos livres e uma linguagem que capturava a urbanização acelerada de São Paulo. No seu 'Prefácio Interessantíssimo', Mário estabelece as bases do Desvairismo, defendendo a liberdade de criação e zombando da própria arte para romper os limites entre a seriedade e a piada.</p>
+                </div>
+                
+                <div class="card-analise-bloco">
+                    <h3>Análise: Ode ao Burguês</h3>
+                    <p>Escolhemos este poema por representar o ápice do confronto dramático do período. Nele, Mário utiliza uma estética expressionista para deformar e insultar a hipocrisia da elite paulistana, utilizando expressões como 'homem-nádegas' e 'morte à gordura'. A leitura deste texto durante a Semana de Arte Moderna, sob fortes vaias, exigia uma performance que o autor definiu como um 'urro', simbolizando a agressividade necessária para o nascimento da nova arte.</p>
+                </div>
+            </div>
+
+            <div class="coluna-direita-poema">
+                <div class="card-analise-bloco">
+                    <a href="http://www.horizonte.unam.mx/brasil/mario4.html" target="_blank" style="text-decoration: none;">
+                        <img src="ode.png" alt="Ode ao Burguês - Mário de Andrade" class="imagem-full-card">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divisor-obras">
+        <hr class="linha-pontilhada-separadora">
+        <div class="container-imagens-geradas" style="justify-content: center;">
+            <div class="bloco-imagem-gerada" style="max-width: 800px; margin: 0 auto;">
+                <p class="legenda-imagem">Imagem gerada pelo GEMINI</p>
+                <img src="ci,mae do mato.jpeg" alt="Ci, mãe do mato" class="img-modernista-gerada">
+            </div>
+        </div>
+
+        <div class="bloco-texto-gerado">
+            <div class="card-analise-bloco" style="background-color: #ffffff !important; box-shadow: 6px 6px 0px #2b2621 !important; border: 2px solid #2b2621 !important; text-align: left; height: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: 2.2rem !important;">
+                <div>
+                    <h3 style="color: #733726 !important; font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 0.8rem;">Ci, Mãe do Mato</h3>
+                    <p style="font-family: 'Lora', serif; color: #2b2621; font-size: 1.05rem; line-height: 1.6; text-align: justify; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 1.2rem;">
+                        "Macunaíma escoteiro topou com uma cunhã dormindo. Era Ci, Mãe do Mato. Logo viu pelo peito destro seco dela, que a moça fazia parte dessa tribo de mulheres sozinhas parando lá nas praias da lagoa Espelho da Lua, coada pelo Nhamundá. A cunhã era linda com o corpo chupado pelos vícios, colorido com jenipapo. Macunaíma ficou espiando. Teve desejo. Mas Ci acordou e num abrir d’olhos enxergou o herói..."
+                    </p>
+                </div>
+                <button class="btn-expandir-texto" onclick="openTextReadModal()">Expandir Leitura ↗</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="secao-obra">
+        <div class="container-macunaima-grid">
+            <div class="card-analise-bloco">
+                <h3>Macunaíma: O Livro</h3>
+                <p>Definida como uma rapsódia, a obra-prima de 1928 funde lendas indígenas, folclore e a realidade urbana para 'inventar' o Brasil. O livro acompanha a jornada de Macunaíma, o 'herói sem nenhum caráter', que personifica a identidade híbrida e as contradições do povo brasileiro. A obra é um marco das pesquisas linguísticas de Mário, que buscou elevar o 'brasileiro falado' ao status de literatura erudita, fundindo falares de diversas regiões em um projeto de desgeograficação cultural.</p>
+            </div>
+            
+            <div class="card-analise-bloco">
+                <h3>Macunaíma: Análise Crítica</h3>
+                <p>Selecionamos esta passagem por seu caráter romântico e simbólico. Nela, narra-se o encontro de Macunaíma com Ci, líder das Icamiabas e seu 'único amor'. Após a perda trágica de um filho e a subida de Ci ao céu para tornar-se estrela, ela deixa para o herói a muiraquitã, um amuleto de pedra verde. A perda subsequente deste talismã mergulha o herói em uma profunda saudade, sentimento que atua como o motor emocional que impulsiona suas aventuras em São Paulo para recuperar a lembrança de seu amor perdido.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="textReadModal" class="modal" onclick="closeTextReadModal(event)">
+        <span class="close-modal" onclick="closeTextReadModal(event)">FECHAR ✕</span>
+        <div class="modal-leitura-container" onclick="event.stopPropagation()">
+            <h3 style="font-family: 'Playfair Display', serif; color: #733726; font-size: 2rem; margin-bottom: 1.5rem; border-bottom: 2px dashed rgba(43, 38, 33, 0.15); padding-bottom: 0.5rem; text-align: left;">Ci, Mãe do Mato</h3>
+            <div style="font-family: 'Lora', serif; font-size: 1.15rem; line-height: 1.8; color: #2b2621; text-align: justify;">
+                <p style="margin-bottom: 1.2rem;">"Macunaíma escoteiro topou com uma cunhã dormindo. Era Ci, Mãe do Mato. Logo viu pelo peito destro seco dela, que a moça fazia parte dessa tribo de mulheres sozinhas parando lá nas praias da lagoa Espelho da Lua, coada pelo Nhamundá. A cunhã era linda com o corpo chupado pelos vícios, colorido com jenipapo. Macunaíma ficou espiando. Teve desejo."</p>
+                <p style="margin-bottom: 1.2rem;">"Mas Ci acordou e num abrir d’olhos enxergou o herói. Deu um grito de guerra, bateu na boca e pulou em cima de Macunaíma. Mas que braço! Era a Mãe do Mato. Macunaíma lutou capoeira, rasteira, negaça, canutilho, mas Ci era mais forte. Derrubou o herói, amarrou ele bem amarrado com cipó-titica e já ia dar o sumiço no infeliz quando Maanape e Jiguê chegaram pra acudir o mano."</p>
+                <p style="margin-bottom: 1.2rem;">"Bateram os dois na cunhã. Maanape segurava a cabeça e Jiguê batia. Bateram de porrete, de canela de ema, de sapopema, de pau-santo, de canela-preta, bateram. Ci caiu desmaiada. Macunaíma desamarrou os cipós e pulou na cunhã. Brincaram."</p>
+                <p>"Vieram então muitas jandaias, muitas araras vermelhas tuins coricas periquitos, muitos papagaios saudar Macunaíma, o novo Imperador do Mato-Virgem."</p>
+            </div>
+        </div>
+    </div>
 
     <script>
-         // Função para abrir o modal de leitura do texto
+        // Função para abrir o modal de leitura do texto
         function openTextReadModal() {
             const modal = document.getElementById('textReadModal');
             modal.classList.add('active');
         }
 
-        // Função para fechar o modal de leitura do texto
+        // Função segura para fechar o modal de leitura do texto apenas nos gatilhos corretos
         function closeTextReadModal(event) {
-            const modal = document.getElementById('textReadModal');
-            modal.classList.remove('active');
+            if (!event || event.target.id === 'textReadModal' || event.target.classList.contains('close-modal')) {
+                const modal = document.getElementById('textReadModal');
+                modal.classList.remove('active');
+            }
         }
 
-        // Suporte para fechar ambos os modais com a tecla Escape
+        // Suporte para fechar o modal com a tecla Escape
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
-                closeTextReadModal();
+                const modal = document.getElementById('textReadModal');
+                modal.classList.remove('active');
             }
         });
     </script>
