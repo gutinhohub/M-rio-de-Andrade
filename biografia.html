@@ -34,6 +34,16 @@
             box-shadow: 6px 6px 0px var(--accent, #d4a373);
         }
 
+        /* EXCEÇÃO EXCLUSIVA: Ajuste otimizado para imagens muito horizontais */
+        .img-horizontal {
+            max-width: 52% !important; /* Ganha um pouco mais de área horizontal */
+        }
+
+        .img-horizontal img {
+            object-fit: contain !important; /* Exibe a imagem completa sem cortes */
+            background-color: var(--ink, #2b2621); /* Fundo contrastante elegante para a foto vintage */
+        }
+
         .modal-col-direita {
             flex: 1.2;
             display: flex;
@@ -121,7 +131,7 @@
             <div class="modal-conteudo-bio">
                 <span class="botao-fechar-bio" onclick="fecharModal('modal-maria')">✕</span>
                 <div class="modal-grid-layout">
-                    <div class="modal-col-esquerda">
+                    <div class="modal-col-esquerda img-horizontal">
                         <img src="https://tse1.mm.bing.net/th/id/OIP.ymve3FXLes6p5AEK1iD6LwHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Retrato Grupo dos Cinco">
                     </div>
                     <div class="modal-col-direita">
