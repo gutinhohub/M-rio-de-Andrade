@@ -52,9 +52,6 @@
             <img src="ci,mae do mato.jpeg" alt="Ci, mãe do mato" class="img-modernista-gerada">
         </div>
     </div>
-</div>
-
-<section class="secao-obra">
 
     <div class="bloco-texto-gerado">
         <div class="card-analise-bloco" style="background-color: #ffffff !important; box-shadow: 6px 6px 0px #2b2621 !important; border: 2px solid #2b2621 !important; text-align: left; height: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: 2.2rem !important;">
@@ -67,7 +64,9 @@
             <button class="btn-expandir-texto" onclick="openTextReadModal()">Expandir Leitura ↗</button>
         </div>
     </div>
-    
+</div>
+
+<section class="secao-obra">
     <div class="container-macunaima-grid">
         <div class="card-analise-bloco">
             <h3>Macunaíma: O Livro</h3>
@@ -104,6 +103,25 @@
                 max-height: 280px !important;
             }
         }
+
+         // Função para abrir o modal de leitura do texto
+        function openTextReadModal() {
+            const modal = document.getElementById('textReadModal');
+            modal.classList.add('active');
+        }
+
+        // Função para fechar o modal de leitura do texto
+        function closeTextReadModal(event) {
+            const modal = document.getElementById('textReadModal');
+            modal.classList.remove('active');
+        }
+
+        // Suporte para fechar ambos os modais com a tecla Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeTextReadModal();
+            }
+        });
     </style>
     <footer class="main-footer">
         <p>Apresentação: Mário de Andrade - Modernismo Brasileiro</p>
